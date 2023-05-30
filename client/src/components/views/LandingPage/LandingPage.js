@@ -17,13 +17,6 @@ function LandingPage() {
           <div style={{ display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
             <Head></Head>
           </div>
-          <div style={{ paddingTop : '30px',display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
-            <Body></Body>
-          </div>
-          <div style={{ display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center' }}>
-            <Footer></Footer>
-          </div>
-
       </>
   )
 }

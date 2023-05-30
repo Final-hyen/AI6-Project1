@@ -14,7 +14,7 @@ function Header () {
       }
     
       return (
-        <StyledDiv>
+        <>
             <ImgBlock src='https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png' />
             <LogoLink to='/'>9UCCI</LogoLink>
             <StyledNav>
@@ -28,115 +28,111 @@ function Header () {
             </StyledNav>
             <StyledCategory>
                 <TopLink to='/top'>TOP</TopLink>
-                <BottomLink to='/bottom'>BOTTOM</BottomLink>
-                <Link to='/outer'>OUTER</Link>
+                <Link to='/bottom'>BOTTOM</Link>
+                <OuterLink to='/outer'>OUTER</OuterLink>
             </StyledCategory>
-        </StyledDiv>
+        </>
     )
 }
 
 export default Header;
-
-const StyledDiv = styled.div `
-    display : flex;
-    justify-content : center;
-`
 const ImgBlock = styled.img `
-//   position : absolute;
-  width : 1653px;
-  height : 306px;
+  width : 100vw;
+  height : 30vh;
   object-fit : cover;
-  filter : brightness(70%);
+  filter : brightness(65%);
 `
 const LogoLink = styled(Link) `
-  margin : 71px 703px 205px 681px;
   position : absolute;
-  width : 260px;
-  height : 30px;
+  width : 3em;
+  height : 150px;
 
   font-style : normal;
   font-weight: 700;
-    font-size: 70px;
-    line-height: 30px;
+  font-size: 4.5em;
 
-    text-align: center;
-
-    text-decoration: none;
-    color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
 `
 const StyledNav = styled.div `
-    margin : 28px 40px 260px 1319px;
     position : absolute;
-
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+    margin-bottom: 12em;
     a {
     text-decoration: none;
     color: #FFFFFF;
     
     font-weight: 600;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 1.2em;
     text-align: center;
+    }
+    
+    button {
+        border : none;
+        background-color : transparent;
+        
+        font-weight: 600;
+        font-size: 1.2em;
+        text-align: center;
+        color : #FFFFFF;
     }
 `
 const JoinLink = styled(Link)`
-    margin-right: 73px;
-    width: 36px;
-    height: 18px;
+    margin-right: 7em;
+    width: 4em;
+    height: 2em;
 `
 
 const LoginLink = styled(Link) `
-    margin-right: 73px;
-    width: 47px;
-    height: 18px;
+    margin-right: 7em;
+    width: 4em;
+    height: 2em;
 `
 const AdminLink = styled(Link) `
-    margin-right: 40px;
-    width: 47px;
-    height: 18px;
+    width: 4em;
+    height: 2em;
 `
 const MypageLink = styled(Link) `
-    width: 68px;
-    height: 18px;
+    width: 4em;
+    height: 2em;
 `
 const CartLink = styled(Link)`
-    
-    width: 36px;
-    height: 18px;
+    margin-right: 2em;
+    width: 4em;
+    height: 2em;
 `
 const StyledCategory = styled.div`
     position: absolute;
-    margin : 243px 149px 33px 148px;
+    margin-top: 15em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 5vh;
 
     a{
         text-decoration: none;
         color: #FFFFFF;
     
         font-weight: 700;
-        font-size: 25px;
-        line-height: 30px;
-        text-align: center;  
+        font-size: 2em;
+        text-align: center;
     }
 `
 const TopLink = styled(Link) `
-    margin-right : 553px;
+    margin-left: 2em;
 `
 
-const BottomLink = styled(Link) `
-    margin-right : 553px;
+const OuterLink = styled(Link) `
+    margin-right: 2em;
 `
 
 const StyledButton = styled.button `
-  border : none;
-  background-color : transparent;
-
-  font-weight : 600;
-  font-size : 15px;
-  line-height : 18px;
-  text-align : center;
-
-  width : 65px;
-  height : 18px;
+  width : 4em;
+  height : 2em;
   
-  color : #FFFFFF;
-  padding-right : 100px;
+  margin-right : 2em;
 `
