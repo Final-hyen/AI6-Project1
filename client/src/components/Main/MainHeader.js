@@ -14,7 +14,8 @@ function Header () {
       }
     
       return (
-        <>
+    <>
+        <div style={{ display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
             <ImgBlock src='https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png' />
             <LogoLink to='/'>9UCCI</LogoLink>
             <StyledNav>
@@ -31,7 +32,8 @@ function Header () {
                 <Link to='/bottom'>BOTTOM</Link>
                 <OuterLink to='/outer'>OUTER</OuterLink>
             </StyledCategory>
-        </>
+        </div>
+    </>
     )
 }
 
@@ -81,13 +83,13 @@ const StyledNav = styled.div `
     }
 `
 const JoinLink = styled(Link)`
-    margin-right: 7em;
+    margin-right: 4em;
     width: 4em;
     height: 2em;
 `
 
 const LoginLink = styled(Link) `
-    margin-right: 7em;
+    margin-right: 4em;
     width: 4em;
     height: 2em;
 `
@@ -96,7 +98,7 @@ const AdminLink = styled(Link) `
     height: 2em;
 `
 const MypageLink = styled(Link) `
-    width: 4em;
+    width: 6em;
     height: 2em;
 `
 const CartLink = styled(Link)`
@@ -132,7 +134,7 @@ const OuterLink = styled(Link) `
 
 const StyledButton = styled.button `
   width : 4em;
-  height : 2em;
+  height : 1em;
   
   margin-right : 2em;
 `

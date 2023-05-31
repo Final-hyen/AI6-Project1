@@ -62,16 +62,13 @@ function JoinPage() {
     const onSubmit = (e) => {
         e.preventDefault();
         if(validation()) {(async () => {
-            await axios.post(' http://kdt-ai6-team09.elicecoding.com:5000/signup', {
+            await axios.post(' http://localhost:5000/signup', {
              email  : email,
              password : password,
              name : userName,
          }, { withCredentials : true}).then((response) => {
-             console.log('User Data', response.data);
-             console.log('User Token', response.data.cookies);
-             if(response.data.message == '회원가입 성공') {
-                navigate('/login');
-             }
+            console.log('User Data', response.data);
+            navigate('/login');
          }).catch((err) => {console.log(err.message)})
          })()
     }   

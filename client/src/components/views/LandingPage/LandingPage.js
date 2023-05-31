@@ -1,5 +1,4 @@
-import React,{useEffect} from 'react'
-// import Body from '../Main/MainBody';
+import React from 'react'
 import Head from '../../Main/MainHeader';
 import styled from 'styled-components'
 import Body from '../../Main/MainBody';
@@ -14,7 +13,7 @@ function LandingPage() {
 
   return (
       <>
-          <div style={{ display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
+          <div>
             <Head></Head>
           </div>
       </>
@@ -22,10 +21,3 @@ function LandingPage() {
 }
 
 export default LandingPage
-
-const Div = styled.div `
-  diplay : flex;
-  flex-direction : column;
-  jutify-content : center;
-  align-items : center;
-`

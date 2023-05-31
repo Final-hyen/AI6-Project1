@@ -27,11 +27,11 @@ function LoginForm () {
       { withCredentials: true }
       ).then((res) => {
         console.log(res.data);
-        if(res.data.roll == true) {
+        if(res.data.roll === true) {
           navigate('/')
           sessionStorage.setItem('admin', res)
         }
-        else if (res.data.roll == false) {
+        else if (res.data.roll === false) {
           navigate('/')
           sessionStorage.setItem('user', res)
         }
@@ -49,38 +49,12 @@ function LoginForm () {
         <Form.Control type="password" />
       </FloatingLabel>
       <ButtonWrap>
-        <Button type="submit" onClick={loginHandler}>Login</Button>
         <Link to='/join'><Button type='submit'>Join</Button></Link>
+        <Button type="submit" onClick={loginHandler}>Login</Button>
       </ButtonWrap>
     </Wrap>
   )
 }
-
-
-// function Login() {
-//   return (
-//     <>
-//     <Head>
-//     </Head>
-//       <Form style={{ padding : '30px',display : 'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
-//         <Form.Group style={{width:'70vh'}} className="mb-3" controlId="formBasicEmail">
-//           <Form.Label>Email address</Form.Label>
-//           <Form.Control type="email" placeholder="Enter email" />
-//           <Form.Text className="text-muted">
-//             We'll never share your email with anyone else.
-//           </Form.Text>
-//         </Form.Group>
-//         <Form.Group style={{width:'70vh'}} className="mb-3" controlId="formBasicPassword">
-//           <Form.Label>Password</Form.Label>
-//           <Form.Control type="password" placeholder="Password" />
-//         </Form.Group>
-//         <Button variant="primary" type="submit">
-//           Submit
-//         </Button>
-//       </Form>
-//     </>
-//   )
-// }
 
 export default LoginForm;
 
@@ -89,22 +63,24 @@ const Wrap = styled.div `
   flex-direction : column;
   justify-content : center;
   
-  padding-top : 30px;
-  width : 1653px;
+  padding-top : 5.5em;
+  width : 80vw;
 
-`
+`;
 
 const ButtonWrap = styled.div`
   display : flex;
-  justify-content : center;
-
+  justify-content : space-around;
+  width: 80vw;
   Button {
-    margin-right : 20px;
+    width: 10em;
+    height: 3em;
     
     background-color : #6c757d;
     border-color : #6c757d;
     border-radius : 5px;
 
-    font-size : 15px;
+    font-size: 1rem; 
   }
-`
+`;
+

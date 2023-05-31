@@ -3,10 +3,14 @@ import Join from '../../Join/Join'
 import Head from '../../Main/MainHeader'
 function JoinPage () {
     return(
+        <>
         <div>
             <Head></Head>
+        </div>
+        <div>
             <Join></Join>
         </div>
+        </>
     )
 }
 
