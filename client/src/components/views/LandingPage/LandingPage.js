@@ -12,12 +12,21 @@ function LandingPage() {
 
 
   return (
-      <>
-          <div>
-            <Head></Head>
-          </div>
-      </>
+      <Main>
+        <Head></Head>
+        <Body></Body>
+      </Main>
   )
 }
 
 export default LandingPage
+
+const Main = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;

@@ -15,7 +15,7 @@ function Header () {
     
       return (
     <>
-        <div style={{ display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
+        <div style={{ display:'flex', justifyContent:'center', alignItems:'center'}}>
             <ImgBlock src='https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png' />
             <LogoLink to='/'>9UCCI</LogoLink>
             <StyledNav>

@@ -42,12 +42,8 @@ function LoginForm () {
 
   return (
     <Wrap>
-      <FloatingLabel controlId='floatingEmail' label='email' className='mb-3' onChange={(e) => setEmail(e.target.value)}>
-        <Form.Control type="email" />
-      </FloatingLabel>
-      <FloatingLabel controlId='floatingPassword' label='password' className='mb-3' onChange={(e) => setPassword(e.target.value)}>
-        <Form.Control type="password" />
-      </FloatingLabel>
+      <input placeholder='email' onChange={(e) => setEmail(e.target.value)} />
+      <input type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
       <ButtonWrap>
         <Link to='/join'><Button type='submit'>Join</Button></Link>
         <Button type="submit" onClick={loginHandler}>Login</Button>
@@ -59,19 +55,34 @@ function LoginForm () {
 export default LoginForm;
 
 const Wrap = styled.div `
-  display : flex;
-  flex-direction : column;
-  justify-content : center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 30vh;
+
+  margin-top: 7em;
   
-  padding-top : 5.5em;
-  width : 80vw;
+  & input {
+    width: 60em;
+    height: 3em;
+
+    padding: 1em;
+    margin-bottom: 2em;
+
+    border-radius: 20px; 
+  }
+  & input::placeholder {
+    font-size: 2em;
+  }
 
 `;
 
 const ButtonWrap = styled.div`
   display : flex;
   justify-content : space-around;
-  width: 80vw;
+  width: 40vw;
+
   Button {
     width: 10em;
     height: 3em;
