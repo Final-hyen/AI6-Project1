@@ -14,14 +14,13 @@ const Footer = () => {
 export default Footer;
 
 const Div = styled.div `
-  margin : 20px;
-  width : 1653px;
-  height :  100px;  
+  margin : 2em;
+  width : 100vw;  
 
   color : #D9D9D9;
   text-align : right;
-  font-size : 18px;
-  line-height:18px;
+  font-size : 1.1em;
   font-weight:700;
-
+  
+  background: #a9a9a9;
 `

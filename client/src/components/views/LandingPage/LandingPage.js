@@ -15,6 +15,7 @@ function LandingPage() {
       <Main>
         <Head></Head>
         <Body></Body>
+        <Footer></Footer>
       </Main>
   )
 }
