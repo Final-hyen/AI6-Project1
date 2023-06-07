@@ -8,10 +8,15 @@ const Body = () => {
         'https://images.pexels.com/photos/2356344/pexels-photo-2356344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     ]
+    const address = [
+        '/outer',
+        '/top',
+        '/bottom',
+    ]
 
     return (
         <Contain>
-            <ImageSlider images={images}/>
+            <ImageSlider address={address} images={images}/>
         </Contain>
     )
 }

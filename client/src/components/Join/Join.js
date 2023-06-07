@@ -189,6 +189,9 @@ const GroupForm = styled(Form)`
     border-radius: 10px;
 
     padding: 1em;
+  }
+
+  .col-sm {
     margin-bottom: 1em;
   }
 `;

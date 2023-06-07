@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const ImageSlider = ({ images }) => {
+const ImageSlider = ({ images, address}) => {
   const [curImg, setCurImg] = useState(0);
+  const [curAdd, setCurAdd] = useState(0);
 
   const changeImg = () => {
     setCurImg((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    setCurAdd((prevIndex) => 
+      prevIndex === address.length -1 ? 0 : prevIndex +1
+    )
   };
-
   useEffect(() => {
     const timer = setInterval(changeImg, 3000);
     return () => {
@@ -19,7 +22,7 @@ const ImageSlider = ({ images }) => {
 
   return (
     <>
-        <SlideImg src={images[curImg]} alt='Slider' />
+        <a href={address[curAdd]}><SlideImg src={images[curImg]} alt='Slider' /></a>
     </>
   )
 };
