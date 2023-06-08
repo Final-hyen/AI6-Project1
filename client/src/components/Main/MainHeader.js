@@ -39,15 +39,15 @@ function Header () {
 
 export default Header;
 const ImgBlock = styled.img `
-  width : 100vw;
-  height : 30vh;
+  width : 100%;
+  height : 28vh;
   object-fit : cover;
   filter : brightness(65%);
 `
 const LogoLink = styled(Link) `
   position : absolute;
   width : 3em;
-  height : 150px;
+  height : 200px;
 
   font-style : normal;
   font-weight: 700;
@@ -61,8 +61,8 @@ const StyledNav = styled.div `
     position : absolute;
     display: flex;
     justify-content: flex-end;
-    width: 100vw;
-    margin-bottom: 12em;
+    width: 100%;
+    margin-bottom: 15em;
     a {
     text-decoration: none;
     color: #FFFFFF;
@@ -94,6 +94,7 @@ const LoginLink = styled(Link) `
     height: 2em;
 `
 const AdminLink = styled(Link) `
+    margin-right: 1.5em;
     width: 4em;
     height: 2em;
 `
@@ -111,11 +112,12 @@ const StyledCategory = styled.div`
     margin-top: 15em;
     margin-bottom: 1em; 
     display: table;
-    width: 100vw;
+    width: 100%;
     height: 5vh;
 
     a{
         display: table-cell;
+        vertical-align: middle;
         text-decoration: none;
         color: #FFFFFF;
     
@@ -134,7 +136,9 @@ const OuterLink = styled(Link) `
 
 const StyledButton = styled.button `
   width : 4em;
-  height : 1em;
+  height : 1.5em;
   
   margin-right : 2em;
+
+  cursor: pointer;
 `

@@ -24,8 +24,7 @@ const Body = () => {
 export default Body; 
 
 const Contain = styled.div`
-// width: 100vw;
-height: 80vh;
+height: 66vh;
 
 margin-top: 3em;
 

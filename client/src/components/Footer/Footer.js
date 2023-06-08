@@ -14,8 +14,7 @@ const Footer = () => {
 export default Footer;
 
 const Div = styled.div `
-  margin : 2em;
-  width : 100vw;  
+  width : 100%;
 
   color : #D9D9D9;
   text-align : right;

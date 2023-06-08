@@ -10,8 +10,6 @@ export function AdminBody() {
 		<AdminButtonsGroup>
 			<Link to='/productedit'><button className="adminButtons">상품정보 수정</button></Link>
       <Link to='/productpost'><button className="adminButtons">상품 등록</button></Link>
-		</AdminButtonsGroup>
-    <AdminButtonsGroup>
 			<Link to='/product'><button className="adminButtons">상품 조회 및 삭제</button></Link>
 		</AdminButtonsGroup>
 	</AdminBodyContainer>
@@ -20,21 +18,30 @@ export function AdminBody() {
 
 const AdminBodyContainer = styled.div`
   text-align: center;
-  margin: 100px;
+  width: 100%;
+  height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 `
 
 const AdminButtonsGroup = styled.div`
-  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
   .adminButtons {
     background-color: white;
     border: 3px solid grey;
-    border-radius: 10px;
-    padding: 30px 30px;
+    border-radius: 4px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    margin: 10px 10px;
+    font-size: 30px;
+    
+    width: 30em;
+    height: 120px;
+
+    margin-bottom: 2em;
   }
   
 

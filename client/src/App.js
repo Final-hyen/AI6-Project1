@@ -24,12 +24,14 @@ import ProductEditPage from './components/views/EditPage/ProductEditPage';
 import ProductPostPage from './components/views/PostPage/ProductPostPage';
 import DeleteOrderPage from './components/views/MyPage/DeleteOrderPage';
 import ProductGetPage from './components/views/PostPage/ProductGetPage';
+import Header from './components/Main/MainHeader';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
   return (
     <Router>
-      <div>
+        <Header />
         <Routes>
           <Route exact path="/" element = {<LandingPage />} />
           <Route exact path="/register" element = {<RegisterPage />} />
@@ -48,9 +50,8 @@ function App() {
           <Route exact path="/productpost" element = {<ProductPostPage />} />
           <Route exact path="/deleteorder" element = {<DeleteOrderPage />} />
           <Route exact path="/product" element = {<ProductGetPage />} />
-
         </Routes>
-      </div>
+        <Footer />
     </Router>
 
   );
