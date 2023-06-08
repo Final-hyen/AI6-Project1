@@ -7,12 +7,14 @@ import { Detail } from './detail';
 export function ProductList(props) {
 
   //데이터 가져오기 (임시 data/products.json )
-  // const [products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   axios.get(":5000/products").then((data) => {
-  //     setProducts(data.data.products);
-  //   });
-  // }, [setProducts]);
+  const [items, setItems] = useState([]);
+  
+  useEffect(() => {
+    axios.get("http://localhost:5000/products").then((data) => {
+      console.log(data)
+      setItems(data.data.products);
+    });
+  }, [setItems]);
 
  const products = [
     {id: 1, image: "image/001.png", name: "상품이름1",  price: "11,111", factory: "제조사 : 9ucci"},

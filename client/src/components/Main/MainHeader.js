@@ -109,13 +109,13 @@ const CartLink = styled(Link)`
 const StyledCategory = styled.div`
     position: absolute;
     margin-top: 15em;
-    margin-bottom: 1em;
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: 1em; 
+    display: table;
     width: 100vw;
     height: 5vh;
 
     a{
+        display: table-cell;
         text-decoration: none;
         color: #FFFFFF;
     
@@ -125,11 +125,11 @@ const StyledCategory = styled.div`
     }
 `
 const TopLink = styled(Link) `
-    margin-left: 2em;
+    padding-left: 1em;
+    padding-right: 0.4em;
 `
 
 const OuterLink = styled(Link) `
-    margin-right: 2em;
 `
 
 const StyledButton = styled.button `
