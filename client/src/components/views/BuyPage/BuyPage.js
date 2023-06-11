@@ -1,16 +1,14 @@
 import React from 'react'
 import { BuyPageBody } from '../../Buy/BuypageBody';
 import { MyPageNav } from '../../Mypage/MypageNav';
-import Header from '../../Main/MainHeader';
 import styled from 'styled-components';
 
 
 function BuyPage() {
-  return (<Div>
-    <Header/>
+  return (
+  <Div>
     <MyPageNav></MyPageNav>
 		<BuyPageBody/>
-
   </Div>
   )
 }

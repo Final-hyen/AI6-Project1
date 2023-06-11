@@ -1,7 +1,6 @@
 // import React, { useEffect, useState } from "react";
 import React from "react";
 import { Detail } from "../../Products/detail";
-import Head from '../../Main/MainHeader';
 
 export default function ProductDetailPage(){
 
@@ -28,7 +27,6 @@ export default function ProductDetailPage(){
 
     return (
         <div>
-        <Head></Head>
         <Detail/>
         </div>
         );

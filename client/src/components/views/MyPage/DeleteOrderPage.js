@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import Header from '../../Main/MainHeader';
+
 
 function DeleteOrderPage() {
   return (<>
-    <Header/>
     <Orderdelete>
         <h1>모든 주문이 취소되었습니다! 확인해주세요!</h1>
         <Cont>

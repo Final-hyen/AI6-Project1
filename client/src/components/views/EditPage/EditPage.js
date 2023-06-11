@@ -1,22 +1,9 @@
-import React from 'react';
-import Update from '../../Edit/Update';
-import Head from '../../Main/MainHeader';
-import styled from 'styled-components';
+import React from "react";
+import Update from "../../Edit/Update";
 
 const EditPage = () => {
-    return(
-        <Div>
-            <Head></Head>
-            <Update></Update>
-        </Div>
-    )
-}
+  return <Update></Update>;
+};
 
 export default EditPage;
 
-const Div = styled.div `
-    display : flex;
-    flex-direction : column;
-    justify-content : center;
-    align-items : center;
-`

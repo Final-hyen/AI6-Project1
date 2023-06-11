@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Header from '../../Main/MainHeader';
 
 function OrderCompletePage() {
-  return (<>
-    <Header/>
+  return (
+  <>
     <Ordercomplete>
       <img className="checkcomplete" src='../../../data/completecheck.png' alt='주문완료체크이미지'/>
         <h1>주문이 완료되었습니다!</h1>
