@@ -15,7 +15,6 @@ import ProductDetailPage from './components/views/ProductPage/ProductDetailPage'
 import CartPage from './components/views/CartPage/CartPage'
 import BuyPage from './components/views/BuyPage/BuyPage'
 import OrderCompletePage from './components/views/BuyPage/OrderCompletePage';
-import JoinPage from './components/views/JoinPage/JoinPage'
 import AdminPage from './components/views/AdminPage/AdminPage';
 import MyPage from './components/views/MyPage/MyPage'
 import EditPage from './components/views/EditPage/EditPage';
@@ -26,6 +25,7 @@ import DeleteOrderPage from './components/views/MyPage/DeleteOrderPage';
 import ProductGetPage from './components/views/PostPage/ProductGetPage';
 import Header from './components/Main/MainHeader';
 import Footer from './components/Footer/Footer';
+import AuthForm from './components/Join/join.jsx';
 
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
           <Route exact path="/buypage" element = {<BuyPage />} />
           <Route exact path="/ordercompletepage" element = {<OrderCompletePage />} />
           <Route exact path="/mypage" element = {<MyPage />} />
-          <Route exact path="/join" element = {<JoinPage />} />
+          <Route exact path="/join" element = {<AuthForm />} />
           <Route exact path="/admin" element = {<AdminPage />} />
           <Route exact path="/edit" element = {<EditPage />} />
           <Route exact path="/ordertracking" element = {<OrderTrackingPage />} />

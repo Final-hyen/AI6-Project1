@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { signUp } from "../../api/authFetcher";
 import styled from "styled-components";
 
 function JoinPage() {
@@ -61,28 +61,15 @@ function JoinPage() {
     else return false;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    if (validation()) {
-      (async () => {
-        await axios
-          .post(
-            " http://localhost:5000/signup",
-            {
-              email: email,
-              password: password,
-              name: userName,
-            },
-            { withCredentials: true }
-          )
-          .then((response) => {
-            console.log("User Data", response.data);
-            navigate("/login");
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-      })();
+    if(validation()){
+      const signUpData = await signUp(email, password, userName);
+      if(signUpData?.status === 201){
+        navigate('/signin')
+      }else{
+        alert('오류 발생')
+      }
     }
   };
 
