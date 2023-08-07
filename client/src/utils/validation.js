@@ -1,3 +1,7 @@
-export const isValidation = (email, password) => {
-    return !(/.*@.*/.test(email) && password.lenght >= 8);
+export const emailVaildation = (email) => {
+    return !(/.*@.*/.test(email))
+}
+
+export const passwordValidation = (password) => {
+    return password.length >= 8
 }
