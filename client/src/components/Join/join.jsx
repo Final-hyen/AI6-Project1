@@ -1,6 +1,8 @@
+import {useNavigate} from 'react-router-dom';
 import { Form, Button, Input, InputBox } from "../Auth/AuthForm.style";
 import { emailVaildation, passwordValidation } from "../../utils/validation";
 import { useState } from "react";
+import { signUp } from "../../api/authFetcher";
 
 function AuthForm() {
   const [userData, setUserData] = useState({
@@ -8,6 +10,8 @@ function AuthForm() {
     password: "",
     userName: "",
   });
+
+  const navigate = useNavigate();
 
   const onChangeUserData = (e) => {
     if (e.target.id === "email") {
@@ -33,12 +37,23 @@ function AuthForm() {
     }
   };
 
-  const onClickButton = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await signUp(userData.email, userData.password, userData.userName)
+      .then(res => {
+        if(res?.status === 201){
+          navigate('/login');
+        }
+      })
+      .catch( err => {
+        alert(err);
+      })
+
   }
-  console.log(userData);
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <InputBox>
         <Input
           id="email"
@@ -59,7 +74,7 @@ function AuthForm() {
           onChange={onChangeUserData}
         />
       </InputBox>
-      <Button onClick={onClickButton}>SignUp</Button>
+      <Button>SignUp</Button>
     </Form>
   );
 }
