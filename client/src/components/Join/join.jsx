@@ -39,7 +39,6 @@ function AuthForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await signUp(userData.email, userData.password, userData.userName)
       .then(res => {
         if(res?.status === 201){
