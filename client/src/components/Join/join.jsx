@@ -4,7 +4,7 @@ import { emailVaildation, passwordValidation } from "../../utils/validation";
 import { useState } from "react";
 import { signUp } from "../../api/authFetcher";
 
-function AuthForm() {
+function JoinForm() {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -77,4 +77,4 @@ function AuthForm() {
     </Form>
   );
 }
-export default AuthForm;
+export default JoinForm;

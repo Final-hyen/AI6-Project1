@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 import LandingPage from './components/views/LandingPage/LandingPage'
-import LoginPage from './components/views/LoginPage/LoginPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import TopPage from './components/views/ProductPage/TopPage';
 import ProductDetailPage from './components/views/ProductPage/ProductDetailPage';
@@ -25,8 +24,8 @@ import DeleteOrderPage from './components/views/MyPage/DeleteOrderPage';
 import ProductGetPage from './components/views/PostPage/ProductGetPage';
 import Header from './components/Main/MainHeader';
 import Footer from './components/Footer/Footer';
-import AuthForm from './components/Join/join.jsx';
-
+import JoinForm from './components/Join/join.jsx';
+import Login from './components/Login/login.jsx';
 
 function App() {
   return (
@@ -35,14 +34,14 @@ function App() {
         <Routes>
           <Route exact path="/" element = {<LandingPage />} />
           <Route exact path="/register" element = {<RegisterPage />} />
-          <Route exact path="/login" element = {<LoginPage />} />
+          <Route exact path="/login" element = {<Login />} />
           <Route exact path="/Top" element = {<TopPage />} />
           <Route exact path="/Detail" element = {<ProductDetailPage />} />
           <Route exact path="/cart" element = {<CartPage />} />
           <Route exact path="/buypage" element = {<BuyPage />} />
           <Route exact path="/ordercompletepage" element = {<OrderCompletePage />} />
           <Route exact path="/mypage" element = {<MyPage />} />
-          <Route exact path="/join" element = {<AuthForm />} />
+          <Route exact path="/join" element = {<JoinForm />} />
           <Route exact path="/admin" element = {<AdminPage />} />
           <Route exact path="/edit" element = {<EditPage />} />
           <Route exact path="/ordertracking" element = {<OrderTrackingPage />} />
