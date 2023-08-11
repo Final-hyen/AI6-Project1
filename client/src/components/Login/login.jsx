@@ -13,7 +13,7 @@ function Login() {
     })
     
     const onChangeUserData = (e) => {
-        if(e.targe.id === 'email'){
+        if(e.target.id === 'email'){
             if(emailVaildation(e.target.value)) {
                 setUserData((curData) => {
                     return { ...curData, [e.target.id] : e.target.value}
@@ -27,11 +27,12 @@ function Login() {
             }
         }
     }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await signIn(userData.email, userData.password)
           .then(res => {
-            if(res?.status === 201){
+            if(res?.status === 200){
                 navigate('/');
             }
           })
@@ -42,8 +43,8 @@ function Login() {
     return (
         <Form onSubmit={handleSubmit}>
             <InputBox>
-                <Input id='email' placeholder='Email을 입력하세요' onChange={onChangeUserData}/>
-                <Input id='password' placeholder='비밀먼호를 입력하세요' onChange={onChangeUserData}/>
+                <Input id='email' type='text' placeholder='Email을 입력하세요' onChange={onChangeUserData}/>
+                <Input id='password' type='password' placeholder='비밀먼호를 입력하세요' onChange={onChangeUserData}/>
             </InputBox>
             <Button>Login</Button>
         </Form>

@@ -9,5 +9,9 @@ export const signUp = async (email, password, name) => {
 };
 
 export const signIn = async (email, password) => {
-  return await axiosClient.post("/signin", { email, password });
+  return await axiosClient.post(
+    "/signin",
+    { email: email, password: password },
+    { withCredentials: true }
+  );
 };
