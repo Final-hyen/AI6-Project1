@@ -1,8 +1,5 @@
-export const emailVaildation = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailRegex.test(email);
-}
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-export const passwordValidation = (password) => {
-    return password.length >= 8
+export const checkValidation = (email, password) => {
+    return emailRegex.test(email) && password.length >= 8 
 }

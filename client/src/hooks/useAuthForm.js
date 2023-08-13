@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-const useAuthForm = () => {
+export const useAuthForm = () => {
   const [authData, setAuthData] = useState({
     email: "",
-    passowrd: "",
-    userName: "",
+    password: "",
+    name: "",
   });
   const handleChange = (e) => {
-    setAuthData({...authData, [e.tartget.value]:e.target.value})
-  }
+    setAuthData({...authData, [e.target.id]:e.target.value})
+  };
+  return {authData, handleChange}
 };

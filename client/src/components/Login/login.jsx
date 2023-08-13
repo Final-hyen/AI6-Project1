@@ -1,39 +1,24 @@
 import {useNavigate} from 'react-router-dom';
 import { Form, Button, Input, InputBox } from "../Auth/AuthForm.style";
-import { emailVaildation, passwordValidation } from "../../utils/validation";
-import { useState } from "react";
 import { signIn } from "../../api/authFetcher";
+import { useAuthForm } from '../../hooks/useAuthForm';
+import { checkValidation } from '../../utils/validation';
 
 function Login() {
+    const {
+        authData: {email, password},
+        handleChange,
+    } = useAuthForm();
+
     const navigate = useNavigate();
     
-    const [userData, setUserData] = useState({
-        email: '',
-        password: '',
-    })
-    
-    const onChangeUserData = (e) => {
-        if(e.target.id === 'email'){
-            if(emailVaildation(e.target.value)) {
-                setUserData((curData) => {
-                    return { ...curData, [e.target.id] : e.target.value}
-                });
-            };
-        }else if (e.target.id === 'password') {
-            if(passwordValidation(e.target.value)){
-                setUserData((curData) => {
-                    return { ...curData, [e.target.id] : e.target.value};
-                })
-            }
-        }
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await signIn(userData.email, userData.password)
+        await signIn(email, password)
           .then(res => {
             if(res?.status === 200){
                 navigate('/');
+                console.log(document.cookie)
             }
           })
           .catch( err => {
@@ -43,10 +28,10 @@ function Login() {
     return (
         <Form onSubmit={handleSubmit}>
             <InputBox>
-                <Input id='email' type='text' placeholder='Email을 입력하세요' onChange={onChangeUserData}/>
-                <Input id='password' type='password' placeholder='비밀먼호를 입력하세요' onChange={onChangeUserData}/>
+                <Input id='email' type='text' placeholder='Email을 입력하세요' onChange={handleChange}/>
+                <Input id='password' type='password' placeholder='비밀먼호를 입력하세요' onChange={handleChange}/>
             </InputBox>
-            <Button>Login</Button>
+            <Button disabled={!checkValidation(email, password)}>Login</Button>
         </Form>
     )
 }
