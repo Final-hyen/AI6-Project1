@@ -62,6 +62,7 @@ const StyledNav = styled.div `
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    margin-top : 2em;
     margin-bottom: 15em;
     a {
     text-decoration: none;
