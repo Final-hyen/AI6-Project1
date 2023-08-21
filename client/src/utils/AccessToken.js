@@ -1,3 +1,9 @@
-export const setAccessToken = (key, access_token) => localStorage.setItem(key, access_token);
+export const getCookie = () => {
+    const cookies = Object.fromEntries(
+        document.cookie.split(';').map((cookie) => cookie.trim().split('=')),
+    );
+    
+    const isCookie = Object.prototype.hasOwnProperty.call(cookies, 'refresh_token')
 
-export const getAccessToken = (key) => localStorage.getItem(key);
+    return isCookie
+}

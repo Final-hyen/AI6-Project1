@@ -11,6 +11,7 @@ function Login() {
     } = useAuthForm();
 
     const navigate = useNavigate();
+
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,7 +19,6 @@ function Login() {
           .then(res => {
             if(res?.status === 200){
                 navigate('/');
-                console.log(document.cookie)
             }
           })
           .catch( err => {

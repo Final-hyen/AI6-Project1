@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { getCookie } from '../../utils/AccessToken';
+import { axiosClient } from '../../utils/axiosClient';
+
 
 function Header () {
-    const isLogin = sessionStorage.getItem('user');
     const isAdmin = sessionStorage.getItem('admin')
     const navigate = useNavigate();
+    const isCookie = getCookie();
+    
     const LogoutHandler = async() => {
-        await axios.get(' http://localhost:5000/signout', {withCredentials : true})
-          .then((res) => {console.log(res.data.cookies); navigate('/'); sessionStorage.clear()})
+        await axiosClient.get('/signout')
+          .then((res) => { navigate('/'); })
           .catch((err) => {console.log(err.message)})
       }
     
@@ -19,10 +22,10 @@ function Header () {
             <ImgBlock src='https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png' />
             <LogoLink to='/'>9UCCI</LogoLink>
             <StyledNav>
-                {!isLogin && !isAdmin && (<><JoinLink to='/join'>JOIN</JoinLink>
+                {!isCookie && !isAdmin && (<><JoinLink to='/join'>JOIN</JoinLink>
                 <LoginLink to='/login'>LOGIN</LoginLink>
                 <CartLink to='/cart'>CART</CartLink></>)}
-                {isLogin && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
+                {isCookie && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
                 <MypageLink to='/mypage'>MY PAGE</MypageLink></>}
                 {isAdmin && <><AdminLink to='/admin'>ADMIN</AdminLink>
                 <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton><MypageLink to='/mypage'>MY PAGE</MypageLink></>}
