@@ -20,6 +20,7 @@ const Div = styled.div `
   text-align : right;
   font-size : 1.1em;
   font-weight:700;
+  margin-top: 2em;
   
   background: #a9a9a9;
 `

@@ -31,5 +31,5 @@ export default ImageSlider;
 
 const SlideImg = styled.img`
     width: 80em;
-    height: 50em;
+    height: 40em;
 `
