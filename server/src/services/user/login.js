@@ -36,7 +36,7 @@ const login = async (req,res)=>{
             // {httpOnly: true,
             // secure: true} // 해당 옵션이 활성화되면 자바에서 접근이 불가능해짐 나중에 배포시 활용할것
         
-        await updateRefreshToken(user._id,refresh_token)
+        await updateRefreshToken(user._id,refresh_token,access_token)
         
         return res.status(200).send({message:"로그인 성공",Access_token:access_token, roll : roll})
 

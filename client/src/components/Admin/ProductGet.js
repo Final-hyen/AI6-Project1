@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { axiosClient } from '../../utils/axiosClient';
 import styled from 'styled-components'
 
 const ProductGet = () => {
     
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        axios.get(`http://kdt-ai6-team09.elicecoding.com/products`, {withCredentials : true})
+        axiosClient.get('/products',)
             .then((res) => {
                 console.log(res.data);
                 setProduct(res.data);
@@ -25,7 +25,7 @@ const ProductGet = () => {
                 <div>Product Description = {product.description}</div>
                 <div>Product Price = {product.price}</div>
                 <button onClick={async ()=>{
-                    await axios.delete(`http://kdt-ai6-team09.elicecoding.com/products/${product.product_no}`, {withCredentials : true})
+                    await axiosClient.delete(`/products/${product.product_no}`, {withCredentials : true})
                       .then(res => console.log(res.data))
                       .catch(e => console.log(e.message))
                 }}>DELETE</button>

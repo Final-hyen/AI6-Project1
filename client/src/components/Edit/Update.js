@@ -26,7 +26,7 @@ const Update = () => {
       )
       .then((res) => {
         console.log(res.data);
-        if (res.data.message == "SUCCESS UPDATE PROFILE") {
+        if (res.data.message === "SUCCESS UPDATE PROFILE") {
           navigate("/mypage");
         }
       })

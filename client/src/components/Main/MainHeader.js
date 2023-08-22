@@ -11,11 +11,16 @@ function Header () {
     
     console.log(isAdminCookie, isUserCookie)
 
-    const LogoutHandler = async() => {
-        await axiosClient.get('/signout',)
+    const LogoutHandler = async(e) => {
+        e.preventDefault();
+        await axiosClient.get('/signout', )
           .then((res) => { navigate('/'); })
           .catch((err) => {console.log(err)})
       }
+    const MyPageHandler = (e) => {
+        e.preventDefault();
+        navigate('/mypage');
+    }
     
       return (
     <>
@@ -29,7 +34,8 @@ function Header () {
                 {isUserCookie && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
                 <MypageLink to='/mypage'>MY PAGE</MypageLink></>}
                 {isAdminCookie && <><AdminLink to='/admin'>ADMIN</AdminLink>
-                <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton><MypageLink to='/mypage'>MY PAGE</MypageLink></>}
+                <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton>
+                <MypageLink onClick={MyPageHandler}>MY PAGE</MypageLink></>}
             </StyledNav>
             <StyledCategory>
                 <TopLink to='/top'>TOP</TopLink>
