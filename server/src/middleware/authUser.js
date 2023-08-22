@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
       // 이부분은 나중에 프론트엔드에서 어떻게 토큰을 발송하는지에 따라 달라질거같아요
       // 현재는 확인을위해서 쿠키에서 토큰을 이용하게 되어있습니다!
     
-      if (!decodedAdminAccessToken && decodedRefreshToken) {
+      if (decodedAdminAccessToken && decodedRefreshToken) {
         if (await checkRefreshToken(decodedRefreshToken.user_id, req.cookies.refresh_token)) {
           const newAccessToken = await accessJWTGenerator(decodedRefreshToken.user_id);
           req.user = await verifyToken(newAccessToken);
@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
           // 응답을 통해 클라이언트의 쿠키를 삭제
           res.clearCookie('admin_access_token');
         }
-      } else if (!decodedUserAccessToken && decodedRefreshToken) {
+      } else if (decodedUserAccessToken && decodedRefreshToken) {
         if (await checkRefreshToken(decodedRefreshToken.user_id, req.cookies.refresh_token)) {
           const newAccessToken = await accessJWTGenerator(decodedRefreshToken.user_id);
           req.user = await verifyToken(newAccessToken);
