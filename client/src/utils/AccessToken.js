@@ -3,7 +3,7 @@ export const getCookie = () => {
         document.cookie.split(';').map((cookie) => cookie.trim().split('=')),
     );
     
-    const isCookie = Object.prototype.hasOwnProperty.call(cookies, 'refresh_token')
-
-    return isCookie
+    const isAdminCookie = Object.prototype.hasOwnProperty.call(cookies, 'admin_access_token')
+    const isUserCookie = Object.prototype.hasOwnProperty.call(cookies,'user_access_token')
+    return { isAdminCookie, isUserCookie }
 }

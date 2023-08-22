@@ -6,14 +6,15 @@ import { axiosClient } from '../../utils/axiosClient';
 
 
 function Header () {
-    const isAdmin = sessionStorage.getItem('admin')
     const navigate = useNavigate();
-    const isCookie = getCookie();
+    const { isAdminCookie, isUserCookie} = getCookie();
     
+    console.log(isAdminCookie, isUserCookie)
+
     const LogoutHandler = async() => {
-        await axiosClient.get('/signout')
+        await axiosClient.get('/signout',)
           .then((res) => { navigate('/'); })
-          .catch((err) => {console.log(err.message)})
+          .catch((err) => {console.log(err)})
       }
     
       return (
@@ -22,12 +23,12 @@ function Header () {
             <ImgBlock src='https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png' />
             <LogoLink to='/'>9UCCI</LogoLink>
             <StyledNav>
-                {!isCookie && !isAdmin && (<><JoinLink to='/join'>JOIN</JoinLink>
+                {!isUserCookie && !isAdminCookie && (<><JoinLink to='/join'>JOIN</JoinLink>
                 <LoginLink to='/login'>LOGIN</LoginLink>
                 <CartLink to='/cart'>CART</CartLink></>)}
-                {isCookie && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
+                {isUserCookie && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
                 <MypageLink to='/mypage'>MY PAGE</MypageLink></>}
-                {isAdmin && <><AdminLink to='/admin'>ADMIN</AdminLink>
+                {isAdminCookie && <><AdminLink to='/admin'>ADMIN</AdminLink>
                 <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton><MypageLink to='/mypage'>MY PAGE</MypageLink></>}
             </StyledNav>
             <StyledCategory>

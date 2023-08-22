@@ -26,12 +26,16 @@ const login = async (req,res)=>{
         const access_token = await accessJWTGenerator(user._id)
         const refresh_token = await refreshJWTGenerator(user)
         const roll = await checkAdmin(user)
-        res.cookie("refresh_token",refresh_token,
+        if(roll) {
+            res.cookie("refresh_token", refresh_token)
+            res.cookie("admin_access_token",access_token)
+        }else{
+            res.cookie("refresh_token", refresh_token)
+            res.cookie("user_access_token",access_token)
+        }
             // {httpOnly: true,
             // secure: true} // 해당 옵션이 활성화되면 자바에서 접근이 불가능해짐 나중에 배포시 활용할것
-            )
-        // console.log(refresh_token)
-        res.cookie("access_token",access_token)
+        
         await updateRefreshToken(user._id,refresh_token)
         
         return res.status(200).send({message:"로그인 성공",Access_token:access_token, roll : roll})
