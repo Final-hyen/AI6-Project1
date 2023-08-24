@@ -5,9 +5,9 @@ module.exports= async function checkAdmin (user_id){
         const user = await User.findOne({_id:user_id})
         // console.log(user)
         if (user.role===1){
-            return true
+            return 2 //admin
         }
-        return false
+        return 1 //user
     } catch (error) {
         return false
     }

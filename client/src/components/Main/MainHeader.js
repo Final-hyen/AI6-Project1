@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
-import { getCookie } from '../../utils/AccessToken';
 import { axiosClient } from '../../utils/axiosClient';
+import { useRecoilState } from 'recoil';
+import { userRole } from '../../store/store';
+
 
 
 function Header () {
     const navigate = useNavigate();
-    const { isAdminCookie, isUserCookie} = getCookie();
+    const role = useRecoilState(userRole)[0]
     
-    console.log(isAdminCookie, isUserCookie)
-
     const LogoutHandler = async(e) => {
         e.preventDefault();
         await axiosClient.get('/signout', )
@@ -28,12 +28,12 @@ function Header () {
             <ImgBlock src='https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png' />
             <LogoLink to='/'>9UCCI</LogoLink>
             <StyledNav>
-                {!isUserCookie && !isAdminCookie && (<><JoinLink to='/join'>JOIN</JoinLink>
+                {role === 0 && (<><JoinLink to='/join'>JOIN</JoinLink>
                 <LoginLink to='/login'>LOGIN</LoginLink>
                 <CartLink to='/cart'>CART</CartLink></>)}
-                {isUserCookie && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
+                {role === 1 && <> <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton> 
                 <MypageLink to='/mypage'>MY PAGE</MypageLink></>}
-                {isAdminCookie && <><AdminLink to='/admin'>ADMIN</AdminLink>
+                {role === 2 && <><AdminLink to='/admin'>ADMIN</AdminLink>
                 <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton>
                 <MypageLink onClick={MyPageHandler}>MY PAGE</MypageLink></>}
             </StyledNav>

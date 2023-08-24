@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { axiosClient } from '../../utils/axiosClient';
 import styled from 'styled-components'
+import ProductTable from '../ProductTable/productTable';
 
 const ProductGet = () => {
     
@@ -33,6 +34,7 @@ const ProductGet = () => {
         </Wrap>
         ))
         }
+        <ProductTable></ProductTable>
     
     </>
 )

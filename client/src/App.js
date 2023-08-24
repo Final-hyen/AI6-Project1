@@ -4,8 +4,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  // Link
 } from "react-router-dom";
+import { RecoilRoot } from 'recoil'
 
 import LandingPage from './components/views/LandingPage/LandingPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
@@ -29,6 +29,7 @@ import Login from './components/Login/login.jsx';
 
 function App() {
   return (
+  <RecoilRoot>
     <Router>
         <Header />
         <Routes>
@@ -52,7 +53,7 @@ function App() {
         </Routes>
         <Footer />
     </Router>
-
+  </RecoilRoot>
   );
 }
 

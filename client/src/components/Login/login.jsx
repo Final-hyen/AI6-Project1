@@ -3,8 +3,11 @@ import { Form, Button, Input, InputBox } from "../Auth/AuthForm.style";
 import { signIn } from "../../api/authFetcher";
 import { useAuthForm } from '../../hooks/useAuthForm';
 import { checkValidation } from '../../utils/validation';
+import { useRecoilState } from 'recoil'
+import { userRole } from '../../store/store';
 
 function Login() {
+    const [role, setRole] = useRecoilState(userRole)
     const {
         authData: {email, password},
         handleChange,
@@ -18,6 +21,7 @@ function Login() {
         await signIn(email, password)
           .then(res => {
             if(res?.status === 200){
+                setRole(res.data.role)
                 navigate('/');
             }
           })
