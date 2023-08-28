@@ -7,13 +7,14 @@ import { userRole } from '../../store/store';
 
 
 
+
 function Header () {
     const navigate = useNavigate();
     const role = useRecoilState(userRole)[0]
     
     const LogoutHandler = async(e) => {
         e.preventDefault();
-        await axiosClient.get('/signout', )
+        await axiosClient.get('/signout', { withCredentials : true })
           .then((res) => { navigate('/'); })
           .catch((err) => {console.log(err)})
       }
