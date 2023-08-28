@@ -6,6 +6,6 @@ const logout = async (req,res)=>{
     await updateRefreshToken(user._id,null)
     res.cookie('refreshToken','',{maxAge:0});
     res.cookie('accessToken','',{maxAge:0});
-    res.status(200).send({message:"complete logout"})
+    res.status(200).send({message:"complete logout", role : 0})
 }
 module.exports = logout
