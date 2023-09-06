@@ -2,19 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosClient } from "../../utils/axiosClient";
-import { useRecoilState } from "recoil";
-import { userRole } from "../../store/store";
+
 
 function Header() {
   const navigate = useNavigate();
-  const [role, setRole] = useRecoilState(userRole);
+  const role = localStorage.getItem('role')
 
   const LogoutHandler = async (e) => {
     e.preventDefault();
     await axiosClient
       .get("/signout", { withCredentials: true })
       .then((res) => {
-        setRole(res.data.role)
+        localStorage.clear()
         navigate("/");
       })
       .catch((err) => {
@@ -38,21 +37,21 @@ function Header() {
         <ImgBlock src="https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png" />
         <LogoLink to="/">9UCCI</LogoLink>
         <StyledNav>
-          {role === 0 && (
+          {(role === '0' || !role) && (
             <>
               <JoinLink to="/join">JOIN</JoinLink>
               <LoginLink to="/login">LOGIN</LoginLink>
               <CartLink to="/cart">CART</CartLink>
             </>
           )}
-          {role === 1 && (
+          {role === '1' && (
             <>
               {" "}
               <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton>
               <MypageLink to="/mypage">MY PAGE</MypageLink>
             </>
           )}
-          {role === 2 && (
+          {role === '2' && (
             <>
               <AdminLink to="/admin">ADMIN</AdminLink>
               <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton>

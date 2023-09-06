@@ -9,7 +9,7 @@ const MyPageBody = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axiosClient
-      .get("/userinfo", document.cookie)
+      .get("/userinfo",)
       .then((res) => {
         console.log(res.data);
         setUserInfo(res.data.userinfo);
@@ -29,11 +29,11 @@ const MyPageBody = () => {
 
   return (
     <>
-      <InfoImg src={userinfo.imageKey} alt="profile-img" />
+      <InfoImg src={userinfo?.imageKey} alt="profile-img" />
       <InfoText>
-        address = {userinfo.address} {userinfo.address2}
+        address = {userinfo?.address} {userinfo?.address2}
       </InfoText>
-      <InfoText>phoneNumber = {userinfo.phoneNumber}</InfoText>
+      <InfoText>phoneNumber = {userinfo?.phoneNumber}</InfoText>
       <Button
         style={{ width: "100px", fontWeight: "600", fontSize: "20px" }}
         onClick={(e) => {
