@@ -36,8 +36,8 @@ function App() {
           <Route exact path="/" element = {<LandingPage />} />
           <Route exact path="/register" element = {<RegisterPage />} />
           <Route exact path="/login" element = {<Login />} />
-          <Route exact path="/Top" element = {<TopPage />} />
-          <Route exact path="/Detail" element = {<ProductDetailPage />} />
+          <Route exact path="/top" element = {<TopPage />} />
+          <Route exact path='/detail/:id' element = {<ProductDetailPage />} />
           <Route exact path="/cart" element = {<CartPage />} />
           <Route exact path="/buypage" element = {<BuyPage />} />
           <Route exact path="/ordercompletepage" element = {<OrderCompletePage />} />

@@ -31,7 +31,7 @@ export function ProductList(props) {
       <Col>
         <Frame>
           <Photo>
-            <a href="/Detail">
+            <a href="/detail">
               <img src={products[0].image} alt="상품이름" style={{widht:"447px", height:"535px"}}/> </a>
               </Photo>
           <Name>{products[0].name}</Name>
@@ -42,7 +42,7 @@ export function ProductList(props) {
       <Col>
         <Frame>
           <Photo>
-            <a href ="/Detail">
+            <a href ="/detail">
             <img src={products[1].image} alt="상품이름" style={{widht:"447px", height:"535px"}}/>
               </a>
             </Photo>
@@ -54,7 +54,7 @@ export function ProductList(props) {
       <Col>
         <Frame>
           <Photo>
-          <a href ="/Detail">
+          <a href ="/detail">
           <img src={products[2].image} alt="상품이름" style={{widht:"447px", height:"535px"}}/>
           </a>
           </Photo>

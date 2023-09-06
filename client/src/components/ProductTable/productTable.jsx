@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Table, Caption, Td, Th, Button, Img } from "./productTableCSS";
 import { axiosClient } from "../../utils/axiosClient";
+import {useNavigate} from 'react-router-dom';
 
 const ProductTable = () => {
   const [product, setProduct] = useState([]);
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     axiosClient
       .get("/products")
@@ -15,7 +17,7 @@ const ProductTable = () => {
         console.log(e);
       });
   }, []);
-  console.log(product)
+  
   const onDeleteClick = async (e) => {
     await axiosClient
       .delete(`/products/${e.target.id}`)
@@ -25,6 +27,11 @@ const ProductTable = () => {
       })
       .catch((e) => console.log(e.message));
   };
+
+  const onViewClick = (e) => {
+    e.preventDefault();
+    navigate(`/detail/${e.target.id}`)
+  }
   return (
     <Table>
       <Caption>상품 조회</Caption>
@@ -47,7 +54,7 @@ const ProductTable = () => {
             <Td id="description">{product.description}</Td>
             <Td id="price">{product.price}원</Td>
             <Td>
-              <Button className="view">view</Button>
+              <Button id={product._id} className="view" onClick={onViewClick}>view</Button>
               <Button id={product._id} className="delete" onClick={onDeleteClick}>
                 Delete
               </Button>
