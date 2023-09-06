@@ -4,18 +4,27 @@ import { axiosClient } from "../../utils/axiosClient";
 
 const ProductTable = () => {
   const [product, setProduct] = useState([]);
-
+  
   useEffect(() => {
     axiosClient
-      .get("/products",)
+      .get("/products")
       .then((res) => {
         setProduct(res.data);
       })
       .catch((e) => {
         console.log(e);
       });
-  },[]);
-  
+  }, []);
+  console.log(product)
+  const onDeleteClick = async (e) => {
+    await axiosClient
+      .delete(`/products/${e.target.id}`)
+      .then((res) => {
+        alert(res.data.message);
+        window.location.href = "/product"
+      })
+      .catch((e) => console.log(e.message));
+  };
   return (
     <Table>
       <Caption>상품 조회</Caption>
@@ -28,22 +37,24 @@ const ProductTable = () => {
           <Th>Control</Th>
         </tr>
       </thead>
-        <tbody>
-          {product.map((product, idx) => (
+      <tbody>
+        {product.map((product, idx) => (
           <tr key={idx}>
-            <Td>
+            <Td id="img">
               <Img src={product.imgUrl} alt="img" />
             </Td>
-            <Td>{product.title}</Td>
-            <Td>{product.description}</Td>
-            <Td>{product.price}</Td>
+            <Td id="title">{product.title}</Td>
+            <Td id="description">{product.description}</Td>
+            <Td id="price">{product.price}원</Td>
             <Td>
               <Button className="view">view</Button>
-              <Button className="delete">Delete</Button>
+              <Button id={product._id} className="delete" onClick={onDeleteClick}>
+                Delete
+              </Button>
             </Td>
           </tr>
-          ))}
-        </tbody>
+        ))}
+      </tbody>
     </Table>
   );
 };

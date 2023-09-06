@@ -2,8 +2,8 @@ const {Product} = require('../models/Product')
 
 module.exports= async function deleteProduct(req){
     try {
-        await Product.deleteOne({product_no:req.params.id})
-        return true
+        const deletProudctOne = await Product.deleteOne({_id:req.params.id})
+        return deletProudctOne
     } catch (error) {
         console.error(error)
         return false
