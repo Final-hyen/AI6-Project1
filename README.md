@@ -66,5 +66,6 @@
 
 # :handbag: 서비스 관련
 ### 테스트 계정
- - ID : 
- - PW : 
+ **:one: 관리자**
+ - ID : user@3team.com
+ - PW : 1234qwer
