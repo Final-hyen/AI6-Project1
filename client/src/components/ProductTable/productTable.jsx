@@ -7,7 +7,7 @@ const ProductTable = () => {
 
   useEffect(() => {
     axiosClient
-      .get("/prodcucts")
+      .get("/products",)
       .then((res) => {
         setProduct(res.data);
       })

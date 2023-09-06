@@ -21,11 +21,11 @@ import OrderTrackingPage from './components/views/MyPage/OrderTrackingPage';
 import ProductEditPage from './components/views/EditPage/ProductEditPage';
 import ProductPostPage from './components/views/PostPage/ProductPostPage';
 import DeleteOrderPage from './components/views/MyPage/DeleteOrderPage';
-import ProductGetPage from './components/views/PostPage/ProductGetPage';
 import Header from './components/Main/MainHeader';
 import Footer from './components/Footer/Footer';
 import JoinForm from './components/Join/join.jsx';
 import Login from './components/Login/login.jsx';
+import ProductTable from './components/ProductTable/productTable';
 
 function App() {
   return (
@@ -49,7 +49,7 @@ function App() {
           <Route exact path="/productedit" element = {<ProductEditPage />} />
           <Route exact path="/productpost" element = {<ProductPostPage />} />
           <Route exact path="/deleteorder" element = {<DeleteOrderPage />} />
-          <Route exact path="/product" element = {<ProductGetPage />} />
+          <Route exact path="/product" element = {<ProductTable />} />
         </Routes>
         <Footer />
     </Router>

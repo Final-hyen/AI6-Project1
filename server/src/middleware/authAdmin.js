@@ -2,7 +2,8 @@ const jwt = require ('jsonwebtoken')
 const { JWT_TOKEN_KEY } = require('../config/index')
 const checkAdmin = require('../repo/checkAdmin')
 module.exports = async (req,res,next)=>{
-    const token = req.cookies.access_token// 프론트엔드에서 요청할때 헤더에 넣어서 보내줘야함
+    const token = req.cookies.accessToken// 프론트엔드에서 요청할때 헤더에 넣어서 보내줘야함
+    console.log(token)
     if(!token){
         return res.status(401).json({message:"접근권한이 없습니다."})
     }

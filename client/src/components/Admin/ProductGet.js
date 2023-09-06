@@ -9,7 +9,6 @@ const ProductGet = () => {
     useEffect(() => {
         axiosClient.get('/products',)
             .then((res) => {
-                console.log(res.data);
                 setProduct(res.data);
             })
             .catch(e => console.log(e.message))
