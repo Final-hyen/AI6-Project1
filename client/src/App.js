@@ -10,7 +10,6 @@ import { RecoilRoot } from 'recoil'
 import LandingPage from './components/views/LandingPage/LandingPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import TopPage from './components/views/ProductPage/TopPage';
-import ProductDetailPage from './components/views/ProductPage/ProductDetailPage';
 import CartPage from './components/views/CartPage/CartPage'
 import BuyPage from './components/views/BuyPage/BuyPage'
 import OrderCompletePage from './components/views/BuyPage/OrderCompletePage';
@@ -26,6 +25,7 @@ import Footer from './components/Footer/Footer';
 import JoinForm from './components/Join/join.jsx';
 import Login from './components/Login/login.jsx';
 import ProductTable from './components/ProductTable/productTable';
+import ProductDetail from './components/Products/productDetail';
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/register" element = {<RegisterPage />} />
           <Route exact path="/login" element = {<Login />} />
           <Route exact path="/top" element = {<TopPage />} />
-          <Route exact path='/detail/:id' element = {<ProductDetailPage />} />
+          <Route exact path='/detail/:id' element = {<ProductDetail />} />
           <Route exact path="/cart" element = {<CartPage />} />
           <Route exact path="/buypage" element = {<BuyPage />} />
           <Route exact path="/ordercompletepage" element = {<OrderCompletePage />} />

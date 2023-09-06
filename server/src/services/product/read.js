@@ -6,6 +6,7 @@ const findAllCategory = require('../../repo/findAllCategory')
 const read = async (req, res)=>{
   //console.log(req.params.id);
   const type_check= req.params.id
+
   try {
       if(!type_check){
         const product = await findAllProduct();
@@ -13,11 +14,13 @@ const read = async (req, res)=>{
       }
       if(type_check==='category'){
         const category = await findAllCategory();
+        //console.log('category1',category)
         return res.status(200).send(category);
 
       }
       if(isNaN(type_check)){
-        const category = await findCategory(req);
+        const category = await findOneProduct(req);
+        //console.log('category2',category)
         if (category.length===0){
           return res.status(403).send({ message: "해당하는 상품이 없습니다." });
         }
@@ -26,6 +29,7 @@ const read = async (req, res)=>{
 
       if(!isNaN(type_check)){
         const result = await findOneProduct(req);
+        //console.log('result',result)
         if (!result) {
           return res.status(403).send({ message: "해당하는 상품이 없습니다." });
         }else{
