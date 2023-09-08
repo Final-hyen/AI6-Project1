@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Contain = styled.div`
-    margin : auto;
-    width : 1500px;
+    margin : auto 20%;
+
 `
 export const ProductNav = styled.div`
     margin : 20px 0;
@@ -16,8 +16,9 @@ export const ProductWrap = styled.div`
     display : flex;
     flex-direction : row;
     & img {
-        height: 667px;
-        object-fit: cover;
+        width : 600px;
+        height: 680px;
+        object-fit: scale-down;
         object-position: 50% 50%;
     }
 `
