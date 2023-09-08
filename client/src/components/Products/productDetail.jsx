@@ -15,7 +15,7 @@ const ProductDetail = () => {
       })
       .catch((e) => console.log(e));
   }, [id]);
-  console.log(product)
+
   return (
     <Contain>
       <ProductNav>

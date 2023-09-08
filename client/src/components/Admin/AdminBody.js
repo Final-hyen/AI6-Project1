@@ -20,6 +20,7 @@ const AdminBodyContainer = styled.div`
   text-align: center;
   width: 100%;
   height: 70vh;
+  sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -30,12 +31,15 @@ const AdminBodyContainer = styled.div`
 const AdminButtonsGroup = styled.div`
   display: flex;
   flex-direction: column;
+  
   .adminButtons {
     background-color: white;
     border: 3px solid grey;
     border-radius: 4px;
     text-align: center;
     text-decoration: none;
+    
+    font-family: 'intelone-mono-font-family-regular', sans-serif;
     font-size: 30px;
     
     width: 30em;
