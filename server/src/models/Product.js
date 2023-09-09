@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = mongoose.Schema(
     {
-        product_no:{
-            type: Number,
-            unique: true //상품고유번호
-        },
+        // product_no:{
+        //     type: Number,
+        //     unique: true //상품고유번호
+        // },
         title: {
             type: String,
             //default: "test title"

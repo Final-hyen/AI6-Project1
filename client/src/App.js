@@ -26,6 +26,7 @@ import JoinForm from './components/Join/join.jsx';
 import Login from './components/Login/login.jsx';
 import ProductTable from './components/ProductTable/productTable';
 import ProductDetail from './components/Products/productDetail';
+import GetProduct from './components/Admin/ProductGet.jsx';
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
           <Route exact path="/edit" element = {<EditPage />} />
           <Route exact path="/ordertracking" element = {<OrderTrackingPage />} />
           <Route exact path="/productedit" element = {<ProductEditPage />} />
-          <Route exact path="/productpost" element = {<ProductPostPage />} />
+          <Route exact path="/productpost" element = {<GetProduct />} />
           <Route exact path="/deleteorder" element = {<DeleteOrderPage />} />
           <Route exact path="/product" element = {<ProductTable />} />
         </Routes>
