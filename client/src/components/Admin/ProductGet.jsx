@@ -3,7 +3,7 @@ import { ProductForm, ProductInput, Button, Label } from "./ProductCSS";
 import { useProductForm } from "../../hooks/useProductFrom";
 import { ProductPost } from "../../api/productFetcher";
 import { useNavigate } from "react-router-dom";
-const GetProduct = () => {
+const PostProduct = () => {
   const {
     productData: { title, description, category, price, company },
     handleChange,
@@ -18,7 +18,7 @@ const GetProduct = () => {
       .then((res) => {
         if (res?.status === 201) {
           alert(res.data.message);
-          console.log(res)
+          navigate('product')
         }
       })
       .catch((err) => {
@@ -67,4 +67,4 @@ const GetProduct = () => {
   );
 };
 
-export default GetProduct;
+export default PostProduct;

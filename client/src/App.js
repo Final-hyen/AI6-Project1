@@ -18,7 +18,6 @@ import MyPage from './components/views/MyPage/MyPage'
 import EditPage from './components/views/EditPage/EditPage';
 import OrderTrackingPage from './components/views/MyPage/OrderTrackingPage';
 import ProductEditPage from './components/views/EditPage/ProductEditPage';
-import ProductPostPage from './components/views/PostPage/ProductPostPage';
 import DeleteOrderPage from './components/views/MyPage/DeleteOrderPage';
 import Header from './components/Main/MainHeader';
 import Footer from './components/Footer/Footer';
@@ -26,7 +25,7 @@ import JoinForm from './components/Join/join.jsx';
 import Login from './components/Login/login.jsx';
 import ProductTable from './components/ProductTable/productTable';
 import ProductDetail from './components/Products/productDetail';
-import GetProduct from './components/Admin/ProductGet.jsx';
+import PostProduct from './components/Admin/ProductGet.jsx';
 
 function App() {
   return (
@@ -48,7 +47,7 @@ function App() {
           <Route exact path="/edit" element = {<EditPage />} />
           <Route exact path="/ordertracking" element = {<OrderTrackingPage />} />
           <Route exact path="/productedit" element = {<ProductEditPage />} />
-          <Route exact path="/productpost" element = {<GetProduct />} />
+          <Route exact path="/productpost" element = {<PostProduct />} />
           <Route exact path="/deleteorder" element = {<DeleteOrderPage />} />
           <Route exact path="/product" element = {<ProductTable />} />
         </Routes>
