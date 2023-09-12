@@ -23,7 +23,7 @@ const ProductDetail = () => {
         <Link to={`/${product.category}`}> {product.category}</Link>
       </ProductNav>
       <ProductWrap>
-        <img src={product.imgUrl} />
+        <img src={product.imgUrl} alt="상품 이미지"/>
         <Product>
             <h1>{product.title}</h1>
             <div>{product.company}</div>

@@ -1,70 +1,83 @@
-import React from "react";
-import { ProductForm, ProductInput, Button, Label } from "./ProductCSS";
-import { useProductForm } from "../../hooks/useProductFrom";
-import { ProductPost } from "../../api/productFetcher";
+import React, { useEffect, useState } from "react";
+import { Table, Caption, Td, Th, Button, Img } from "./ProductGetCSS";
+import { axiosClient } from "../../utils/axiosClient";
 import { useNavigate } from "react-router-dom";
-const PostProduct = () => {
-  const {
-    productData: { title, description, category, price, company },
-    handleChange,
-  } = useProductForm();
 
+const ProductGet = () => {
+  const [product, setProduct] = useState([]);
   const navigate = useNavigate();
 
-  const onClickPost = async (e) => {
-    e.preventDefault();
-
-    await ProductPost(title, description, category, price, company)
+  useEffect(() => {
+    axiosClient
+      .get("/products")
       .then((res) => {
-        if (res?.status === 201) {
-          alert(res.data.message);
-          navigate('product')
-        }
+        setProduct(res.data);
       })
-      .catch((err) => {
-        alert(err);
+      .catch((e) => {
+        console.log(e);
       });
+  }, []);
+
+  const onDeleteClick = async (e) => {
+    await axiosClient
+      .delete(`/products/${e.target.id}`)
+      .then((res) => {
+        alert(res.data.message);
+        window.location.href = "/product";
+      })
+      .catch((e) => console.log(e.message));
   };
+
+  const onViewClick = (e) => {
+    e.preventDefault();
+    navigate(`/detail/${e.target.id}`);
+  };
+
+  const onEditClick = (e) => {
+    e.preventDefault()
+    navigate(`/productedit/${e.target.id}`)
+  }
   return (
-    <ProductForm onSubmit={onClickPost}>
-      <Label>Product Name</Label>
-      <ProductInput
-        id="title"
-        type="string"
-        placeholder="Product Name"
-        onChange={handleChange}
-      ></ProductInput>
-      <Label>Product Description</Label>
-      <ProductInput
-        id="description"
-        type="string"
-        placeholder="Product Description"
-        onChange={handleChange}
-      ></ProductInput>
-      <Label>Product Category</Label>
-      <ProductInput
-        id="category"
-        type="string"
-        placeholder="Product Category"
-        onChange={handleChange}
-      ></ProductInput>
-      <Label>Product Price</Label>
-      <ProductInput
-        id="price"
-        type="Number"
-        placeholder="Product Price"
-        onChange={handleChange}
-      ></ProductInput>
-      <Label>Product Company</Label>
-      <ProductInput
-        id="company"
-        type="string"
-        placeholder="Product Company"
-        onChange={handleChange}
-      ></ProductInput>
-      <Button>Product Post</Button>
-    </ProductForm>
+    <Table>
+      <Caption>상품 조회</Caption>
+      <thead>
+        <tr>
+          <Th>제품 사진</Th>
+          <Th>제품 이름</Th>
+          <Th>제품 설명</Th>
+          <Th>제품 가격</Th>
+          <Th>Control</Th>
+        </tr>
+      </thead>
+      <tbody>
+        {product.map((product, idx) => (
+          <tr key={idx}>
+            <Td id="img">
+              <Img src={product.imgUrl} alt="img" />
+            </Td>
+            <Td id="title">{product.title}</Td>
+            <Td id="description">{product.description}</Td>
+            <Td id="price">{product.price}원</Td>
+            <Td>
+              <Button id={product._id} className="view" onClick={onViewClick}>
+                view
+              </Button>
+              <Button id={product._id} className="edit" onClick={onEditClick}>
+                Edit
+              </Button>
+              <Button
+                id={product._id}
+                className="delete"
+                onClick={onDeleteClick}
+              >
+                Delete
+              </Button>
+            </Td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
   );
 };
 
-export default PostProduct;
+export default ProductGet;

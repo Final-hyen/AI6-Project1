@@ -31,9 +31,15 @@ export const Button = styled.button`
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
-  background-color: #E91E63;
+  &.delete {
+    background-color: #E91E63;
+  }
   &.view {
     background-color: #03A9F4;
+    margin-right: 10px;
+  },
+  &.edit {
+    background-color: #F94C10;
     margin-right: 10px;
   },
 `;

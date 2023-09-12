@@ -20,10 +20,6 @@ function Header() {
         console.log(err);
       });
   };
-  const MyPageHandler = (e) => {
-    e.preventDefault();
-    navigate("/mypage");
-  };
 
   return (
     <>
