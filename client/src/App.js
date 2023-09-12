@@ -5,7 +5,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { RecoilRoot } from 'recoil'
 
 import LandingPage from './components/views/LandingPage/LandingPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
@@ -17,7 +16,6 @@ import AdminPage from './components/views/AdminPage/AdminPage';
 import MyPage from './components/views/MyPage/MyPage'
 import EditPage from './components/views/EditPage/EditPage';
 import OrderTrackingPage from './components/views/MyPage/OrderTrackingPage';
-import ProductEditPage from './components/views/EditPage/ProductEditPage';
 import DeleteOrderPage from './components/views/MyPage/DeleteOrderPage';
 import Header from './components/Main/MainHeader';
 import Footer from './components/Footer/Footer';
@@ -29,7 +27,6 @@ import PostProduct from './components/Admin/ProductGet.jsx';
 
 function App() {
   return (
-  <RecoilRoot>
     <Router>
         <Header />
         <Routes>
@@ -46,14 +43,12 @@ function App() {
           <Route exact path="/admin" element = {<AdminPage />} />
           <Route exact path="/edit" element = {<EditPage />} />
           <Route exact path="/ordertracking" element = {<OrderTrackingPage />} />
-          <Route exact path="/productedit" element = {<ProductEditPage />} />
           <Route exact path="/productpost" element = {<PostProduct />} />
           <Route exact path="/deleteorder" element = {<DeleteOrderPage />} />
           <Route exact path="/product" element = {<ProductTable />} />
         </Routes>
         <Footer />
     </Router>
-  </RecoilRoot>
   );
 }
 

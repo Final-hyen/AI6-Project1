@@ -10,9 +10,6 @@ export function AdminBody() {
         <Link to="/productpost">
           <button className="adminButtons">상품 등록</button>
         </Link>
-        <Link to="/productedit">
-          <button className="adminButtons">상품정보 수정</button>
-        </Link>
         <Link to="/product">
           <button className="adminButtons">상품 조회 및 삭제</button>
         </Link>

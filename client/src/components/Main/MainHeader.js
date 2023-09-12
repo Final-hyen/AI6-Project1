@@ -55,7 +55,6 @@ function Header() {
             <>
               <AdminLink to="/admin">ADMIN</AdminLink>
               <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton>
-              <MypageLink onClick={MyPageHandler}>MY PAGE</MypageLink>
             </>
           )}
         </StyledNav>
