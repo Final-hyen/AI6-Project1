@@ -39,7 +39,7 @@ const ProductEditPage = () => {
       })
       .catch((err) => console.log(err));
   };
-  console.log(product.title, product.company)
+
   return (
     <Contain>
       <ProductNav>

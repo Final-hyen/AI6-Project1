@@ -15,6 +15,7 @@ export const ProductNav = styled.div`
 export const ProductWrap = styled.div`
     display : flex;
     flex-direction : row;
+    overflow: hidden;
     & img {
         width : 600px;
         height: 680px;
@@ -34,13 +35,14 @@ export const Product = styled.div`
     
 `
 export const Button = styled.button`
-    height : 2rem;
+    height : 3rem;
     border: none;
     border-radius: 10px;
     background-color: #A9A9A9;
     color : #FFFAFA;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     font-weight: bold;
+    font-size: 20px;
     font-family: 'intelone-mono-font-family-regular', sans-serif;
     &:hover {
         opacity: 0.7;
