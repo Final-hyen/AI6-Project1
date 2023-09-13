@@ -45,5 +45,8 @@ export const Button = styled.button`
         cursor: auto;
         opacity: 1.0;
       }
+    &.editUser{
+        font-size: 25px;
+    }
 `;
 

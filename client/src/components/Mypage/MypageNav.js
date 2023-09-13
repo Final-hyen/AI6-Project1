@@ -20,7 +20,7 @@ const FlexContainer = styled.div`
   justify-content: left;
   align-items :center;
 
-  width : 1653px;
+  width : 99vw;
 
   border-bottom : 2px solid #BAB5B5;
 `;

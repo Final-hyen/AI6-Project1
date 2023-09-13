@@ -11,21 +11,12 @@ const MyPageBody = () => {
     axiosClient
       .get("/userinfo",)
       .then((res) => {
-        console.log(res.data);
         setUserInfo(res.data.userinfo);
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, []);
-
-  // const DeleteHandler = async (e) => {
-  //     e.preventDefault();
-  //     await axios.delete('http://localhost:5000/signin',{withCredentials : true})
-  //       .then((res) => {console.log(res.data)})
-  //       .catch((err) => {console.log(err.message)})
-
-  // }
 
   return (
     <>
@@ -35,7 +26,7 @@ const MyPageBody = () => {
       </InfoText>
       <InfoText>phoneNumber = {userinfo?.phoneNumber}</InfoText>
       <Button
-        style={{ width: "100px", fontWeight: "600", fontSize: "20px" }}
+        className="editUser"
         onClick={(e) => {
           e.preventDefault();
           navigate("/edit");
