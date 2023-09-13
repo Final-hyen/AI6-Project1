@@ -42,7 +42,6 @@ function Header() {
           )}
           {role === '1' && (
             <>
-              {" "}
               <StyledButton onClick={LogoutHandler}>LOGUT</StyledButton>
               <MypageLink to="/mypage">MY PAGE</MypageLink>
             </>
