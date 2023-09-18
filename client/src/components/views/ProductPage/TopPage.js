@@ -2,13 +2,26 @@ import React, { useEffect, useState } from "react";
 import { axiosClient } from "../../../utils/axiosClient";
 
 const GetTopProduct = () => {
-  const [tops, setTops] = useState({});
+  const [tops, setTops] = useState([]);
 
   useEffect(() => {
-    axiosClient.get("/products").then((res) => {
-      if (res.data.category === "top") return setTops(res.data);
-    }).catch(e => console.log(e));
-  });
+    axiosClient
+      .get("/products")
+      .then((res) => {
+        setTops(res.data.filter((product) => product.category === "top"));
+      })
+      .catch((e) => console.log(e));
+  }, []);
+
+  return (
+    <div>
+      {tops.map((top, idx) => (
+        <div key={idx}>
+          <span>{top.title}</span>
+        </div>
+      ))}
+    </div>
+  );
 };
 
-export default GetTopProduct
+export default GetTopProduct;
