@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { axiosClient } from "../../../utils/axiosClient";
+import { Contain, Figure, Grid, Img } from "./ProductPageCSS";
 
 const GetTopProduct = () => {
   const [tops, setTops] = useState([]);
@@ -14,13 +15,18 @@ const GetTopProduct = () => {
   }, []);
 
   return (
-    <div>
-      {tops.map((top, idx) => (
-        <div key={idx}>
-          <span>{top.title}</span>
-        </div>
-      ))}
-    </div>
+    <Contain>
+      <Grid>
+        {tops.map((top, idx) => (
+          <Figure key={idx}>
+            <Img src={top.imgUrl} alt="제품 이미지" />
+            <p>{top.company}</p>
+            <p>{top.title}</p>
+            <p>{top.price}</p>
+          </Figure>
+        ))}
+      </Grid>
+    </Contain>
   );
 };
 
