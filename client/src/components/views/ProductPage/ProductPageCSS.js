@@ -4,7 +4,6 @@ export const Contain = styled.div`
     marign: auto;
 `
 export const Grid = styled.div`
-    border: 2px solid red;
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -25,6 +24,9 @@ export const Figure = styled.figure`
         text-decoration: none;
         color: black;
         height: 435px;
+    }
+    & p {
+      margin-left : 15px;  
     }
 `
 

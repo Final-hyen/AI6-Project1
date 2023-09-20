@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./components/views/LandingPage/LandingPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
-import TopPage from "./components/views/ProductPage/TopPage";
+import GetTopProduct from "./components/views/ProductPage/TopPage.jsx";
+import GetBottomProduct from "./components/views/ProductPage/BottomPage.jsx";
+import GetOuterProduct from "./components/views/ProductPage/OuterPage.jsx";
 import CartPage from "./components/views/CartPage/CartPage";
 import BuyPage from "./components/views/BuyPage/BuyPage";
 import OrderCompletePage from "./components/views/BuyPage/OrderCompletePage";
@@ -30,7 +32,9 @@ function App() {
         <Route exact path="/" element={<LandingPage />} />
         <Route exact path="/register" element={<RegisterPage />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/top" element={<TopPage />} />
+        <Route exact path="/top" element={<GetTopProduct />} />
+        <Route exact path="/bottom" element={<GetBottomProduct />} />
+        <Route exact path="/outer" element={<GetOuterProduct />} />
         <Route exact path="/detail/:id" element={<ProductDetail />} />
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="/buypage" element={<BuyPage />} />
