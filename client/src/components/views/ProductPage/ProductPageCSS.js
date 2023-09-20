@@ -18,13 +18,19 @@ export const Figure = styled.figure`
     border: thin #c0c0c0 solid;
     display: flex;
     flex-flow: column;
+    justify-content: center;
     max-width: 500px;
     margin: 1rem auto;
+    & a {
+        text-decoration: none;
+        color: black;
+        height: 435px;
+    }
 `
 
 export const Img = styled.img`
     width: 300px;
-    max-height: 300px;
+    height: 300px;
     margin: auto;
     object-fit: scale-down;
 `
