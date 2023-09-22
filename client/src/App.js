@@ -1,9 +1,7 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import LandingPage from "./components/views/LandingPage/LandingPage";
-import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import CartPage from "./components/views/CartPage/CartPage";
 import BuyPage from "./components/views/BuyPage/BuyPage";
 import OrderCompletePage from "./components/views/BuyPage/OrderCompletePage";
@@ -23,6 +21,7 @@ import GetOuterProduct from "./components/views/ProductPage/OuterContainer";
 import TopProducts from "./components/views/ProductPage/TopContainer";
 import BottomProducts from "./components/views/ProductPage/BottomContainer";
 import AdminGetProducts from "./components/Admin/ProductContainer";
+import JoinContainer from "./components/Join/joinContainer.jsx";
 
 function App() {
   return (
@@ -30,7 +29,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/register" element={<RegisterPage />} />
+        <Route exact path="/register" element={<JoinContainer />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/top" element={<TopProducts />} />
         <Route exact path="/bottom" element={<BottomProducts />} />
