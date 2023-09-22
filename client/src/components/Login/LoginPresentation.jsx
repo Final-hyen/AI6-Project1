@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button, Input, InputBox } from "../Auth/AuthForm.style";
 
-function JoinPresentation({
+function LoginPresentation({
   email,
   password,
   handleChange,
@@ -16,23 +16,19 @@ function JoinPresentation({
           type="text"
           placeholder="Email을 입력하세요"
           onChange={handleChange}
+          value={email}
         />
         <Input
           id="password"
           type="password"
           placeholder="비밀번호를 입력하세요"
           onChange={handleChange}
-        />
-        <Input
-          id="name"
-          type="text"
-          placeholder="닉네임을 입력하세요"
-          onChange={handleChange}
+          value={password}
         />
       </InputBox>
-      <Button disabled={!checkValidation(email, password)}>SignUp</Button>
+      <Button disabled={!checkValidation(email, password)}>Login</Button>
     </Form>
   );
 }
 
-export default JoinPresentation;
+export default LoginPresentation;

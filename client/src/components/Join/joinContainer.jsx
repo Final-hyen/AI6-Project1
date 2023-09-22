@@ -13,16 +13,17 @@ const JoinContainer = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    signUp(email, password, name)
-      .then((res) => {
-        if (res?.status === 201) {
-          alert("Welcome to 9UCCI");
-          navigate("/login");
-        }
-      })
-      .catch((err) => alert(err));
+    try {
+      const res = await signUp(email, password, name);
+      if (res?.status === 201) {
+        alert("Welcome to 9UCCI");
+        navigate("/login");
+      }
+    } catch (err) {
+      alert(err);
+    }
   };
 
   return (

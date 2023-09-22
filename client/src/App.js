@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import LandingPage from "./components/views/LandingPage/LandingPage";
 import CartPage from "./components/views/CartPage/CartPage";
 import BuyPage from "./components/views/BuyPage/BuyPage";
@@ -12,8 +13,7 @@ import OrderTrackingPage from "./components/views/MyPage/OrderTrackingPage";
 import DeleteOrderPage from "./components/views/MyPage/DeleteOrderPage";
 import Header from "./components/Main/MainHeader";
 import Footer from "./components/Footer/Footer";
-import JoinForm from "./components/Join/join.jsx";
-import Login from "./components/Login/login.jsx";
+import LoginContainer from "./components/Login/LoginContainer";
 import ProductDetail from "./components/Products/productDetail";
 import PostProduct from "./components/Admin/ProductPost.jsx";
 import ProductEditPage from "./components/Edit/ProductEdit.jsx";
@@ -29,8 +29,8 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/register" element={<JoinContainer />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/join" element={<JoinContainer />} />
+        <Route exact path="/login" element={<LoginContainer />} />
         <Route exact path="/top" element={<TopProducts />} />
         <Route exact path="/bottom" element={<BottomProducts />} />
         <Route exact path="/outer" element={<GetOuterProduct />} />
@@ -43,7 +43,6 @@ function App() {
           element={<OrderCompletePage />}
         />
         <Route exact path="/mypage" element={<MyPage />} />
-        <Route exact path="/join" element={<JoinForm />} />
         <Route exact path="/admin" element={<AdminPage />} />
         <Route exact path="/edit" element={<EditPage />} />
         <Route exact path="/ordertracking" element={<OrderTrackingPage />} />
