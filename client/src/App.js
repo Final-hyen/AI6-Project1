@@ -16,12 +16,12 @@ import Footer from "./components/Footer/Footer";
 import LoginContainer from "./components/Login/LoginContainer";
 import ProductDetail from "./components/Products/productDetail";
 import PostProduct from "./components/Admin/ProductPost.jsx";
-import ProductEditPage from "./components/Edit/ProductEdit.jsx";
 import GetOuterProduct from "./components/views/ProductPage/OuterContainer";
 import TopProducts from "./components/views/ProductPage/TopContainer";
 import BottomProducts from "./components/views/ProductPage/BottomContainer";
 import AdminGetProducts from "./components/Admin/ProductContainer";
 import JoinContainer from "./components/Join/joinContainer.jsx";
+import EditContainer from "./components/Edit/ProductEditContainer";
 
 function App() {
   return (
@@ -49,7 +49,7 @@ function App() {
         <Route exact path="/productpost" element={<PostProduct />} />
         <Route exact path="/deleteorder" element={<DeleteOrderPage />} />
         <Route exact path="/product" element={<AdminGetProducts />} />
-        <Route exact path="/productedit/:id" element={<ProductEditPage />} />
+        <Route exact path="/productedit/:id" element={<EditContainer />} />
       </Routes>
       <Footer />
     </Router>
