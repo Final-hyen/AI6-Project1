@@ -14,7 +14,7 @@ import DeleteOrderPage from "./components/views/MyPage/DeleteOrderPage";
 import Header from "./components/Main/MainHeader";
 import Footer from "./components/Footer/Footer";
 import LoginContainer from "./components/Login/LoginContainer";
-import ProductDetail from "./components/Products/productDetail";
+//import ProductDetail from "./components/Products/productDetail";
 import PostProduct from "./components/Admin/ProductPost.jsx";
 import GetOuterProduct from "./components/views/ProductPage/OuterContainer";
 import TopProducts from "./components/views/ProductPage/TopContainer";
@@ -22,6 +22,7 @@ import BottomProducts from "./components/views/ProductPage/BottomContainer";
 import AdminGetProducts from "./components/Admin/ProductContainer";
 import JoinContainer from "./components/Join/joinContainer.jsx";
 import EditContainer from "./components/Edit/ProductEditContainer";
+import DetailContainer from "./components/Products/DetailContainer";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         <Route exact path="/top" element={<TopProducts />} />
         <Route exact path="/bottom" element={<BottomProducts />} />
         <Route exact path="/outer" element={<GetOuterProduct />} />
-        <Route exact path="/detail/:id" element={<ProductDetail />} />
+        <Route exact path="/detail/:id" element={<DetailContainer />} />
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="/buypage" element={<BuyPage />} />
         <Route
