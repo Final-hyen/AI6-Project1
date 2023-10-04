@@ -7,7 +7,7 @@ import {
   Button,
 } from "./productDetailCSS";
 
-const DetailPresentation = ({ product }) => {
+const DetailPresentation = ({ product, onCartClick }) => {
   return (
     <Contain>
       <ProductNav>
@@ -22,7 +22,7 @@ const DetailPresentation = ({ product }) => {
           <span>{product.price}원</span>
           <h2>PRODCUT INFO</h2>
           <div>{product.description}</div>
-          <Button className="cart">Add Cart</Button>
+          <Button className="cart" onClick={onCartClick}>Add Cart</Button>
           <Button className="buy">Buy Now</Button>
         </Product>
       </ProductWrap>
