@@ -3,11 +3,20 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom'
 
 export function MyPageNav(){ 
+  let cartItems = localStorage.getItem('cartItems')
+  cartItems = JSON.parse(cartItems)
+  let Cart = 0;
+  if(!cartItems || cartItems.length === 0){
+    Cart = 0
+  } else{
+    Cart = cartItems.length;
+  }
+
   return (
     <FlexContainer>
       <FlexItem><StyledLink to='/mypage'>MY ACCOUNT</StyledLink></FlexItem>
       <FlexItem>|</FlexItem>
-      <FlexItem><StyledLink to='/cart'>SHOPPING BAG (16)</StyledLink></FlexItem>
+      <FlexItem><StyledLink to='/cart'>SHOPPING BAG ({Cart})</StyledLink></FlexItem>
       <FlexItem>|</FlexItem>
       <FlexItem><StyledLink to='/ordertracking'>ORDER TRACKING</StyledLink></FlexItem>
     </FlexContainer>

@@ -1,8 +1,10 @@
 import React from "react";
+import { MyPageNav } from "./MypageNav";
 
 const UserInfoPresentaion = ({ userinfo }) => {
   return (
     <>
+    <MyPageNav />
       <img src={userinfo?.imageKey} alt="profile-img" />
       <span>
         address = {userinfo?.address} {userinfo?.address2}

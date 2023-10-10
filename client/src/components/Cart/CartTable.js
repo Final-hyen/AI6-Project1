@@ -10,14 +10,15 @@ import axios from "axios";
 
 
 export function CartTable() {
-
+  const localData = localStorage.getItem('cartItems')
+  const cartItems = JSON.parse(localData)
   //카트의 데이터 받아오기(서버연결성공)
   const [products, setProducts] = useState([]);
   
   useEffect(()=>{
     axios.get(' http://localhost:5000/products',{withCredentials : true})
       .then((res) => {
-        console.log(res.data);
+
         setProducts(res.data);
       })
       .catch((err) => {console.log(err.message)})
@@ -115,27 +116,27 @@ export function CartTable() {
 					</thead>
 
           <tbody> 
-            {products?.map((product, idx) =>(
+            {cartItems.map((item, idx) =>(
               <tr key={idx}>
                 <td><input type="checkbox" 
-                          name={`select-${product.id}`}
+                          name={`select-${item.id}`}
                           onChange={(e) => {
-                            handleSingleCheck(e.target.checked, product.id);
+                            handleSingleCheck(e.target.checked, item.id);
                           }}
-                          checked={checkItems.includes(product.id) ? true : false}
+                          checked={checkItems.includes(item.id) ? true : false}
                           
                           />
                 </td>
-								<td><img style={{width: "100px", height: "100px"}} src={product.imgUrl} alt="상품사진" ></img></td>
-                <td> {product.title} </td>   
+								<td><img style={{width: "100px", height: "100px"}} src={item.imgUrl} alt="상품사진" ></img></td>
+                <td> {item.title} </td>   
                 <td>
                   <div> {counter}개 </div>
                   <div>
-                    <button onClick={()=> handleCount("minus", product.id)}> −</button>
-                    <button onClick={()=> handleCount("plus", product.id)}> +</button>
+                    <button onClick={()=> handleCount("minus", item.id)}> −</button>
+                    <button onClick={()=> handleCount("plus", item.id)}> +</button>
                   </div>
                 </td>
-                <td>{product.price * counter}원</td>
+                <td>{item.price * counter}원</td>
               </tr>
             ))}
               <tr>
