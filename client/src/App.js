@@ -7,7 +7,8 @@ import CartPage from "./components/views/CartPage/CartPage";
 import BuyPage from "./components/views/BuyPage/BuyPage";
 import OrderCompletePage from "./components/views/BuyPage/OrderCompletePage";
 import AdminPage from "./components/views/AdminPage/AdminPage";
-import MyPage from "./components/views/MyPage/MyPage";
+//import MyPage from "./components/views/MyPage/MyPage";
+import UserInfoContainer from "./components/Mypage/UserInfoContainer";
 import EditPage from "./components/views/EditPage/EditPage";
 import OrderTrackingPage from "./components/views/MyPage/OrderTrackingPage";
 import DeleteOrderPage from "./components/views/MyPage/DeleteOrderPage";
@@ -43,7 +44,7 @@ function App() {
           path="/ordercompletepage"
           element={<OrderCompletePage />}
         />
-        <Route exact path="/mypage" element={<MyPage />} />
+        <Route exact path="/mypage" element={<UserInfoContainer />} />
         <Route exact path="/admin" element={<AdminPage />} />
         <Route exact path="/edit" element={<EditPage />} />
         <Route exact path="/ordertracking" element={<OrderTrackingPage />} />
