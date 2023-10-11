@@ -3,7 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./components/views/LandingPage/LandingPage";
-import CartPage from "./components/views/CartPage/CartPage";
+//import CartPage from "./components/views/CartPage/CartPage";
+import CartContainer from "./components/Cart/CartContainer";
 import BuyPage from "./components/views/BuyPage/BuyPage";
 import OrderCompletePage from "./components/views/BuyPage/OrderCompletePage";
 import AdminPage from "./components/views/AdminPage/AdminPage";
@@ -37,7 +38,7 @@ function App() {
         <Route exact path="/bottom" element={<BottomProducts />} />
         <Route exact path="/outer" element={<GetOuterProduct />} />
         <Route exact path="/detail/:id" element={<DetailContainer />} />
-        <Route exact path="/cart" element={<CartPage />} />
+        <Route exact path="/cart" element={<CartContainer />} />
         <Route exact path="/buypage" element={<BuyPage />} />
         <Route
           exact
