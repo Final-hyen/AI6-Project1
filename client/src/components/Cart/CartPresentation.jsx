@@ -6,10 +6,11 @@ const CartPresentation = ({
   cartItems,
   totalPrice,
   isChecked,
-  isClickCheckAll,
+  isOneCheck,
   productCount,
   clickPlusHandler,
   clickMinusHandler,
+  isClickOneProductCheck,
 }) => {
   return (
     <>
@@ -22,8 +23,6 @@ const CartPresentation = ({
                 <input
                   id="checkAll"
                   type="checkbox"
-                  onChange={isClickCheckAll}
-                  checked={isChecked}
                 />
               </td>
               <td>Product Img</td>
@@ -48,8 +47,8 @@ const CartPresentation = ({
                       <input
                         id="chk"
                         type="checkbox"
-                        checked={isChecked}
-                        onChange={isClickCheckAll}
+                        checked={isOneCheck[idx]}
+                        onChange={() => isClickOneProductCheck(idx)}
                       />
                     </td>
                     <td>

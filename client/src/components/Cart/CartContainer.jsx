@@ -4,6 +4,7 @@ import CartPresentation from "./CartPresentation";
 const CartContainer = () => {
   const localData = localStorage.getItem("cartItems");
   const cartItems = JSON.parse(localData) || [];
+  const [isOneCheck, setIsOneCheck] = useState(cartItems.map(() => false));
   const [isChecked, setIsChecked] = useState(false);
   const [productCount, setProductCount] = useState(
     Array(cartItems.length).fill(1)
@@ -27,9 +28,14 @@ const CartContainer = () => {
     return totalPrice;
   }
 
-  const isClickCheckAll = () => {
-    setIsChecked(!isChecked);
-  };
+  const isClickOneProductCheck = (index) => {
+    const oneProductCheck = [...isOneCheck];
+    oneProductCheck[index] = !oneProductCheck[index];
+    setIsOneCheck(oneProductCheck)
+
+    const allChecked = oneProductCheck.every((checkbox) => checkbox);
+    setIsChecked(allChecked)
+  }
 
   const clickPlusHandler = (index) => {
     const newCounts = [...productCount];
@@ -49,10 +55,11 @@ const CartContainer = () => {
       cartItems={cartItems}
       totalPrice={totalPrice}
       isChecked={isChecked}
+      isOneCheck={isOneCheck}
       productCount={productCount}
-      isClickCheckAll={isClickCheckAll}
       clickPlusHandler={clickPlusHandler}
       clickMinusHandler={clickMinusHandler}
+      isClickOneProductCheck={isClickOneProductCheck}
     />
   );
 };
