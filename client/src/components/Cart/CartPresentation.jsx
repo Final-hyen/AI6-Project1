@@ -30,6 +30,11 @@ const CartPresentation = ({
             </tr>
           </thead>
           <tbody>
+          {cartItems.length === 0 && (
+            <tr>
+              <td colSpan='5'>There are no products in your shopping cart.</td>
+            </tr>
+          )}
             {cartItems.map((item, idx) => (
               <tr key={idx}>
                 <td>
