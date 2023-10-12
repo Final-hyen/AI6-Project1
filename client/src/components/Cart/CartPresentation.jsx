@@ -10,6 +10,7 @@ const CartPresentation = ({
   productCount,
   clickPlusHandler,
   clickMinusHandler,
+  isAllCheck,
   isClickOneProductCheck,
 }) => {
   return (
@@ -23,6 +24,8 @@ const CartPresentation = ({
                 <input
                   id="checkAll"
                   type="checkbox"
+                  checked={isChecked}
+                  onChange={isAllCheck}
                 />
               </td>
               <td>Product Img</td>

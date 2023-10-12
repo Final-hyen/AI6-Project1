@@ -28,6 +28,13 @@ const CartContainer = () => {
     return totalPrice;
   }
 
+  const isClickAllProductCheck = () => {
+    const allProductCheck = isOneCheck.map((item) => !isChecked);
+    setIsOneCheck(allProductCheck)
+
+    setIsChecked(!isChecked)
+  }
+
   const isClickOneProductCheck = (index) => {
     const oneProductCheck = [...isOneCheck];
     oneProductCheck[index] = !oneProductCheck[index];
@@ -59,6 +66,7 @@ const CartContainer = () => {
       productCount={productCount}
       clickPlusHandler={clickPlusHandler}
       clickMinusHandler={clickMinusHandler}
+      isAllCheck={isClickAllProductCheck}
       isClickOneProductCheck={isClickOneProductCheck}
     />
   );
