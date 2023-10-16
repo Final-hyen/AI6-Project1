@@ -1,0 +1,47 @@
+# workflow name 정의
+name: Front Deployment
+# workflow를 실행시키는 이벤트 정의 (main 브랜치에 push 이벤트가 발생하면 workflow가 실행)
+on:
+  push:
+    branches:
+      -main
+
+jobs:
+  build:
+    name: react build & deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    # 레포지토리에 접근하여 CI서버로 코드를 내려받는 과정
+      - name: checkout Github Action
+        uses: actions/checkout@v3
+      
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Cofigure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_s3_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secret.AWS_s3_SECRET_ACCESS_KEY_ID }}
+          aws-region: ap-northeast-2
+      - name: Upload to s3
+        env:
+          BUCKET_NAME: ${{ secret.AWS_s3_BUCKET_NAME }}
+        run: |
+          aws s3 sync \
+            .build s3://$BUCKET_NAME
+      - name: CloudFront Invalidation
+        env:
+          CLOUD_FRONT_ID: ${{ secret.AWS_s3_CLOUDFRONT_ID }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id $CLOUD_FRONT_ID --paths /*

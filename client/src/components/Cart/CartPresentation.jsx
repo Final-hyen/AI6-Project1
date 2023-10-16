@@ -12,6 +12,7 @@ const CartPresentation = ({
   clickMinusHandler,
   isAllCheck,
   isClickOneProductCheck,
+  clickDeleteButton,
 }) => {
   return (
     <>
@@ -75,7 +76,7 @@ const CartPresentation = ({
             <tr>
               <td></td>
               <td>
-                <button>Delete</button>
+                <button onClick={clickDeleteButton}>Delete</button>
               </td>
               <td></td>
               <td></td>

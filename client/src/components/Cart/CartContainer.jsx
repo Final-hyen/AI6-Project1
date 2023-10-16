@@ -3,7 +3,7 @@ import CartPresentation from "./CartPresentation";
 
 const CartContainer = () => {
   const localData = localStorage.getItem("cartItems");
-  const cartItems = JSON.parse(localData) || [];
+  const [cartItems, setCartItems] = useState(JSON.parse(localData) || []);
   const [isOneCheck, setIsOneCheck] = useState(cartItems.map(() => false));
   const [isChecked, setIsChecked] = useState(false);
   const [productCount, setProductCount] = useState(
@@ -57,6 +57,13 @@ const CartContainer = () => {
     setProductCount(newCounts);
   };
 
+  const clickDeleteButton = () => {
+    alert('It has been deleted.')
+    const updateCartItems = cartItems.filter((item, idx) => !isOneCheck[idx])
+    localStorage.setItem('cartItems', JSON.stringify(updateCartItems))
+    setCartItems(updateCartItems);
+
+  }
   return (
     <CartPresentation
       cartItems={cartItems}
@@ -68,6 +75,7 @@ const CartContainer = () => {
       clickMinusHandler={clickMinusHandler}
       isAllCheck={isClickAllProductCheck}
       isClickOneProductCheck={isClickOneProductCheck}
+      clickDeleteButton={clickDeleteButton}
     />
   );
 };
