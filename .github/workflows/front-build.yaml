@@ -30,14 +30,15 @@ jobs:
       - name: checkout backend
         uses: actions/checkout@v2
         with:
-          repository: AI6-Project1
+          repository: Final-hyen/AI6-Project1
           path: ./AI6-Project1/server
 
       # frontend
       - name: checkout frontend
         uses: actions/checkout@v2
         with:
-          repository: AI6-Project1
+          # repository 형식 : {github ID}/{레포지토리 이름}
+          repository: Final-hyen/AI6-Project1
           path: ./AI6-Project1/client
 
       # build 하기
