@@ -27,8 +27,8 @@ jobs:
 
       # checkout 하기
       # backend
-      - name: checkout backend
-        uses: actions/checkout@v2
+      # - name: checkout backend
+        # uses: actions/checkout@v2
         #with:
          # repository: Final-hyen/AI6-Project1
          # path: server
@@ -48,11 +48,11 @@ jobs:
           npm install
           npm run build
       
-      - name: build backend
-        working-directory: server
-        run: |
-          npm install
-          npm run build
+      # - name: build backend
+        # working-directory: ./server
+        # run: |
+          # npm install
+          # npm run build
 
 
       # s3 배포하기
