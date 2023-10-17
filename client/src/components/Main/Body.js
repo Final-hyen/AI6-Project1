@@ -5,6 +5,13 @@ const ImageSlider = ({ images, address}) => {
   const [curImg, setCurImg] = useState(0);
   const [curAdd, setCurAdd] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(changeImg, 3000);
+    return () => {
+        clearInterval(timer);
+    }
+  });
+
   const changeImg = () => {
     setCurImg((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -13,12 +20,7 @@ const ImageSlider = ({ images, address}) => {
       prevIndex === address.length -1 ? 0 : prevIndex +1
     )
   };
-  useEffect(() => {
-    const timer = setInterval(changeImg, 3000);
-    return () => {
-        clearInterval(timer);
-    }
-  }, []);
+  
 
   return (
     <>
