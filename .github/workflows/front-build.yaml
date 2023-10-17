@@ -36,14 +36,14 @@ jobs:
       # frontend
       - name: checkout frontend
         uses: actions/checkout@v2
-        with:
+        # with:
           # repository 형식 : {github ID}/{레포지토리 이름}
-          repository: Final-hyen/AI6-Project1
-          path: AI6-Project1/client
+          # repository: Final-hyen/AI6-Project1
+          # path: ./client
 
       # build 하기
       - name: build frontend
-        working-directory: AI6-Project1/client
+        working-directory: ./client
         run: |
           npm install
           npm run build
