@@ -39,7 +39,7 @@ jobs:
         with:
           # repository 형식 : {github ID}/{레포지토리 이름}
           repository: Final-hyen/AI6-Project1
-          path: AI6-Project1/client
+          path: client
 
       # build 하기
       - name: build frontend
