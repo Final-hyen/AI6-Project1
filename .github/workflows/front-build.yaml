@@ -43,7 +43,7 @@ jobs:
 
       # build 하기
       - name: build frontend
-        working-directory: AI6-Project1/client
+        working-directory: client
         run: |
           npm install
           npm run build
