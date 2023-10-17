@@ -39,11 +39,11 @@ jobs:
         with:
           # repository 형식 : {github ID}/{레포지토리 이름}
           repository: Final-hyen/AI6-Project1
-          path: ./AI6-Project1/client
+          path: AI6-Project1/client
 
       # build 하기
       - name: build frontend
-        working-directory: ./AI6-Project1/client
+        working-directory: AI6-Project1/client
         run: |
           npm install
           npm run build
