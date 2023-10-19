@@ -6,7 +6,8 @@ import LandingPage from "./components/views/LandingPage/LandingPage";
 //import CartPage from "./components/views/CartPage/CartPage";
 import CartContainer from "./components/Cart/CartContainer";
 import BuyPage from "./components/views/BuyPage/BuyPage";
-import OrderCompletePage from "./components/views/BuyPage/OrderCompletePage";
+//import OrderCompletePage from "./components/OrderComplete/OrderCompleteCSS";
+import CompleteContainer from "./components/OrderComplete/OrderCompleteContainer";
 import AdminPage from "./components/views/AdminPage/AdminPage";
 //import MyPage from "./components/views/MyPage/MyPage";
 import UserInfoContainer from "./components/Mypage/UserInfoContainer";
@@ -41,9 +42,8 @@ function App() {
         <Route exact path="/cart" element={<CartContainer />} />
         <Route exact path="/buypage" element={<BuyPage />} />
         <Route
-          exact
-          path="/ordercompletepage"
-          element={<OrderCompletePage />}
+          exact path="/ordercompletepage"
+          element={<CompleteContainer />}
         />
         <Route exact path="/mypage" element={<UserInfoContainer />} />
         <Route exact path="/admin" element={<AdminPage />} />

@@ -67,8 +67,9 @@ const CartContainer = () => {
     setCartItems(updateCartItems);
   }
 
-  const clickOrderButton = () => {
-    navigate('/ordercompletepage')
+  const clickOrderButton = (e) => {
+    e.preventDefault();
+    navigate('/ordercompletepage');
   }
   return (
     <CartPresentation
