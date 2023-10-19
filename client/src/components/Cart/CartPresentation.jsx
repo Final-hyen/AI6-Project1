@@ -76,7 +76,7 @@ const CartPresentation = ({
             <tr>
               <td></td>
               <td>
-                <button onClick={clickDeleteButton}>Delete</button>
+                <button className="delete" onClick={clickDeleteButton}>Delete</button>
               </td>
               <td></td>
               <td></td>
@@ -84,6 +84,7 @@ const CartPresentation = ({
             </tr>
           </tbody>
         </table>
+        <button className="order">Order</button>
       </Table>
     </>
   );
