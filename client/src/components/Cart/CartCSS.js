@@ -54,7 +54,12 @@ export const Table = styled.div`
     &:hover {
       opacity: 0.7;
       cursor: pointer;
-  }
-  
+    }
+    
+    &:disabled {
+      cursor: auto;
+      opacity: 1.0;
+    }
+
   }
 `;

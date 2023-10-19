@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CartPresentation from "./CartPresentation";
+import { useNavigate } from "react-router-dom";
+import { isCart } from "../../utils/validation";
 
 const CartContainer = () => {
   const localData = localStorage.getItem("cartItems");
@@ -10,6 +12,7 @@ const CartContainer = () => {
     Array(cartItems.length).fill(1)
   );
   let totalPrice;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleBeforeUnload = (event) => {
@@ -62,7 +65,10 @@ const CartContainer = () => {
     const updateCartItems = cartItems.filter((item, idx) => !isOneCheck[idx])
     localStorage.setItem('cartItems', JSON.stringify(updateCartItems))
     setCartItems(updateCartItems);
+  }
 
+  const clickOrderButton = () => {
+    navigate('/ordercompletepage')
   }
   return (
     <CartPresentation
@@ -70,12 +76,14 @@ const CartContainer = () => {
       totalPrice={totalPrice}
       isChecked={isChecked}
       isOneCheck={isOneCheck}
+      isCart={isCart}
       productCount={productCount}
       clickPlusHandler={clickPlusHandler}
       clickMinusHandler={clickMinusHandler}
       isAllCheck={isClickAllProductCheck}
       isClickOneProductCheck={isClickOneProductCheck}
       clickDeleteButton={clickDeleteButton}
+      clickOrderButton={clickOrderButton}
     />
   );
 };

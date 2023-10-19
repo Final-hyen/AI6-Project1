@@ -21,7 +21,6 @@ function OrderTrackingPage() {
 
 
   return (<>
-    <Header/>
     <Div><MyPageNav/></Div>
       <Title>
         <h4>[주문/배송 조회하기]</h4>
