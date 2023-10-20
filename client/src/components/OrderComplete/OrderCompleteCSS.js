@@ -9,6 +9,19 @@ export const Ordercomplete = styled.div`
     margin: 50px;
   }
 
+  button {
+    height: 40px;
+    width: 35%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'intelone-mono-font-family-regular', sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .shopping {
+    margin-right: 40px;
+  }
+
 `
 export const Cont = styled.div`
 	text-align: center;

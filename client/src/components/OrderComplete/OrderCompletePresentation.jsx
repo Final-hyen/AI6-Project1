@@ -10,7 +10,7 @@ const CompletePresentation = ({ clickShoppingButton, clickCheckButton }) => {
         alt="주문완료체크이미지"
       />
       <h1>주문이 완료되었습니다!</h1>
-      <button onClick={clickShoppingButton}>Go Shopping</button>
+      <button className="shopping" onClick={clickShoppingButton}>Go Shopping</button>
       <button onClick={clickCheckButton}>Check Order</button>
     </Ordercomplete>
   );
