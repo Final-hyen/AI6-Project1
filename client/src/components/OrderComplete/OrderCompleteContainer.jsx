@@ -10,7 +10,7 @@ const CompleteContainer = () => {
   };
 
   const clickCheckButton = () => {
-    navigate("/");
+    navigate("/ordertracking");
   };
   return (
     <CompletePresentation

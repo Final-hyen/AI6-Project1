@@ -69,7 +69,7 @@ const CartContainer = () => {
 
   const clickOrderButton = (e) => {
     e.preventDefault();
-    navigate('/ordercompletepage');
+    navigate('/buypage');
   }
   return (
     <CartPresentation
