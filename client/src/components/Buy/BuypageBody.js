@@ -58,11 +58,7 @@ export function BuyPageBody() {
           </tbody>
         </table>
       </Table>
-      <h5 className="UsIf">💳 결제수단</h5>{" "}
-      <p>
-        은행 계좌 <input type="text" />{" "}
-      </p>
-      <h5 className="UsIf">💸 결제정보</h5> <p>199000원</p>
+      <h5 className="UsIf">💸 결제 금액</h5> <p>199000원</p>
       <Letsbuy>
         <Link to="/ordercompletepage">
           <button>결제하기</button>

@@ -14,7 +14,7 @@ const BottomProducts = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  return <ProductPresentation products={bottoms} category="bottom" />;
+  return <ProductPresentation products={bottoms} />;
 };
 
 export default BottomProducts;
