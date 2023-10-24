@@ -3,7 +3,7 @@ import CartPresentation from "./CartPresentation";
 import { useNavigate } from "react-router-dom";
 import { isCart } from "../../utils/validation";
 import { useRecoilState } from "recoil";
-import cartItemAtom from "../../recoil/atom";
+import { cartItemAtom, totalPriceAtom } from "../../recoil/atom";
 
 const CartContainer = () => {
   const localData = localStorage.getItem("cartItems");
@@ -13,7 +13,7 @@ const CartContainer = () => {
   const [productCount, setProductCount] = useState(
     Array(cartItems.length).fill(1)
   );
-  let totalPrice;
+  let [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
   const [items, setItems] = useRecoilState(cartItemAtom)
   const navigate = useNavigate();
 
@@ -28,10 +28,11 @@ const CartContainer = () => {
   }, [totalPrice]);
 
   if (cartItems) {
-    totalPrice = cartItems.reduce(
+    const totalPriceData = cartItems.reduce(
       (a, b) => a + b.price * productCount[cartItems.indexOf(b)],
       0
     );
+    setTotalPrice(totalPriceData)
   } else {
     totalPrice = 0;
   }

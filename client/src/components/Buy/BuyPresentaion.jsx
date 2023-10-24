@@ -2,7 +2,7 @@ import React from "react";
 import { BuyPageBodyContainer, Letsbuy } from "./BuyCSS";
 import { Table } from "../Cart/CartCSS";
 
-const BuyPresentaion = ({ cartItems,setItems }) => {
+const BuyPresentaion = ({ cartItems,setItems, totalPrice }) => {
   return (
     <BuyPageBodyContainer>
       <h3>[Buy Page] 주문결제 페이지</h3>
@@ -33,7 +33,7 @@ const BuyPresentaion = ({ cartItems,setItems }) => {
           </tbody>
         </table>
       </Table>
-      <h5 className="UsIf">💸 결제 금액</h5> <p>totalPrice 원</p>
+      <h5 className="UsIf">💸 결제 금액</h5> <p>{totalPrice} 원</p>
       <Letsbuy>
           <button onClick={setItems}>결제하기</button>
       </Letsbuy>
