@@ -14,7 +14,7 @@ const CartContainer = () => {
     Array(cartItems.length).fill(1)
   );
   let [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
-  const [items, setItems] = useRecoilState(cartItemAtom)
+  const [items, setItems] = useRecoilState(cartItemAtom);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,17 +25,15 @@ const CartContainer = () => {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [totalPrice]);
+  }, [cartItems]);
 
-  if (cartItems) {
+  useEffect(() => {
     const totalPriceData = cartItems.reduce(
-      (a, b) => a + b.price * productCount[cartItems.indexOf(b)],
+      (a, item, idx) => a + item.price * productCount[idx],
       0
     );
-    setTotalPrice(totalPriceData)
-  } else {
-    totalPrice = 0;
-  }
+    setTotalPrice(totalPriceData);
+  }, [cartItems, productCount, setTotalPrice]);
 
   const isClickAllProductCheck = () => {
     const allProductCheck = isOneCheck.map((item) => !isChecked);
@@ -75,32 +73,34 @@ const CartContainer = () => {
 
   const clickOrderButton = (e) => {
     e.preventDefault();
-    const productData = cartItems.map((item,idx) => {
-      return {
-        imgUrl: item.imgUrl,
-        title: item.title,
-        count : productCount[idx],
-        price: item.price
-      }
-    })
-    setItems(productData)
     navigate("/buypage");
+    setItems(
+      cartItems.map((item, idx) => {
+        return {
+          imgUrl: item.imgUrl,
+          title: item.title,
+          count: productCount[idx],
+          price: item.price,
+        };
+      })
+    );
   };
+
   return (
-      <CartPresentation
-        cartItems={cartItems}
-        totalPrice={totalPrice}
-        isChecked={isChecked}
-        isOneCheck={isOneCheck}
-        isCart={isCart}
-        productCount={productCount}
-        clickPlusHandler={clickPlusHandler}
-        clickMinusHandler={clickMinusHandler}
-        isAllCheck={isClickAllProductCheck}
-        isClickOneProductCheck={isClickOneProductCheck}
-        clickDeleteButton={clickDeleteButton}
-        clickOrderButton={clickOrderButton}
-      />
+    <CartPresentation
+      cartItems={cartItems}
+      totalPrice={totalPrice}
+      isChecked={isChecked}
+      isOneCheck={isOneCheck}
+      isCart={isCart}
+      productCount={productCount}
+      clickPlusHandler={clickPlusHandler}
+      clickMinusHandler={clickMinusHandler}
+      isAllCheck={isClickAllProductCheck}
+      isClickOneProductCheck={isClickOneProductCheck}
+      clickDeleteButton={clickDeleteButton}
+      clickOrderButton={clickOrderButton}
+    />
   );
 };
 

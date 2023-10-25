@@ -1,7 +1,10 @@
 import { atom } from "recoil";
 import { recoilPersist } from 'recoil-persist'
 
-const { persisAtom } = recoilPersist()
+const { persistAtom } = recoilPersist({
+    key: "cartItems",
+    storage: localStorage
+})
 
 export const cartItemAtom = atom({
     key: 'cartItems',
@@ -11,11 +14,10 @@ export const cartItemAtom = atom({
         count: 1,
         price : 1,
     },
-    effects_UNSTABLE: [persisAtom]
+    effects_UNSTABLE: [persistAtom]
 })
 
 export const totalPriceAtom = atom({
     key: 'totalprice',
     default: 0,
-    effects_UNSTABLE: [persisAtom]
 })
