@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { Table } from "../Cart/CartCSS";
 
 export function BuyPageBody() {
   //체크된파일들
+  const cartItems = JSON.parse(localStorage.getItem('cartItems'))
   const [checkItems, setCheckItems] = useState([]);
   useEffect(() => {
     axios.get("/data/checkItems.json").then((data) => {
@@ -36,24 +38,27 @@ export function BuyPageBody() {
         {userinfo.phoneNumber} / {userinfo.address} {userinfo.address2}
       </div>
       <h5 className="UsIf">📦 배송상품정보 </h5>
-      {checkItems?.map((checkItems, key) => (
-        <div key={key}>
-          <div>
-            {" "}
-            <img
-              style={{ width: "50px", height: "50px" }}
-              src={checkItems.image}
-              alt="체크된주문사진"
-            />{" "}
-            {checkItems.title}({checkItems.price}원) : {checkItems.count}개
-          </div>
-        </div>
-      ))}
-      <h5 className="UsIf">💳 결제수단</h5>{" "}
-      <p>
-        은행 계좌 <input type="text" />{" "}
-      </p>
-      <h5 className="UsIf">💸 결제정보</h5> <p>199000원</p>
+      <Table>
+        <table>
+          <thead>
+            <td>Product Img</td>
+            <td>Product Name</td>
+            <td>Count</td>
+            <td>Price</td>
+          </thead>
+          <tbody>
+            {cartItems.map((item, idx) => (
+              <tr key={idx}>
+                <td><img src={item.imgUrl} alt="제품 사진" /></td>
+                <td>{item.title}</td>
+                <td>Count</td>
+                <td>Price</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Table>
+      <h5 className="UsIf">💸 결제 금액</h5> <p>199000원</p>
       <Letsbuy>
         <Link to="/ordercompletepage">
           <button>결제하기</button>

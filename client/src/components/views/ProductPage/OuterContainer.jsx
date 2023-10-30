@@ -14,7 +14,7 @@ const OuterProduct = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  return <ProductPresentation products={outers} category="outer" />;
+  return <ProductPresentation products={outers} />;
 };
 
 export default OuterProduct;

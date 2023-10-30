@@ -1,7 +1,7 @@
 import React from "react";
 import { Contain, Figure, Grid, Img } from "./ProductPageCSS";
 
-const ProductPresentation = ({ products, category }) => {
+const ProductPresentation = ({ products }) => {
   return (
     <Contain>
       <Grid>

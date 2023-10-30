@@ -8,11 +8,13 @@ const CartPresentation = ({
   isChecked,
   isOneCheck,
   productCount,
+  isCart,
   clickPlusHandler,
   clickMinusHandler,
   isAllCheck,
   isClickOneProductCheck,
   clickDeleteButton,
+  clickOrderButton,
 }) => {
   return (
     <>
@@ -76,7 +78,7 @@ const CartPresentation = ({
             <tr>
               <td></td>
               <td>
-                <button onClick={clickDeleteButton}>Delete</button>
+                <button className="delete" onClick={clickDeleteButton}>Delete</button>
               </td>
               <td></td>
               <td></td>
@@ -84,6 +86,7 @@ const CartPresentation = ({
             </tr>
           </tbody>
         </table>
+        <button className="order" onClick={clickOrderButton} disabled={!isCart(cartItems)}>Order</button>
       </Table>
     </>
   );

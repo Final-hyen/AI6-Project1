@@ -1,14 +1,13 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 
 import LandingPage from "./components/views/LandingPage/LandingPage";
-//import CartPage from "./components/views/CartPage/CartPage";
 import CartContainer from "./components/Cart/CartContainer";
-import BuyPage from "./components/views/BuyPage/BuyPage";
-import OrderCompletePage from "./components/views/BuyPage/OrderCompletePage";
+import BuyContainer from "./components/Buy/BuyContainer";
+import CompleteContainer from "./components/OrderComplete/OrderCompleteContainer";
 import AdminPage from "./components/views/AdminPage/AdminPage";
-//import MyPage from "./components/views/MyPage/MyPage";
 import UserInfoContainer from "./components/Mypage/UserInfoContainer";
 import EditPage from "./components/views/EditPage/EditPage";
 import OrderTrackingPage from "./components/views/MyPage/OrderTrackingPage";
@@ -16,7 +15,6 @@ import DeleteOrderPage from "./components/views/MyPage/DeleteOrderPage";
 import Header from "./components/Main/MainHeader";
 import Footer from "./components/Footer/Footer";
 import LoginContainer from "./components/Login/LoginContainer";
-//import ProductDetail from "./components/Products/productDetail";
 import PostProduct from "./components/Admin/ProductPost.jsx";
 import GetOuterProduct from "./components/views/ProductPage/OuterContainer";
 import TopProducts from "./components/views/ProductPage/TopContainer";
@@ -28,6 +26,7 @@ import DetailContainer from "./components/Products/DetailContainer";
 
 function App() {
   return (
+    <RecoilRoot>
     <Router>
       <Header />
       <Routes>
@@ -39,11 +38,10 @@ function App() {
         <Route exact path="/outer" element={<GetOuterProduct />} />
         <Route exact path="/detail/:id" element={<DetailContainer />} />
         <Route exact path="/cart" element={<CartContainer />} />
-        <Route exact path="/buypage" element={<BuyPage />} />
+        <Route exact path="/buypage" element={<BuyContainer />} />
         <Route
-          exact
-          path="/ordercompletepage"
-          element={<OrderCompletePage />}
+          exact path="/ordercompletepage"
+          element={<CompleteContainer />}
         />
         <Route exact path="/mypage" element={<UserInfoContainer />} />
         <Route exact path="/admin" element={<AdminPage />} />
@@ -56,6 +54,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </RecoilRoot>
   );
 }
 

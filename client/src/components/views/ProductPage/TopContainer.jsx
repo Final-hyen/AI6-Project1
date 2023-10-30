@@ -14,7 +14,7 @@ const TopProducts = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  return <ProductPresentation products={tops} category="top" />;
+  return <ProductPresentation products={tops} />;
 };
 
 export default TopProducts;
