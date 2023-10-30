@@ -13,7 +13,7 @@ const CartContainer = () => {
   const [productCount, setProductCount] = useState(
     Array(cartItems.length).fill(1)
   );
-  let [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
+  const [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
   const [items, setItems] = useRecoilState(cartItemAtom);
   const navigate = useNavigate();
 
