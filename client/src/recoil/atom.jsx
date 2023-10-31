@@ -1,14 +1,16 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
+const localData = JSON.parse(localStorage.getItem('cartItems'));
+
 const { persistAtom } = recoilPersist({
   key: "cartItemsPersist",
   storage: localStorage,
 });
 
 export const cartItemAtom = atom({
-  key: "cartItems",
-  default: [],
+  key: "Items",
+  default: [localData],
   effects_UNSTABLE: [persistAtom]
 });
 
