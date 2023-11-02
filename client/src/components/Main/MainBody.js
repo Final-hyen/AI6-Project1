@@ -24,10 +24,9 @@ const Body = () => {
 export default Body; 
 
 const Contain = styled.div`
-height: 66vh;
-
 margin-top: 3em;
 
 display: flex;
 justify-content: center;
+
 `

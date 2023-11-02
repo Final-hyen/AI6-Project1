@@ -32,6 +32,6 @@ const ImageSlider = ({ images, address}) => {
 export default ImageSlider;
 
 const SlideImg = styled.img`
-    width: 80em;
-    height: 40em;
+    width: 1280px;
+    height: 640px;
 `

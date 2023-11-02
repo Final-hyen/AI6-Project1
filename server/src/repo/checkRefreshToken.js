@@ -7,7 +7,7 @@ module.exports= async function checkRefreshToken (user_id,RT){
         await jwt.verify(RT,JWT_TOKEN_KEY)
 
         const token = await Token.findOne({user_id:user_id})
-        
+        console.log('token1', token);
         //토큰이 null(로그아웃되었다면)이라면 false를 반환함
         if (token.refresh_token===null) {
             return false

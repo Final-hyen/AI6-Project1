@@ -6,14 +6,11 @@ import { useRecoilState } from "recoil";
 import { cartItemAtom, totalPriceAtom } from "../../recoil/atom";
 
 const CartContainer = () => {
-  //const localData = localStorage.getItem("cartItems");
-  //const [cartItems, setCartItems] = useState(JSON.parse(localData) || []);
   const [items, setItems] = useRecoilState(cartItemAtom);
+  console.log(items);
   const [isOneCheck, setIsOneCheck] = useState(items.map(() => false));
   const [isChecked, setIsChecked] = useState(false);
-  const [productCount, setProductCount] = useState(
-    Array(items.length).fill(1)
-  );
+  const [productCount, setProductCount] = useState(Array(items.length).fill(1));
   const [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
   const navigate = useNavigate();
 
@@ -64,11 +61,15 @@ const CartContainer = () => {
     setProductCount(newCounts);
   };
 
-  const clickDeleteButton = () => {
+  const clickDeleteButton = (idx) => {
     alert("It has been deleted.");
-    const updateCartItems = items.filter((item, idx) => !isOneCheck[idx]);
-    localStorage.setItem("cartItems", JSON.stringify(updateCartItems));
-    items(updateCartItems);
+    const updatedIsOneCheck = [...isOneCheck];
+    updatedIsOneCheck[idx] = false;
+    const updateCartItems = items.filter(
+      (item, index) => !updatedIsOneCheck[index]
+    );
+    setItems(updateCartItems);
+    setIsOneCheck(updatedIsOneCheck);
   };
 
   const clickOrderButton = (e) => {
