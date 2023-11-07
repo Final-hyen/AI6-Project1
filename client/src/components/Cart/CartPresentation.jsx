@@ -23,18 +23,18 @@ const CartPresentation = ({
         <table>
           <thead>
             <tr>
-              <td>
+              <th>
                 <input
                   id="checkAll"
                   type="checkbox"
                   checked={isChecked}
                   onChange={isAllCheck}
                 />
-              </td>
-              <td>Product Img</td>
-              <td>Product Name</td>
-              <td>Count</td>
-              <td>Price</td>
+              </th>
+              <th>Product Img</th>
+              <th>Product Name</th>
+              <th>Count</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody>

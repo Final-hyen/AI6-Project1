@@ -24,7 +24,12 @@ const ImageSlider = ({ images, address}) => {
 
   return (
     <>
-        <a href={address[curAdd]}><SlideImg src={images[curImg]} alt='Slider' /></a>
+        <a href={address[curAdd]}>
+          <picture>
+            <source srcSet={images[curImg]} type="image/webp"/>
+            <SlideImg src={images[curImg]} alt='Slider' />
+          </picture>
+        </a>
     </>
   )
 };
