@@ -16,11 +16,11 @@ export default Footer;
 const Div = styled.div `
   width : 100%;
 
-  color : #D9D9D9;
+  color : #3D3D3D;
   text-align : right;
   font-size : 1.1em;
   font-weight:700;
   margin-top: 2em;
   
-  background: #a9a9a9;
+  background: #D3D3D3;
 `

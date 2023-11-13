@@ -15,7 +15,10 @@ const DetailPresentation = ({ product, onCartClick }) => {
         <a href={`/${product.category}`}> {product.category}</a>
       </ProductNav>
       <ProductWrap>
-        <img src={product.imgUrl} alt="상품 이미지" />
+        <picture>
+          <source srcSet={product.imgUrl} type="image/webp"/>
+          <img src={product.imgUrl} alt="상품 이미지" loading="eager" />
+        </picture>
         <Product>
           <h1>{product.title}</h1>
           <div>{product.company}</div>

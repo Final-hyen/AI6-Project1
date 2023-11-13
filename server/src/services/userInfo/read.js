@@ -3,6 +3,7 @@ const findOneUserInfo = require('../../repo/findOneUserInfo');
 const read = async (req, res)=>{
       try {
         const user = req.user
+        console.log('user : ', user)
           const userinfo = await findOneUserInfo(user);
           return res.status(200).send({message:"SUCCESS READ PROFILE",
         userinfo:userinfo});

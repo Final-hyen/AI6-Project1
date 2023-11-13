@@ -6,15 +6,12 @@ import { useRecoilState } from "recoil";
 import { cartItemAtom, totalPriceAtom } from "../../recoil/atom";
 
 const CartContainer = () => {
-  const localData = localStorage.getItem("cartItems");
-  const [cartItems, setCartItems] = useState(JSON.parse(localData) || []);
-  const [isOneCheck, setIsOneCheck] = useState(cartItems.map(() => false));
-  const [isChecked, setIsChecked] = useState(false);
-  const [productCount, setProductCount] = useState(
-    Array(cartItems.length).fill(1)
-  );
-  const [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
   const [items, setItems] = useRecoilState(cartItemAtom);
+  console.log(items);
+  const [isOneCheck, setIsOneCheck] = useState(items.map(() => false));
+  const [isChecked, setIsChecked] = useState(false);
+  const [productCount, setProductCount] = useState(Array(items.length).fill(1));
+  const [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,15 +22,15 @@ const CartContainer = () => {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [cartItems]);
+  }, [items]);
 
   useEffect(() => {
-    const totalPriceData = cartItems.reduce(
+    const totalPriceData = items.reduce(
       (a, item, idx) => a + item.price * productCount[idx],
       0
     );
     setTotalPrice(totalPriceData);
-  }, [cartItems, productCount, setTotalPrice]);
+  }, [items, productCount, setTotalPrice]);
 
   const isClickAllProductCheck = () => {
     const allProductCheck = isOneCheck.map((item) => !isChecked);
@@ -64,18 +61,22 @@ const CartContainer = () => {
     setProductCount(newCounts);
   };
 
-  const clickDeleteButton = () => {
+  const clickDeleteButton = (idx) => {
     alert("It has been deleted.");
-    const updateCartItems = cartItems.filter((item, idx) => !isOneCheck[idx]);
-    localStorage.setItem("cartItems", JSON.stringify(updateCartItems));
-    setCartItems(updateCartItems);
+    const updatedIsOneCheck = [...isOneCheck];
+    updatedIsOneCheck[idx] = false;
+    const updateCartItems = items.filter(
+      (item, index) => !updatedIsOneCheck[index]
+    );
+    setItems(updateCartItems);
+    setIsOneCheck(updatedIsOneCheck);
   };
 
   const clickOrderButton = (e) => {
     e.preventDefault();
     navigate("/buypage");
     setItems(
-      cartItems.map((item, idx) => {
+      items.map((item, idx) => {
         return {
           imgUrl: item.imgUrl,
           title: item.title,
@@ -88,7 +89,7 @@ const CartContainer = () => {
 
   return (
     <CartPresentation
-      cartItems={cartItems}
+      cartItems={items}
       totalPrice={totalPrice}
       isChecked={isChecked}
       isOneCheck={isOneCheck}

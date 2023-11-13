@@ -24,7 +24,12 @@ const ImageSlider = ({ images, address}) => {
 
   return (
     <>
-        <a href={address[curAdd]}><SlideImg src={images[curImg]} alt='Slider' /></a>
+        <a href={address[curAdd]}>
+          <picture>
+            <source srcSet={images[curImg]} type="image/webp"/>
+            <SlideImg src={images[curImg]} alt='Slider' />
+          </picture>
+        </a>
     </>
   )
 };
@@ -32,6 +37,6 @@ const ImageSlider = ({ images, address}) => {
 export default ImageSlider;
 
 const SlideImg = styled.img`
-    width: 80em;
-    height: 40em;
+    width: 1280px;
+    height: 640px;
 `

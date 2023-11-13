@@ -7,7 +7,7 @@ const { persistAtom } = recoilPersist({
 });
 
 export const cartItemAtom = atom({
-  key: "cartItems",
+  key: "Items",
   default: [],
   effects_UNSTABLE: [persistAtom]
 });
@@ -15,5 +15,4 @@ export const cartItemAtom = atom({
 export const totalPriceAtom = atom({
   key: "totalprice",
   default: 0,
-  effects_UNSTABLE: [persistAtom]
 });
