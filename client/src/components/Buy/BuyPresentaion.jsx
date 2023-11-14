@@ -2,7 +2,7 @@ import React from "react";
 import { BuyPageBodyContainer, Letsbuy } from "./BuyCSS";
 import { Table } from "../Cart/CartCSS";
 
-const BuyPresentaion = ({ items,setItems, totalPrice }) => {
+const BuyPresentaion = ({ items,setItems, totalPrice}) => {
   return (
     <BuyPageBodyContainer>
       <h3>[Buy Page] 주문결제 페이지</h3>
@@ -20,7 +20,7 @@ const BuyPresentaion = ({ items,setItems, totalPrice }) => {
             <td>Price</td>
           </thead>
           <tbody>
-            {items.map((item, idx) => (
+            {items.length > 1 ? (items.map((item, idx) => (
               <tr key={idx}>
                 <td>
                   <img src={item.imgUrl} alt="제품 사진" />
@@ -29,7 +29,17 @@ const BuyPresentaion = ({ items,setItems, totalPrice }) => {
                 <td>{item.count}</td>
                 <td>{item.price * item.count}</td>
               </tr>
-            ))}
+            ))
+            ): (
+              <tr>
+                <td>
+                  <img src={items.imgUrl} alt="product Img"/>
+                </td>
+                <td>{items.title}</td>
+                <td>1</td>
+                <td>{items.price}</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </Table>

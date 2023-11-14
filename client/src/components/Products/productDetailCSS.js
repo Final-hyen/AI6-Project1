@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Contain = styled.div`
-    margin : auto 20%;
+    margin : auto 10%;
 
 `
 export const ProductNav = styled.div`
