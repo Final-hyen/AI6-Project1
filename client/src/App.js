@@ -23,7 +23,7 @@ import AdminGetProducts from "./components/Admin/ProductContainer";
 import JoinContainer from "./components/Join/joinContainer.jsx";
 import EditContainer from "./components/Edit/ProductEditContainer";
 import DetailContainer from "./components/Products/DetailContainer";
-
+import OrderTrackingContain from "./components/views/MyPage/OrderTrackingContain.jsx";
 function App() {
   return (
     <RecoilRoot>
@@ -46,7 +46,7 @@ function App() {
         <Route exact path="/mypage" element={<UserInfoContainer />} />
         <Route exact path="/admin" element={<AdminPage />} />
         <Route exact path="/edit" element={<EditPage />} />
-        <Route exact path="/ordertracking" element={<OrderTrackingPage />} />
+        <Route exact path="/ordertracking" element={<OrderTrackingContain />} />
         <Route exact path="/productpost" element={<PostProduct />} />
         <Route exact path="/deleteorder" element={<DeleteOrderPage />} />
         <Route exact path="/product" element={<AdminGetProducts />} />
