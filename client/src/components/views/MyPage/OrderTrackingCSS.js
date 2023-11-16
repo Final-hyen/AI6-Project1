@@ -45,6 +45,13 @@ padding: 80px;
  & div {
   margin-top: 10px;
  }
+ & video {
+  width: 250px;
+ }
+ & img {
+  width: 180px;
+  margin-top: 30px;
+ }
 //  background-color: blue;
 `
 
