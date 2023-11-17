@@ -19,13 +19,13 @@ const OrderTrackingPresentation = () => {
                     </div>
                 </Status>
                 <Status>
-                    <video autoplay loop>
+                    <video autoPlay muted loop>
                         <source src="https://cdn-icons-mp4.flaticon.com/512/10352/10352846.mp4" type="video/mp4" />
                     </video>
                     배송 중
                 </Status>
                 <Status>
-                    <video autoplay loop>
+                    <video autoPlay muted loop>
                         <source src="https://cdn-icons-mp4.flaticon.com/512/9820/9820045.mp4" type="video/mp4" />
                     </video>
                     배송 완료
