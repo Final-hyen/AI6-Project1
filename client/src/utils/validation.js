@@ -11,3 +11,7 @@ export const isCart = (cartItems) => {
         return false
     }
 }
+
+export const isInfo = (address, address2, phoneNumber) => {
+    return (address && address2 && phoneNumber)
+;}

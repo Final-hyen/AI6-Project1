@@ -15,6 +15,10 @@ export const InputBox = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+    & span {
+        font-size: 18px;
+        margin-bottom : 10px;
+    }
 `;
 
 export const Input = styled.input`
