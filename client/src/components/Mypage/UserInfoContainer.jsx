@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import UserInfoPresentaion from "./UserInfoPresentation";
 import { axiosClient } from "../../utils/axiosClient";
+import { useNavigate } from "react-router-dom";
 
 const UserInfoContainer = () => {
   const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
@@ -27,7 +29,13 @@ const UserInfoContainer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <UserInfoPresentaion userinfo={userInfo} />;
+  const onEditButton = (e) => {
+    e.preventDefault();
+    navigate("/edit");
+  };
+  return (
+    <UserInfoPresentaion userinfo={userInfo} onEditButton={onEditButton} />
+  );
 };
 
 export default UserInfoContainer;
