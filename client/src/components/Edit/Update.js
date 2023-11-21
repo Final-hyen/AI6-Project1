@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+//import Form from "react-bootstrap/Form";
+//import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { FloatingLabel } from "react-bootstrap";
+//import { FloatingLabel } from "react-bootstrap";
 import axios from "axios";
 
 const Update = () => {
@@ -37,7 +37,7 @@ const Update = () => {
 
   return (
     <Wrap>
-      <FloatingLabel
+      {/* <FloatingLabel
         controlId="floatingAddress"
         label="도로명 주소"
         className="mb-3"
@@ -65,7 +65,7 @@ const Update = () => {
         <Button type="submit" onClick={EditHandler}>
           EDIT
         </Button>
-      </ButtonWrap>
+      </ButtonWrap> */}
     </Wrap>
   );
 };

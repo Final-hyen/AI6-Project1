@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DetailPresentation from "./DetailPresentation";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosClient } from "../../utils/axiosClient";
 import { useSetRecoilState } from "recoil";
 import { cartItemAtom } from "../../recoil/atom";
@@ -10,6 +10,7 @@ const DetailContainer = () => {
   const { id } = useParams();
   //const CartProduct = JSON.parse(localStorage.getItem('cartItems')) || [];
   const setCartItems = useSetRecoilState(cartItemAtom);
+  const navigate = useNavigate()
 
   const onCartClick = () => {
     alert("Add to cart completed");
@@ -36,7 +37,19 @@ const DetailContainer = () => {
       .catch((e) => console.log(e));
   }, [id]);
 
-  return <DetailPresentation product={product} onCartClick={onCartClick} />;
+  const onBuyClick =  () => {
+    alert("Go to BuyPage");
+    const itemsData = {
+      title: product.title,
+      imgUrl: product.imgUrl,
+      price: product.price,
+    };
+    localStorage.setItem('buyItem', JSON.stringify(itemsData));
+    localStorage.setItem('href', window.location.href);
+    navigate('/buypage')
+  }
+
+  return <DetailPresentation product={product} onCartClick={onCartClick} onBuyClick={onBuyClick} />;
 };
 
 export default DetailContainer;

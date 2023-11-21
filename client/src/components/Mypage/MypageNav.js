@@ -6,10 +6,11 @@ export function MyPageNav(){
   let cartItems = localStorage.getItem('cartItems')
   cartItems = JSON.parse(cartItems)
   let Cart = 0;
-  if(!cartItems || cartItems.length === 0){
+  
+  if(!cartItems || cartItems.Items.length === 0){
     Cart = 0
   } else{
-    Cart = cartItems.length;
+    Cart = cartItems.Items.length;
   }
 
   return (
@@ -29,7 +30,7 @@ const FlexContainer = styled.div`
   justify-content: left;
   align-items :center;
 
-  width : 99vw;
+  width : 100%;
 
   border-bottom : 2px solid #BAB5B5;
 `;

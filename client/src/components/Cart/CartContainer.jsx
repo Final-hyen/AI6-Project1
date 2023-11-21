@@ -7,7 +7,6 @@ import { cartItemAtom, totalPriceAtom } from "../../recoil/atom";
 
 const CartContainer = () => {
   const [items, setItems] = useRecoilState(cartItemAtom);
-  console.log(items);
   const [isOneCheck, setIsOneCheck] = useState(items.map(() => false));
   const [isChecked, setIsChecked] = useState(false);
   const [productCount, setProductCount] = useState(Array(items.length).fill(1));
@@ -74,6 +73,7 @@ const CartContainer = () => {
 
   const clickOrderButton = (e) => {
     e.preventDefault();
+    localStorage.setItem('href', window.location.href);
     navigate("/buypage");
     setItems(
       items.map((item, idx) => {
