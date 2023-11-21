@@ -7,7 +7,7 @@ export function MyPageNav(){
   cartItems = JSON.parse(cartItems)
   let Cart = 0;
   
-  if(!cartItems || cartItems.Items.length === 0){
+  if(!cartItems || !cartItems.Items){
     Cart = 0
   } else{
     Cart = cartItems.Items.length;
