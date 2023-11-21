@@ -6,7 +6,7 @@ export const Contain = styled.div`
 export const Grid = styled.div`
     width: 100vw;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     @media screen and (max-width: 1280px) {
         gap: 5px;

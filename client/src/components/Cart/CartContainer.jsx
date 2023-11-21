@@ -9,7 +9,8 @@ const CartContainer = () => {
   const [items, setItems] = useRecoilState(cartItemAtom);
   const [isOneCheck, setIsOneCheck] = useState(items.map(() => false));
   const [isChecked, setIsChecked] = useState(false);
-  const [productCount, setProductCount] = useState(Array(items.length).fill(1));
+  const 카운트조건 = items ? Array(items.length).fill(1) : null;
+  const [productCount, setProductCount] = useState(카운트조건);
   const [totalPrice, setTotalPrice] = useRecoilState(totalPriceAtom);
   const navigate = useNavigate();
 
@@ -24,11 +25,13 @@ const CartContainer = () => {
   }, [items]);
 
   useEffect(() => {
-    const totalPriceData = items.reduce(
-      (a, item, idx) => a + item.price * productCount[idx],
-      0
-    );
-    setTotalPrice(totalPriceData);
+    if(items){
+      const totalPriceData = items.reduce(
+        (a, item, idx) => a + item.price * productCount[idx],
+        0
+      );
+      setTotalPrice(totalPriceData);
+    }
   }, [items, productCount, setTotalPrice]);
 
   const isClickAllProductCheck = () => {

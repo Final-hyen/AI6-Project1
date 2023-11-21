@@ -9,6 +9,10 @@ export const Form = styled.form`
     width: 100%;
     height: 40em;
     border-radius: 4px;
+    & span {
+        margin-bottom: 10px;
+        font-size: 32px;
+    }
 `;
 
 export const InputBox = styled.div`

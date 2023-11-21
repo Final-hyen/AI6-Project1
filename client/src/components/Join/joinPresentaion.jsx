@@ -10,6 +10,7 @@ function JoinPresentation({
 }) {
   return (
     <Form onSubmit={handleSubmit}>
+      <span>Join Page</span>
       <InputBox>
         <Input
           id="email"
