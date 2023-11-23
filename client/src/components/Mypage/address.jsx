@@ -1,6 +1,6 @@
 import React from "react";
 import DaumPostcode from "react-daum-postcode";
-import { Div } from './PopUp';
+import { Div, ModalBackdrop, ModalContain, ModalView } from './PopUp';
 
 const AddressPopup = ( props ) => {
   const complete = (data) => {
@@ -17,20 +17,30 @@ const AddressPopup = ( props ) => {
       }
       fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
     }
-    console.log(data);
-    console.log(fullAddress);
-    console.log(data.zonecode);
-    
+
     props.setData({
         ...props.data,
         address: fullAddress
     });
+    props.setIsPopup(false)
   };
   return (
-    <Div>
-      <DaumPostcode className="postmodal" autoClose onComplete={complete}/>
-    </Div>
-  );
+    <ModalContain>
+      <ModalBackdrop>
+        <ModalView>
+          <DaumPostcode className="postmodal" autoClose onComplete={complete}/>
+        </ModalView>
+      </ModalBackdrop>
+    </ModalContain>
+  )
 };
 
 export default AddressPopup;
+
+
+
+// return (
+//   <Div>
+//     <DaumPostcode className="postmodal" autoClose onComplete={complete}/>
+//   </Div>
+// );

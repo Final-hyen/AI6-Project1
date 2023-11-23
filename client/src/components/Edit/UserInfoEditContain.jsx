@@ -27,6 +27,7 @@ const UserinfoEditContain = () => {
       validation={isInfo}
       onPopupButton={onPopButton}
       isPopup={isPopup}
+      setIsPopup={setIsPopup}
       enroll={enroll}
       setEnroll={setEnroll}
     />
