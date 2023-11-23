@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import UserinfoEditPresent from "./UserInfoEditPresent";
 import { useInfoForm } from "../../hooks/useInfoFrom";
 import { isInfo } from "../../utils/validation";
+//import { useNavigate } from "react-router-dom";
 
 const UserinfoEditContain = () => {
-    const {
-        infoData: { address, address2, phoneNumber },
-        handleChange,
-    } = useInfoForm();
+  const [enroll, setEnroll] = useState({addressData: ''});
+  const [isPopup, setIsPopup] = useState(false);
+  //const navigate = useNavigate();
+  const {
+    infoData: { address, address2, phoneNumber },
+    handleChange,
+  } = useInfoForm();
 
-    
-    return <UserinfoEditPresent address={address} address2={address2} phoneNumber={phoneNumber} handleChange={handleChange} validation={isInfo}/>
-}
+  const onPopButton = (e) => {
+    e.preventDefault();
+    setIsPopup(!isPopup);
+  };
 
-export default UserinfoEditContain
+  return (
+    <UserinfoEditPresent
+      address={address}
+      address2={address2}
+      phoneNumber={phoneNumber}
+      handleChange={handleChange}
+      validation={isInfo}
+      onPopupButton={onPopButton}
+      isPopup={isPopup}
+      enroll={enroll}
+      setEnroll={setEnroll}
+    />
+  );
+};
+
+export default UserinfoEditContain;

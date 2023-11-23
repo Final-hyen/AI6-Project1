@@ -25,6 +25,7 @@ import JoinContainer from "./components/Join/joinContainer.jsx";
 import EditContainer from "./components/Edit/ProductEditContainer";
 import DetailContainer from "./components/Products/DetailContainer";
 import OrderTrackingContain from "./components/views/MyPage/OrderTrackingContain.jsx";
+import AddressPopup from "./components/Mypage/address.jsx";
 function App() {
   return (
     <RecoilRoot>
@@ -52,6 +53,7 @@ function App() {
         <Route exact path="/deleteorder" element={<DeleteOrderPage />} />
         <Route exact path="/product" element={<AdminGetProducts />} />
         <Route exact path="/productedit/:id" element={<EditContainer />} />
+        <Route exact path="/popup" element={<AddressPopup />}/>
       </Routes>
       <Footer />
     </Router>

@@ -34,16 +34,8 @@ const UserInfoContainer = () => {
     navigate("/edit");
   };
   return (
-    <UserInfoPresentaion userinfo={userInfo} onEditButton={onEditButton} />
+    <UserInfoPresentaion userinfo={userInfo} onEditButton={onEditButton}/>
   );
 };
 
 export default UserInfoContainer;
-// useEffect(() => {
-//   axiosClient
-//     .get(`/userinfo`)
-//     .then((res) => {
-//       setUserInfo(res.data.userinfo);
-//     })
-//     .catch((e) => console.log(e));
-// },[]);

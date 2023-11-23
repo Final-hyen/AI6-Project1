@@ -1,22 +1,29 @@
 import React from "react";
 import { Form, InputBox, Input, Button } from "../Auth/AuthForm.style";
 import { MyPageNav } from "../Mypage/MypageNav";
+import AddressPopup from "../Mypage/address";
 const UserinfoEditPresent = ({
   address,
   address2,
   phoneNumber,
   handleChange,
-  validation
+  validation,
+  onPopupButton,
+  isPopup,
+  enroll,
+  setEnroll,
 }) => {
   return (
     <>
       <MyPageNav />
       <Form>
         <InputBox>
-          <span>Address</span>
+          <span>Address</span><button onClick={onPopupButton}>주소 찾기</button>
+          {isPopup && <AddressPopup data={enroll} setData={setEnroll}></AddressPopup>}
           <Input
             id="address"
             onChange={handleChange}
+            value={enroll.address}
             type="text"
           />
           <span>Detailed address</span>

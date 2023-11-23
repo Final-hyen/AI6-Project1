@@ -33,7 +33,6 @@ export const Input = styled.input`
     border-radius: 10px;
 
     margin-bottom: 1rem;
-
 `;
 
 export const Button = styled.button`
