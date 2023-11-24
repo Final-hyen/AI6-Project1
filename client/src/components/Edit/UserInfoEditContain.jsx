@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UserinfoEditPresent from "./UserInfoEditPresent";
 import { useInfoForm } from "../../hooks/useInfoFrom";
 import { isInfo } from "../../utils/validation";
+import { axiosClient } from "../../utils/axiosClient";
 //import { useNavigate } from "react-router-dom";
 
 const UserinfoEditContain = () => {
@@ -18,6 +19,15 @@ const UserinfoEditContain = () => {
     setIsPopup(!isPopup);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axiosClient.put('/userinfo', {address, address2, phoneNumber})
+    } catch (err) {
+      alert(err)
+    }
+  }
+  
   return (
     <UserinfoEditPresent
       address={address}
@@ -30,6 +40,7 @@ const UserinfoEditContain = () => {
       setIsPopup={setIsPopup}
       enroll={enroll}
       setEnroll={setEnroll}
+      handleSubmit={handleSubmit}
     />
   );
 };

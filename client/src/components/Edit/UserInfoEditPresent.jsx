@@ -13,11 +13,12 @@ const UserinfoEditPresent = ({
   setIsPopup,
   enroll,
   setEnroll,
+  handleSubmit,
 }) => {
   return (
     <>
       <MyPageNav />
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <InputBox>
           <span>Address</span>
           <button onClick={onPopupButton}>주소 찾기</button>
@@ -35,11 +36,23 @@ const UserinfoEditPresent = ({
             type="text"
           />
           <span>Detailed address</span>
-          <Input id="address2" onChange={handleChange} type="text" />
-          <span>Phone Number ( - 포함 )</span>
-          <Input id="phoneNumber" onChange={handleChange} type="text" />
+          <Input
+            id="address2"
+            onChange={handleChange}
+            type="text"
+            value={address2}
+          />
+          <span>Phone Number ( - 포함 ) </span>
+          <Input
+            id="phoneNumber"
+            onChange={handleChange}
+            type="text"
+            value={phoneNumber}
+          />
         </InputBox>
-        <Button disabled={!validation(address, address2, phoneNumber)}>
+        <Button
+          disabled={!validation(address, address2, phoneNumber)}
+        >
           Edit
         </Button>
       </Form>
