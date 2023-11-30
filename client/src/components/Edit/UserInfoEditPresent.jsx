@@ -33,7 +33,9 @@ const UserinfoEditPresent = ({
             id="address"
             onChange={handleChange}
             value={enroll.address}
+            placeholder={enroll.address}
             type="text"
+            readOnly={true}
           />
           <span>Detailed address</span>
           <Input
@@ -51,7 +53,7 @@ const UserinfoEditPresent = ({
           />
         </InputBox>
         <Button
-          disabled={!validation(address, address2, phoneNumber)}
+          //disabled={!validation(address2, phoneNumber)}
         >
           Edit
         </Button>
