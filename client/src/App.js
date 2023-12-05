@@ -9,8 +9,6 @@ import BuyContainer from "./components/Buy/BuyContainer";
 import CompleteContainer from "./components/OrderComplete/OrderCompleteContainer";
 import AdminPage from "./components/views/AdminPage/AdminPage";
 import UserInfoContainer from "./components/Mypage/UserInfoContainer";
-//import EditPage from "./components/views/EditPage/EditPage";
-//import OrderTrackingPage from "./components/views/MyPage/OrderTrackingPage";
 import UserinfoEditContain from "./components/Edit/UserInfoEditContain.jsx";
 import DeleteOrderPage from "./components/views/MyPage/DeleteOrderPage";
 import Header from "./components/Main/MainHeader";
