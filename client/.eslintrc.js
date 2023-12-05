@@ -10,8 +10,8 @@ module.exports = {
     },
   },
   extends: [
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
   rules: {
     endOfLine: "auto", // 엔드라인 시퀀스 자동
