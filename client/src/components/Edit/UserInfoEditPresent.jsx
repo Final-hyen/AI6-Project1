@@ -1,7 +1,8 @@
 import React from "react";
 import { Form, InputBox, Input, Button } from "../Auth/AuthForm.style";
 import { MyPageNav } from "../Mypage/MypageNav";
-import AddressPopup from "../Mypage/address";
+import PopupPostCode from "../Mypage/PopupPostCode";
+
 const UserinfoEditPresent = ({
   address,
   address2,
@@ -23,11 +24,11 @@ const UserinfoEditPresent = ({
           <span>Address</span>
           <button onClick={onPopupButton}>주소 찾기</button>
           {isPopup && (
-            <AddressPopup
+            <PopupPostCode
               data={enroll}
               setData={setEnroll}
               setIsPopup={setIsPopup}
-            ></AddressPopup>
+            ></PopupPostCode>
           )}
           <Input
             id="address"

@@ -1,8 +1,9 @@
 import React from 'react';
 import DaumPostcode from 'react-daum-postcode';
-
-const AddressPopup = (props) => {
-	const complete = (data) => {
+import { Background, Container, ModalBlock } from './PopUp';
+const PopupPostCode = (props) => {
+	// 우편번호 검색 후 주소 클릭 시 실행될 함수, data callback 용
+	const handlePostCode = (data) => {
 		let fullAddress = data.address;
 		let extraAddress = '';
 
@@ -16,14 +17,27 @@ const AddressPopup = (props) => {
 			}
 			fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
 		}
-
 		props.setData({
 			...props.data,
 			address: fullAddress,
 		});
 		props.setIsPopup(false);
 	};
-	return <DaumPostcode className="postmodal" autoClose onComplete={complete} />;
+    const handleCloseModal = () => {
+        props.setIsPopup(false);
+    }
+
+	return (
+		<Container>
+            <Background onClick={handleCloseModal}>
+			<DaumPostcode
+				className={ModalBlock}
+				autoClose
+				onComplete={handlePostCode}
+			/>
+            </Background>
+		</Container>
+	);
 };
 
-export default AddressPopup;
+export default PopupPostCode;
