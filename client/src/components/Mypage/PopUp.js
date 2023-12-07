@@ -31,7 +31,11 @@ export const Background = styled.div`
         }
     }
 `;
-
+export const Div = styled.div `
+    height: 500px;
+    width: 80%;
+    margin: 20% auto;
+`
 export const ModalBlock = styled.div`
     position: absolute;
     top: 6.5rem;

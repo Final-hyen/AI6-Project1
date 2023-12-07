@@ -1,6 +1,6 @@
 import React from 'react';
 import DaumPostcode from 'react-daum-postcode';
-import { Background, Container, ModalBlock } from './PopUp';
+import { Background, Container, Div, ModalBlock } from './PopUp';
 const PopupPostCode = (props) => {
 	// 우편번호 검색 후 주소 클릭 시 실행될 함수, data callback 용
 	const handlePostCode = (data) => {
@@ -23,19 +23,20 @@ const PopupPostCode = (props) => {
 		});
 		props.setIsPopup(false);
 	};
-    const handleCloseModal = () => {
-        props.setIsPopup(false);
-    }
+	const handleCloseModal = () => {
+		props.setIsPopup(false);
+	};
 
 	return (
 		<Container>
-            <Background onClick={handleCloseModal}>
-			<DaumPostcode
-				className={ModalBlock}
-				autoClose
-				onComplete={handlePostCode}
-			/>
-            </Background>
+			<Background onClick={handleCloseModal}>
+				<DaumPostcode
+					className="modal"
+					style={{ width: '40%', height: '500px', margin: '10% auto' }}
+					autoClose
+					onComplete={handlePostCode}
+				/>
+			</Background>
 		</Container>
 	);
 };
