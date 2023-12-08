@@ -10,7 +10,7 @@ module.exports = async function findOneOrder(req) {
         const user_id = req.user.user_id
         const req_keys = Object.keys(req.body)
         const req_values = Object.values(req.body)
-        console.log('REQVALE', req_values)
+        console.log('REQVALE', req_values.at(-2))
         // user_id로 필요한값을 파싱해봅시다.
         const {name} = User.findOne({user_id})
         const {phoneNumber,address,address2} = await UserInfo.findOne({user_id})
@@ -19,18 +19,18 @@ module.exports = async function findOneOrder(req) {
         //product_number_count의 경우 스키마에 설명해두었습니다.
         //임의로 정의해둔내용이라 수정해도 무리는 없습니다.
         //다만 주문내역에서 적어도 상품명/수량을 파악하기 위한 최소한의 장치는 필요할것같아 다음 형식으로 저장해두었습니다.
-        let product_number_count=[]
+        let product_number_count=req_values.at(-2)
         let total_price = req_values.at(-1)
         // forEach를 이용해도 되지만 각각의 상품번호와 수량을 받아와야함으로 그냥 for문을 이용했습니다.
         
-        for (let i =0; i<req_keys.length;i++){
+        //for (let i =0; i<req_keys.length;i++){
             //let product_price = 
             //(await Product.findOne({product_no:(req_keys[i])})).price
             //total_price+=product_price*req_values[i]
-            product_number_count.push(
-                String(req_keys[i])+"/"+String(req_values[i])
-            )
-        }
+            //product_number_count.push(
+            //    String(req_keys[i])+"/"+String(req_values[i])
+            //)
+        //}
         
         const orders=(await Order.find({}).sort({create_at:-1}))
 

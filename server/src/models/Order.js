@@ -36,7 +36,7 @@ const OrderSchema = new mongoose.Schema({
     //["1/3","4/1","2/1","17/2"]
     //와 같은 배열형식을 받아옵니다.
     product_number_count:{
-        type:[String]
+        type: [],
     },
     total_price: {
         type:Number,
