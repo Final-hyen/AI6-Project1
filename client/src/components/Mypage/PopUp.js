@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components'; 
 
 export const Container = styled.div`
@@ -31,46 +30,3 @@ export const Background = styled.div`
         }
     }
 `;
-export const Div = styled.div `
-    height: 500px;
-    width: 80%;
-    margin: 20% auto;
-`
-export const ModalBlock = styled.div`
-    position: absolute;
-    top: 6.5rem;
-    border-radius: 10px;
-    padding: 1.5rem;
-    background-color: black;
-    width: 60rem;
-    @media (max-width: 1120px) {
-        width: 50rem;
-    }
-    @media (max-width: 50rem) {
-        width: 80%;
-    }
-    min-height: 35rem;
-    animation: modal-show 1s;
-    @keyframes modal-show {
-        from {
-            opacity: 0;
-            margin-top: -50px;
-        }
-        to {
-            opacity: 1;
-            margin-top: 0;
-        }
-    }
-`;
-
-const ModalFrame = ({children, ...rest }) => {
-    return (
-        <Container>
-            <Background />
-            <ModalBlock {...rest}>
-            </ModalBlock>
-        </Container>
-    );
-};
-
-export default ModalFrame;
