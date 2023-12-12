@@ -14,7 +14,7 @@ export const cartItemAtom = atom({
 
 export const totalPriceAtom = atom({
   key: "totalPrice",
-  default: 0,
+  default: null,
   effects_UNSTABLE: [persistAtom,
   ({onSet}) => {
     onSet(newValue => {

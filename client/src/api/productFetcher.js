@@ -30,5 +30,15 @@ export const ProductEdit = async (
     category: category,
     price: price,
     company: company,
+  });
+};
+
+export const Order = async (
+  product_info,
+  total_price
+) => {
+  return await axiosClient.post(`/orders`, {
+    product_info: product_info,
+    total_price: total_price
   })
 };

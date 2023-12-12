@@ -10,6 +10,7 @@ function LoginPresentation({
 }) {
   return (
     <Form onSubmit={handleSubmit}>
+      <span>Login Page</span>
       <InputBox>
         <Input
           id="email"
