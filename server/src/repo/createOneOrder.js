@@ -8,7 +8,7 @@ const {UserInfo} = require('../models/UserInfo')
 module.exports = async function findOneOrder(req) {
     try{
         const user_id = req.user.user_id
-        const req_keys = Object.keys(req.body)
+        //const req_keys = Object.keys(req.body)
         const req_values = Object.values(req.body)
         console.log('REQVALE', req_values.at(-2))
         // user_id로 필요한값을 파싱해봅시다.
@@ -19,7 +19,7 @@ module.exports = async function findOneOrder(req) {
         //product_number_count의 경우 스키마에 설명해두었습니다.
         //임의로 정의해둔내용이라 수정해도 무리는 없습니다.
         //다만 주문내역에서 적어도 상품명/수량을 파악하기 위한 최소한의 장치는 필요할것같아 다음 형식으로 저장해두었습니다.
-        let product_number_count=req_values.at(-2)
+        let product_info=req_values.at(-2)
         let total_price = req_values.at(-1)
         // forEach를 이용해도 되지만 각각의 상품번호와 수량을 받아와야함으로 그냥 for문을 이용했습니다.
         
@@ -45,7 +45,7 @@ module.exports = async function findOneOrder(req) {
             user_name : name,
             user_phone: phoneNumber,
             user_address: address+" "+address2,
-            product_number_count:product_number_count,
+            product_info:product_info,
             total_price: total_price
             //order_status와 create_at의 정보는 create 단계에서 default로 정의되어도 무리없을듯 합니다.
         })

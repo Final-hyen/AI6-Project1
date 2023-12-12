@@ -34,19 +34,11 @@ export const ProductEdit = async (
 };
 
 export const Order = async (
-  user_id,
-  user_name,
-  user_phone,
-  user_address,
-  product,
+  product_info,
   total_price
 ) => {
-  return await axiosClient.post(`/order`, {
-    user_id: user_id,
-    user_name: user_name,
-    user_phone: user_phone,
-    user_address,
-    product: product,
+  return await axiosClient.post(`/orders`, {
+    product_info: product_info,
     total_price: total_price
   })
 };

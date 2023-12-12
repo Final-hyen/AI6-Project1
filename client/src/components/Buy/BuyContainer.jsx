@@ -23,9 +23,12 @@ const BuyContainer = () => {
         item = buyItem;
         price = item.price;
     }
+    console.log(item)
+    console.log(price)
     // click이벤트 발생 -> 서버에 order create -> Order함수에 맞게 정보 넣기.
     const clickCompleteButton = () => {
-        navigate('/ordercompletepage')
+        navigate('/ordercompletepage');
+        Order(item, price)
     }
     return <BuyPresentaion items={item} setItems={clickCompleteButton} totalPrice={price} href={href}/>
 }
