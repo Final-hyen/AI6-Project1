@@ -9,6 +9,7 @@ export function AdminBody() {
       <AdminButtonsGroup>
         <AdminLink href="/productpost">상품 등록</AdminLink>
         <AdminLink href="/product">상품 조회 및 삭제</AdminLink>
+        <AdminLink href="/orderinfoget">주문 조회</AdminLink>
       </AdminButtonsGroup>
     </AdminBodyContainer>
   );
