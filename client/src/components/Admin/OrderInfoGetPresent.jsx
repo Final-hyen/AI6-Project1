@@ -1,13 +1,13 @@
 import React from "react";
 import { Button, Caption, Img, Table, Td, Th } from "./ProductGetCSS";
 
-const OrderGetPresent = ({ ordersInfo, orders, dates }) => {
+const OrderGetPresent = ({ ordersInfo, orders}) => {
   return (
     <>
     <h2>Order Tracking</h2>
-    {dates.map((date, idx) => (
+    {ordersInfo.map((date, idx) => (
       <Table key={idx}>
-      <Caption>{date}</Caption>
+      <Caption>{date[1]}</Caption>
       <thead>
         <tr>
           <Th>제품 사진</Th>
@@ -18,7 +18,7 @@ const OrderGetPresent = ({ ordersInfo, orders, dates }) => {
         </tr>
       </thead>
       <tbody>
-        {orders.map((order,idx) => (
+        {ordersInfo.map((order,idx) => (
           <tr key={idx}>
             <Td id="img">
               <Img src={order['imgUrl']} alt="주문 제품 이미지" />
