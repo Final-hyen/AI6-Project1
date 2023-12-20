@@ -34,7 +34,6 @@ const OrderGetPresent = ({ ordersInfo }) => {
                 </tr>
               ))
             }
-            
           </tbody>
         </Table>
       ))}

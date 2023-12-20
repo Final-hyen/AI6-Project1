@@ -50,7 +50,7 @@ const OrderSchema = new mongoose.Schema({
     create_at: {
         type: Date,
         required: true,
-        default: Date.now
+        default: Date.now()
     }
 })
 
