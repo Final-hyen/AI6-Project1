@@ -10,11 +10,13 @@ export const Caption = styled.caption`
   margin: 1rem 0;
   font-weight: bold;
   font-size: 2rem;
+  width: 400px;
 `;
 export const Td = styled.td`
   padding: 10px;
   background-color: #eee;
   font-size : 1.2rem;
+  width: 200px;
 `;
 export const Th = styled.th`
   background-color: #333;
@@ -42,4 +44,21 @@ export const Button = styled.button`
     background-color: #F94C10;
     margin-right: 10px;
   },
+  .orderControll {
+    margin-bottom: 10px;
+    width: 200px;
+    background: rgb(211,211,211);
+    color: rgb(61,61,61);
+    border: 2px solid black;
+    border-radius: 5px;
+  }
 `;
+
+export const ButtonDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const H1 = styled.h1`
+  text-align: center;
+`

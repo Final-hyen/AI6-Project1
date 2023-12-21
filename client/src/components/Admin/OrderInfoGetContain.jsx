@@ -23,6 +23,7 @@ const OrderGetContain = () => {
     };
 }, []);
 console.log(orderUserInfo)
+
 orderUserInfo.map((order) => {
   const dateString = new Date(order['create_at'])
   const year = new Intl.DateTimeFormat("ko-KR", { year: "numeric" }).format(dateString);
@@ -32,16 +33,10 @@ orderUserInfo.map((order) => {
   const koreanDate = `${year} ${month} ${day}`;
   order['create_at'] = koreanDate
   });
-
-  // orderUserInfo.map((order) => {
-  //   const dateString = new Date(order['create_at']);
-  //   const year = dateString.getFullYear();
-  //   const month = dateString.getMonth() + 1;
-  //   const day = dateString.getDay();
-  //   const date = `${year}년 ${month}월 ${day}일`;
-  //   order['create_at'] = date;
-  // });
-  
+  const onClcikCompleted = (e) => {
+    e.preventDefault();
+    
+  }
   return (
     <StrictMode>
       <OrderGetPresent ordersInfo={orderUserInfo} />
