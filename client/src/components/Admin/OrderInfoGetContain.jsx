@@ -12,34 +12,48 @@ const OrderGetContain = () => {
         const res = await axiosClient.get(`/orders`);
         if (isCleanUp && res?.status === 200) {
           setOrderUserInfo(res.data.order);
-        };
+        }
       } catch (err) {
         console.error(err);
-      };
+      }
     };
     fetchData();
     return () => {
       isCleanUp = false;
     };
-}, []);
-console.log(orderUserInfo)
+  }, []);
+  console.log(orderUserInfo);
 
-orderUserInfo.map((order) => {
-  const dateString = new Date(order['create_at'])
-  const year = new Intl.DateTimeFormat("ko-KR", { year: "numeric" }).format(dateString);
-  const month = new Intl.DateTimeFormat("ko-KR", { month: "2-digit" }).format(dateString);
-  const day = new Intl.DateTimeFormat("ko-KR", { day: "2-digit" }).format(dateString);
+  orderUserInfo.map((order) => {
+    const dateString = new Date(order["create_at"]);
+    const year = new Intl.DateTimeFormat("ko-KR", { year: "numeric" }).format(
+      dateString
+    );
+    const month = new Intl.DateTimeFormat("ko-KR", { month: "2-digit" }).format(
+      dateString
+    );
+    const day = new Intl.DateTimeFormat("ko-KR", { day: "2-digit" }).format(
+      dateString
+    );
 
-  const koreanDate = `${year} ${month} ${day}`;
-  order['create_at'] = koreanDate
+    const koreanDate = `${year} ${month} ${day}`;
+    order["create_at"] = koreanDate;
   });
+
   const onClcikCompleted = (e) => {
     e.preventDefault();
-    
-  }
+  };
+
+  const onClickdelivery = (e) => {
+    e.preventDefault();
+  };
   return (
     <StrictMode>
-      <OrderGetPresent ordersInfo={orderUserInfo} />
+      <OrderGetPresent
+        ordersInfo={orderUserInfo}
+        onClcikCompleted={onClcikCompleted}
+        onClickdelivery={onClickdelivery}
+      />
     </StrictMode>
   );
 };

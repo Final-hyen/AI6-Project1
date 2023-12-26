@@ -1,7 +1,16 @@
 import React from "react";
-import { Button, Caption, Img, Table, Td, Th, ButtonDiv, H1 } from "./ProductGetCSS";
+import {
+  Button,
+  Caption,
+  Img,
+  Table,
+  Td,
+  Th,
+  ButtonDiv,
+  H1,
+} from "./ProductGetCSS";
 
-const OrderGetPresent = ({ ordersInfo }) => {
+const OrderGetPresent = ({ ordersInfo, onClcikCompleted, onClickdelivery }) => {
   return (
     <>
       <H1>Order Tracking</H1>
@@ -28,9 +37,18 @@ const OrderGetPresent = ({ ordersInfo }) => {
                 <Td id="price">{order.price}원</Td>
                 <Td>
                   <ButtonDiv>
-                    <Button className="orderControll" >배송 준비 중</Button>
-                    <Button className="orderControll" >배송 중</Button>
-                    <Button className="orderControll" >배송 완료</Button>
+                    <Button className="orderControll" id={order["order_no"]}>
+                      배송 준비 중
+                    </Button>
+                    <Button className="orderControll" onClick={onClickdelivery}>
+                      배송 중
+                    </Button>
+                    <Button
+                      className="orderControll"
+                      onClick={onClcikCompleted}
+                    >
+                      배송 완료
+                    </Button>
                   </ButtonDiv>
                 </Td>
               </tr>
