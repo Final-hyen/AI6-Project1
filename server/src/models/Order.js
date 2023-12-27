@@ -22,19 +22,6 @@ const OrderSchema = new mongoose.Schema({
     user_address: {
         type:String,
     },
-    //product_number_count는 임의로 만든 배열입니다.
-    //req로 받아온 상품명: 수량을 묶어 string배열로 만들어둔것입니다.
-    // 예를들어
-    // {
-    //     "1":3,
-    //     "4":1,
-    //     "2":1,
-    //     "17":2,
-    // }
-    //위와같은 형식의 req를 받는다면 
-    //product_number_count는
-    //["1/3","4/1","2/1","17/2"]
-    //와 같은 배열형식을 받아옵니다.
     product_info:{
         type: [],
     },
@@ -50,7 +37,7 @@ const OrderSchema = new mongoose.Schema({
     create_at: {
         type: Date,
         required: true,
-        default: Date.now
+        default: Date.now()
     }
 })
 

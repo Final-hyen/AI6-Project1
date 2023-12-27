@@ -25,7 +25,6 @@ const DetailContainer = () => {
       }
       return prevItems.concat(itemsData);
     });
-    //localStorage.setItem('cartItems', JSON.stringify(CartProduct));
   };
 
   useEffect(() => {
@@ -42,6 +41,7 @@ const DetailContainer = () => {
     const itemsData = {
       title: product.title,
       imgUrl: product.imgUrl,
+      count: 1,
       price: product.price,
     };
     localStorage.setItem('buyItem', JSON.stringify(itemsData));

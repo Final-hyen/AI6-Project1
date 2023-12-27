@@ -8,13 +8,12 @@ const {UserInfo} = require('../models/UserInfo')
 module.exports = async function findOneOrder(req) {
     try{
         const user_id = req.user.user_id
-        //const req_keys = Object.keys(req.body)
         const req_values = Object.values(req.body)
-        console.log('REQVALE', req_values.at(-2))
         // user_id로 필요한값을 파싱해봅시다.
-        const {name} = User.findOne({user_id})
+        const userName = await User.findOne({_id : user_id})
+        const name = userName.name
+        console.log('name',name)
         const {phoneNumber,address,address2} = await UserInfo.findOne({user_id})
-
         // for문을 이용해 req_key의 상품번호를 순차적으로 가져와 product_number_count와 total_price를 만들어 봅시다.
         //product_number_count의 경우 스키마에 설명해두었습니다.
         //임의로 정의해둔내용이라 수정해도 무리는 없습니다.
