@@ -10,7 +10,7 @@ export const Caption = styled.caption`
   margin: 1rem 0;
   font-weight: bold;
   font-size: 2rem;
-  width: 400px;
+  width: 200px;
 `;
 export const Td = styled.td`
   padding: 10px;
