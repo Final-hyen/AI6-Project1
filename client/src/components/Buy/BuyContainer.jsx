@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BuyPresentaion from "./BuyPresentaion";
 import { useRecoilValue } from "recoil";
 import { cartItemAtom, totalPriceAtom } from "../../recoil/atom";
@@ -13,7 +13,7 @@ const BuyContainer = () => {
     
     let href = localStorage.getItem('href').split('/');
     href = href[href.length-1];
-
+    
     let item;
     let price;
     if( href === 'cart'){

@@ -11,6 +11,7 @@ const update = async (req, res)=>{
         //repo내에 어드민인지 아닌지 체크하는 함수가 있습니다. (true/false를 반환합니다.)
         const isAdmin = await checkAdmin(user_id)
         const order_no = req.params.id
+        
         //기능평가상 어드민은 status만 수정가능하게 하면됩니다.
         //req.body에서 어드민/유저에 따라 전송하는 값이 다르다고 생각해봅시다.
         //어드민은 
@@ -33,7 +34,7 @@ const update = async (req, res)=>{
         //참고로 product_list 내부의 오브젝트형식은
         //create시 작성되는 req.body의 json 형식과 같습니다.
         //만약 해당 json 형식을 변경한다면 create와 update 모두 같이 동일하게 로직을 바꾸면되겠죠?
-
+        console.log('reqBody', req.body.status)
         if(isAdmin){
             await updateOrderStatus(order_no,req.body.status)
             return res.status(200).send({ message: "주문 업데이트 성공(어드민)" });

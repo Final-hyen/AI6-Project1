@@ -44,13 +44,11 @@ export const Button = styled.button`
     background-color: #F94C10;
     margin-right: 10px;
   },
-  .orderControll {
+  & .orderControll-1 {
     margin-bottom: 10px;
     width: 200px;
-    background: rgb(211,211,211);
-    color: rgb(61,61,61);
-    border: 2px solid black;
-    border-radius: 5px;
+    background: #4CB9E7;
+    color: #F3F8FF;
   }
 `;
 
@@ -58,6 +56,13 @@ export const ButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .orderControll-2 {
+    background: #3559E0;
+  }
+  .orderControll-3 {
+    background: #0F2167;
+  }
 `
 export const H1 = styled.h1`
   text-align: center;
