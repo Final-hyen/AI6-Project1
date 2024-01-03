@@ -39,9 +39,25 @@ const OrderGetContain = () => {
     const koreanDate = `${year} ${month} ${day}`;
     order["create_at"] = koreanDate;
   });
-
-  const onClcikCompleted = (e) => {
+  const updateState = async (e) => {
+    try {
+      const res = axiosClient.put(`/orders/${e.target.id}`);
+      if (res?.status == 200) {
+        console.log("업데이트 성공");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+  const onClcikCompleted = async (e) => {
     e.preventDefault();
+    await axiosClient
+      .put(`/orders/${e.target.id}`, { order_status: "배송완료" })
+      .then((res) => {
+        console.log(res)
+        alert("Completed Update");
+      })
+      .catch((error) => console.log(error));
   };
 
   const onClickdelivery = (e) => {
