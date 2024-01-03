@@ -34,21 +34,26 @@ const OrderGetPresent = ({ ordersInfo, onClcikCompleted, onClickdelivery }) => {
                 <Td id="img">
                   <Img src={order["imgUrl"]} alt="주문 제품 이미지" />
                 </Td>
-                <Td>{orders['create_at']}</Td>
-                <Td>{orders['user_name']}</Td>
+                <Td>{orders["create_at"]}</Td>
+                <Td>{orders["user_name"]}</Td>
                 <Td id="title">{order["title"]}</Td>
                 <Td id="count">{order.count}</Td>
                 <Td id="price">{order.price}원</Td>
                 <Td>
                   <ButtonDiv>
-                    <Button className="orderControll" id={order["order_no"]}>
+                    <Button className="orderControll-1" id={orders["order_no"]}>
                       배송 준비 중
                     </Button>
-                    <Button className="orderControll" onClick={onClickdelivery}>
+                    <Button
+                      className="orderControll-2"
+                      id={orders["order_no"]}
+                      onClick={onClickdelivery}
+                    >
                       배송 중
                     </Button>
                     <Button
-                      className="orderControll"
+                      className="orderControll-3"
+                      id={orders["order_no"]}
                       onClick={onClcikCompleted}
                     >
                       배송 완료
