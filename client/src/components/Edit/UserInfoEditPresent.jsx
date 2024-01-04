@@ -8,7 +8,6 @@ const UserinfoEditPresent = ({
   address2,
   phoneNumber,
   handleChange,
-  validation,
   onPopupButton,
   isPopup,
   setIsPopup,
@@ -53,9 +52,7 @@ const UserinfoEditPresent = ({
             value={phoneNumber}
           />
         </InputBox>
-        <Button
-          //disabled={!validation(address2, phoneNumber)}
-        >
+        <Button>
           Edit
         </Button>
       </Form>

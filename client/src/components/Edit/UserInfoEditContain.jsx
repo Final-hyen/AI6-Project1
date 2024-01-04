@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import UserinfoEditPresent from "./UserInfoEditPresent";
 import { useInfoForm } from "../../hooks/useInfoFrom";
-import { isInfo } from "../../utils/validation";
 import { axiosClient } from "../../utils/axiosClient";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +22,7 @@ const UserinfoEditContain = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axiosClient.put('/userinfo', {address, address2, phoneNumber})
+      const res = await axiosClient.put('/userinfo', {address: enroll.address, address2, phoneNumber})
       if( res?.status === 200 ) {
         alert('Userinfo Update Successful');
         navigate('/mypage');
@@ -42,7 +41,6 @@ const UserinfoEditContain = () => {
       address2={address2}
       phoneNumber={phoneNumber}
       handleChange={handleChange}
-      validation={isInfo}
       onPopupButton={onPopButton}
       isPopup={isPopup}
       setIsPopup={setIsPopup}
