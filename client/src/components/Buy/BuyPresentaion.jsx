@@ -2,13 +2,13 @@ import React from "react";
 import { BuyPageBodyContainer, Letsbuy } from "./BuyCSS";
 import { Table } from "../Cart/CartCSS";
 
-const BuyPresentaion = ({ items,setItems, totalPrice}) => {
+const BuyPresentaion = ({ items,setItems, totalPrice, userinfo}) => {
   return (
     <BuyPageBodyContainer>
       <h3>[Buy Page] 주문결제 페이지</h3>
       <h5 className="UsIf">👤 주문자정보</h5>
       <div>
-        010-1111-1111 / 서울특별시 / 광진구 성수낙낙
+        {userinfo.phoneNumber} / {userinfo.address} / {userinfo.address2}
       </div>
       <h5 className="UsIf">📦 배송상품정보 </h5>
       <Table>

@@ -45,14 +45,17 @@ const OrderGetContain = () => {
     await axiosClient
       .put(`/orders/${e.target.id}`, { status: "배송완료" })
       .then((res) => {
-        console.log(res);
         alert("Completed Update");
       })
       .catch((error) => console.log(error));
   };
 
-  const onClickdelivery = (e) => {
+  const onClickdelivery = async (e) => {
     e.preventDefault();
+    await axiosClient.put(`/orders/${e.target.id}`, { status : "배송중"})
+      .then((res) => {
+        alert("Completed Update")
+      }).catch((error) => console.log(error))
   };
   return (
     <StrictMode>
