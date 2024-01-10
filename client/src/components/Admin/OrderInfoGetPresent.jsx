@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Button,
+  OrderGetButton,
   Caption,
   Img,
   Table,
@@ -41,23 +41,32 @@ const OrderGetPresent = ({ ordersInfo, onClcikCompleted, onClickdelivery }) => {
                 <Td id="price">{order.price}원</Td>
                 <Td>
                   <ButtonDiv>
-                    <Button className="orderControll-1" id={orders["order_no"]}>
-                      배송 준비 중
-                    </Button>
-                    <Button
-                      className="orderControll-2"
+                    <OrderGetButton
+                      status={orders["order_status"]}
+                      className="orderControll-1"
+                      text="상품준비중"
                       id={orders["order_no"]}
+                    >
+                      상품 준비 중
+                    </OrderGetButton>
+                    <OrderGetButton
+                      className="orderControll-2"
+                      status={orders["order_status"]}
+                      id={orders["order_no"]}
+                      text="배송중"
                       onClick={onClickdelivery}
                     >
                       배송 중
-                    </Button>
-                    <Button
+                    </OrderGetButton>
+                    <OrderGetButton
                       className="orderControll-3"
                       id={orders["order_no"]}
+                      status={orders["order_status"]}
+                      text="배송완료"
                       onClick={onClcikCompleted}
                     >
                       배송 완료
-                    </Button>
+                    </OrderGetButton>
                   </ButtonDiv>
                 </Td>
               </tr>

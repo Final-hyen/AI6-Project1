@@ -15,7 +15,7 @@ export const Caption = styled.caption`
 export const Td = styled.td`
   padding: 10px;
   background-color: #eee;
-  font-size : 1.2rem;
+  font-size: 1.2rem;
   width: 200px;
 `;
 export const Th = styled.th`
@@ -28,27 +28,22 @@ export const Img = styled.img`
   height: 10rem;
 `;
 export const Button = styled.button`
-  border : none;
-  padding : 10px 5px;
+  border: none;
+  padding: 10px 5px;
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
   &.delete {
-    background-color: #E91E63;
+    background-color: #e91e63;
   }
   &.view {
-    background-color: #03A9F4;
+    background-color: #03a9f4;
     margin-right: 10px;
-  },
+  }
+  ,
   &.edit {
-    background-color: #F94C10;
+    background-color: #f94c10;
     margin-right: 10px;
-  },
-  & .orderControll-1 {
-    margin-bottom: 10px;
-    width: 200px;
-    background: #4CB9E7;
-    color: #F3F8FF;
   }
 `;
 
@@ -56,14 +51,21 @@ export const ButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+export const OrderGetButton = styled.button`
+  margin-bottom: 10px;
+  width: 200px;
 
-  .orderControll-2 {
-    background: #3559E0;
-  }
-  .orderControll-3 {
-    background: #0F2167;
-  }
-`
+  font-weight: bold;
+  font-size: 24px;
+
+  border: none;
+  border-radius: 10px;
+
+  ${(props) =>
+    props.status === props.text && `background: #3559E0; color: #f3f8ff;`};
+`;
+
 export const H1 = styled.h1`
   text-align: center;
-`
+`;
