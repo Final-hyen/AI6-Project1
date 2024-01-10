@@ -63,9 +63,7 @@ export const OrderGetButton = styled.button`
   border-radius: 10px;
 
   ${(props) =>
-    props.status === "배송중" && `background: #3559E0; color: #f3f8ff;`};
-  ${(props) =>
-    props.status === "배송완료" && `background: #0F2167; color: #f3f8ff;`};
+    props.status === props.text && `background: #3559E0; color: #f3f8ff;`};
 `;
 
 export const H1 = styled.h1`
