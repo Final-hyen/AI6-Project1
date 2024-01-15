@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OrderTrackingPresentation from "./OrderTrackingPresen";
+import { axiosClient } from "../../../utils/axiosClient";
+import TotalTrackingPresentation from "./TotalTrackingPresnt";
 
 const OrderTrackingContain = () => {
-    return <OrderTrackingPresentation />
-}
+  const [orders, setOrders] = useState([]);
 
-export default OrderTrackingContain  
+  useEffect(() => {
+    axiosClient
+      .get(`orders`)
+      .then((res) => {
+        //console.log(res.data.order);
+        setOrders(res.data.order);
+      })
+      .catch((err) => console.log(err));
+  },[]);
+  console.log(orders)
+  return <TotalTrackingPresentation orders={orders}/>;
+};
+
+export default OrderTrackingContain;
