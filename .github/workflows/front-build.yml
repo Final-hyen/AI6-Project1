@@ -38,7 +38,7 @@ jobs:
         run: |
           aws s3 sync \
             --region ap-northeast-2 \
-            /home/runner/work/AI6-Project1/AI6-Project1/client/build s3://final-hyen \
+            /home/runner/work/AI6-Project1/AI6-Project1/client/build s3://final-hyen-project1 \
             --delete
         working-directory: ./client/build
         
