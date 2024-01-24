@@ -1,4 +1,6 @@
 .env
 node_modules
 .DS_store
-.awscli2.zip
+awscli2.zip
+appspec.yml
+.github
