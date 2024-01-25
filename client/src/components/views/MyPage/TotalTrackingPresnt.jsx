@@ -8,7 +8,7 @@ const TotalTrackingPresentation = ({ orders }) => {
       {orders.map((order, idx) => (
         <OrderStatus key={idx}>
            <span>{order.create_at}</span>
-           {order.product_info.map((product,dix) =>(
+           {order.product_info.map((product,idx) =>(
             <div key={idx}>
                 <img src={product.imgUrl} alt="Product Img"/>
             </div>
