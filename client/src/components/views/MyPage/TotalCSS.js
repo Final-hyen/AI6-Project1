@@ -33,4 +33,8 @@ export const ProductImg = styled.img`
 
 export const Button = styled.button`
     width: 400px;
+
+    &.Toggle {
+        margin: auto;
+    }
 `
