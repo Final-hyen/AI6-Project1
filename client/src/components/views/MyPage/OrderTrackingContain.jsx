@@ -24,7 +24,7 @@ const OrderTrackingContain = () => {
     setIsOpen(!isOpen)
     console.log(isOpen)
   }
-  return <TotalTrackingPresentation orders={orders} clickOpenButton={clickOpenButton}/>;
+  return <TotalTrackingPresentation orders={orders} clickOpenButton={clickOpenButton} isOpen={isOpen}/>;
 };
 
 export default OrderTrackingContain;
