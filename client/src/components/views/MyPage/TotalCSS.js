@@ -10,8 +10,6 @@ export const Container = styled.div`
     margin: 30px;
     
     .date {
-        margin-left: 80px;
-        margin-top: 30px;
         font-size: 20px;
         font-weight: bold;
     }
@@ -35,5 +33,4 @@ export const ProductImg = styled.img`
 
 export const Button = styled.button`
     width: 400px;
-    margin: auto;
 `

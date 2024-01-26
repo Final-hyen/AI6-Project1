@@ -5,6 +5,7 @@ import { ChangeDate } from "../../../utils/ChangeDate";
 
 const OrderTrackingContain = () => {
   const [orders, setOrders] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     axiosClient
@@ -14,9 +15,16 @@ const OrderTrackingContain = () => {
       })
       .catch((err) => console.log(err));
   },[]);
+
   ChangeDate(orders);
-  console.log(orders)
-  return <TotalTrackingPresentation orders={orders}/>;
+  console.log(orders);
+
+  const clickOpenButton = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen)
+    console.log(isOpen)
+  }
+  return <TotalTrackingPresentation orders={orders} clickOpenButton={clickOpenButton}/>;
 };
 
 export default OrderTrackingContain;
