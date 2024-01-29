@@ -25,6 +25,12 @@ export const Descriptions = styled.div`
     font-size: 30px;
     display: flex;
     flex-direction : column;
+
+    a {
+        font-size: 18px;
+        text-decoration: none;
+        color: #09aa5c;
+    }
 `
 export const ProductImg = styled.img`
     width: 250px;
@@ -32,9 +38,30 @@ export const ProductImg = styled.img`
 `
 
 export const Button = styled.button`
-    width: 400px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1e1e23;
+    
+    line-height: 21px;
+    letter-spacing: -0.3px;
+    
+    width: 100%;
+    padding: 7px 7px 6px 7px;
+
+    border: 2px solid #dcdee0;
+    border-radius 10px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    background-color: #fff;
 
     &.Toggle {
         margin: auto;
     }
+`
+
+export const Case = styled.span`
+    font-size: 25px;
+    margin-left: 30px;
+    margin-top: 30px;
 `

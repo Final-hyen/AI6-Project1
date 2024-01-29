@@ -17,12 +17,10 @@ const OrderTrackingContain = () => {
   },[]);
 
   ChangeDate(orders);
-  console.log(orders);
 
   const clickOpenButton = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen)
-    console.log(isOpen)
   }
   return <TotalTrackingPresentation orders={orders} clickOpenButton={clickOpenButton} isOpen={isOpen}/>;
 };

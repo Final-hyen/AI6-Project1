@@ -5,6 +5,7 @@ import {
   ProductImg,
   Descriptions,
   Button,
+  Case,
 } from "./TotalCSS";
 
 const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
@@ -13,7 +14,7 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
       <h3>[ 주문/배송 조회 ]</h3>
       {orders.map((order, idx) => (
         <Container key={idx}>
-          <span>총 {order.product_info.length}건</span>
+          <Case>총 {order.product_info.length}건</Case>
           {order.product_info.length === 1 ? (
             <Status>
               <ProductImg
@@ -25,7 +26,7 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
                 <span className="date">{order.create_at}</span>
                 <span>{order.product_info[0].title}</span>
                 <span>{order.product_info[0].price}</span>
-                <Button>배송 조회</Button>
+                <a href="/">결제상세</a>
               </Descriptions>
             </Status>
           ) : (
@@ -42,7 +43,7 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
                       <span className="date">{order.create_at}</span>
                       <span>{order.product_info[0].title}</span>
                       <span>{order.total_price}</span>
-                      <Button>배송 조회</Button>
+                      <a href="/">주문상세</a>
                     </Descriptions>
                   </Status>
                   <Button className="Toggle" onClick={clickOpenButton}>
