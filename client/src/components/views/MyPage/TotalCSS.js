@@ -34,7 +34,7 @@ export const Descriptions = styled.div`
 `
 export const ProductImg = styled.img`
     width: 250px;
-    margin: 40px;
+    margin: 25px;
 `
 
 export const Button = styled.button`
@@ -46,6 +46,7 @@ export const Button = styled.button`
     letter-spacing: -0.3px;
     
     width: 100%;
+    marign: 0 auto;
     padding: 7px 7px 6px 7px;
 
     border: 2px solid #dcdee0;
@@ -64,4 +65,22 @@ export const Case = styled.span`
     font-size: 25px;
     margin-left: 30px;
     margin-top: 30px;
+`
+export const List = styled.li`
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+`
+export const Unordered = styled.ul`
+    width: 80%;
+    list-style: none;
+    
+    margin: 0 auto;
+    padding: 0;
+
+`
+export const Line = styled.div`
+    position: relative;
+    height: 10px;
+    background: url('../../../public/image/DotImg.webp') repeat-x 0 50%;
 `
