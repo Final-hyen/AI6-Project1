@@ -83,7 +83,7 @@ export const List = styled.li`
     margin-bottom: 15px;
 `
 export const Unordered = styled.ul`
-    width: 80%;
+    width: 850px;
     list-style: none;
     
     margin: 0 auto;

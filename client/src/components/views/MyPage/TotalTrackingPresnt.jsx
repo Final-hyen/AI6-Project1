@@ -31,7 +31,7 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
                     <span className="date">{order.create_at}</span>
                     <span>{order.product_info[0].title}</span>
                     <span>{order.product_info[0].price}</span>
-                    <a href="/">결제상세</a>
+                    <a href={`ordertracking/${order.order_no}`}>결제상세</a>
                   </Descriptions>
                 </Status>
               </>
