@@ -22,7 +22,7 @@ export const Status = styled.div`
 `
 export const Descriptions = styled.div`
     width: 800px;
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     flex-direction : column;
 
@@ -33,7 +33,9 @@ export const Descriptions = styled.div`
     }
 `
 export const ProductImg = styled.img`
-    width: 250px;
+    width: 152px;
+    height: 152px;
+
     margin: 25px;
 `
 
@@ -45,8 +47,6 @@ export const Button = styled.button`
     line-height: 21px;
     letter-spacing: -0.3px;
     
-    width: 100%;
-    marign: 0 auto;
     padding: 7px 7px 6px 7px;
 
     border: 2px solid #dcdee0;
@@ -55,16 +55,27 @@ export const Button = styled.button`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
     background-color: #fff;
+    cursor: pointer;
+    
+    &.toggle {
+        width: 800px;
+        margin: 0 25px 20px;
+    }
 
-    &.Toggle {
-        margin: auto;
+    &.detail {
+        width: 250px;
+        margin: 10px 0;
     }
 `
 
-export const Case = styled.span`
+export const Case = styled.div`
+    display: inline-block;
+
     font-size: 25px;
-    margin-left: 30px;
+    font-weight: 600;
+
     margin-top: 30px;
+    margin-left: 30px;
 `
 export const List = styled.li`
     border-radius: 16px;

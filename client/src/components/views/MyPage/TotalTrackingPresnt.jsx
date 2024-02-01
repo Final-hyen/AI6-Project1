@@ -53,15 +53,15 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
                         <a href="/">주문상세</a>
                       </Descriptions>
                     </Status>
-                    <Button className="Toggle" onClick={clickOpenButton}>
-                      {isOpen ? "접기" : "펼쳐보기"}
+                    <Button className="toggle" onClick={clickOpenButton}>
+                      {isOpen ? `총 ${order.product_info.length}건 접기` : `총 ${order.product_info.length}건 펼쳐보기`}
                     </Button>
                   </>
                 ) : (
                   <>
                     {order.product_info.map((product, idx) => (
                       <li key={idx}>
-                        <Case>상태</Case>
+                        <Case>{order.order_status}</Case>
                         <Status>
                           <ProductImg
                             className="img"
@@ -72,15 +72,15 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
                             <span className="date">{order.create_at}</span>
                             <span>{product.title}</span>
                             <span>{product.price}</span>
-                            <Button>배송 조회</Button>
+                            <Button className="detail">배송 조회</Button>
                           </Descriptions>
                         </Status>
                         <Line></Line>
                       </li>
                     ))}
                     <Line></Line>
-                    <Button className="Toggle" onClick={clickOpenButton}>
-                      {isOpen ? "접기" : "펼쳐보기"}
+                    <Button className="toggle" onClick={clickOpenButton}>
+                      {isOpen ? `총 ${order.product_info.length}건 접기` : `총 ${order.product_info.length}건 펼쳐보기`}
                     </Button>
                   </>
                 )}
