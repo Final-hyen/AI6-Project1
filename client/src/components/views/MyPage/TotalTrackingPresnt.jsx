@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Container,
   Status,
   ProductImg,
   Descriptions,
@@ -11,7 +10,7 @@ import {
   Line,
 } from "./TotalCSS";
 
-const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
+const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen, clickTrackingButton }) => {
   return (
     <>
       <h3>[ 주문/배송 조회 ]</h3>
@@ -72,7 +71,7 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen }) => {
                             <span className="date">{order.create_at}</span>
                             <span>{product.title}</span>
                             <span>{product.price}</span>
-                            <Button className="detail">배송 조회</Button>
+                            <Button className="detail" id={order.order_no} onClick={clickTrackingButton}>배송 조회</Button>
                           </Descriptions>
                         </Status>
                         <Line></Line>
