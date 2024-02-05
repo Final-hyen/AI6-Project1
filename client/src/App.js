@@ -25,38 +25,50 @@ import DetailContainer from "./components/Products/DetailContainer";
 import OrderTrackingContain from "./components/views/MyPage/OrderTrackingContain.jsx";
 import AddressPopup from "./components/Mypage/address.jsx";
 import OrderGetContain from "./components/Admin/OrderInfoGetContain.jsx";
+import OrderTrackingPresentation from "./components/views/MyPage/OrderTrackingPresen.jsx";
+
 function App() {
   return (
     <RecoilRoot>
-    <Router>
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/join" element={<JoinContainer />} />
-        <Route exact path="/login" element={<LoginContainer />} />
-        <Route exact path="/top" element={<TopProducts />} />
-        <Route exact path="/bottom" element={<BottomProducts />} />
-        <Route exact path="/outer" element={<GetOuterProduct />} />
-        <Route exact path="/detail/:id" element={<DetailContainer />} />
-        <Route exact path="/cart" element={<CartContainer />} />
-        <Route exact path="/buypage" element={<BuyContainer />} />
-        <Route
-          exact path="/ordercompletepage"
-          element={<CompleteContainer />}
-        />
-        <Route exact path="/mypage" element={<UserInfoContainer />} />
-        <Route exact path="/admin" element={<AdminPage />} />
-        <Route exact path="/edit" element={<UserinfoEditContain />} />
-        <Route exact path="/ordertracking" element={<OrderTrackingContain />} />
-        <Route exact path="/productpost" element={<PostProduct />} />
-        <Route exact path="/deleteorder" element={<DeleteOrderPage />} />
-        <Route exact path="/product" element={<AdminGetProducts />} />
-        <Route exact path="/productedit/:id" element={<EditContainer />} />
-        <Route exact path="/popup" element={<AddressPopup />}/>
-        <Route exact path="/orderinfoget" element={<OrderGetContain />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route exact path="/join" element={<JoinContainer />} />
+          <Route exact path="/login" element={<LoginContainer />} />
+          <Route exact path="/top" element={<TopProducts />} />
+          <Route exact path="/bottom" element={<BottomProducts />} />
+          <Route exact path="/outer" element={<GetOuterProduct />} />
+          <Route exact path="/detail/:id" element={<DetailContainer />} />
+          <Route exact path="/cart" element={<CartContainer />} />
+          <Route exact path="/buypage" element={<BuyContainer />} />
+          <Route
+            exact
+            path="/ordercompletepage"
+            element={<CompleteContainer />}
+          />
+          <Route exact path="/mypage" element={<UserInfoContainer />} />
+          <Route exact path="/admin" element={<AdminPage />} />
+          <Route exact path="/edit" element={<UserinfoEditContain />} />
+          <Route
+            exact
+            path="/ordertracking"
+            element={<OrderTrackingContain />}
+          />
+          <Route
+            exact
+            path="ordertracking/:id"
+            element={<OrderTrackingPresentation />}
+          />
+          <Route exact path="/productpost" element={<PostProduct />} />
+          <Route exact path="/deleteorder" element={<DeleteOrderPage />} />
+          <Route exact path="/product" element={<AdminGetProducts />} />
+          <Route exact path="/productedit/:id" element={<EditContainer />} />
+          <Route exact path="/popup" element={<AddressPopup />} />
+          <Route exact path="/orderinfoget" element={<OrderGetContain />} />
+        </Routes>
+        <Footer />
+      </Router>
     </RecoilRoot>
   );
 }
