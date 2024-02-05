@@ -2,6 +2,7 @@ import React from "react";
 import { MyPageNav } from "./MypageNav";
 import { Contain } from "./MyPageCSS";
 import { Button } from "../Auth/AuthForm.style";
+
 const UserInfoPresentaion = ({ userinfo, onEditButton }) => {
   return (
     <>

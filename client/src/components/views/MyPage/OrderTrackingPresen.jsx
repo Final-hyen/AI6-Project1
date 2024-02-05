@@ -1,6 +1,7 @@
 import React from "react";
 import { MyPageNav } from "../../Mypage/MypageNav";
-import { OrderStatus, Status, Title } from "./OrderTrackingCSS";
+import { OrderStatus, Status } from "./OrderTrackingCSS";
+import { Title } from "./TotalCSS";
 
 const OrderTrackingPresentation = () => {
     return (
