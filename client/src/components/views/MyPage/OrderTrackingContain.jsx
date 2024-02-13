@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from "react";
+import OrderTrackingPresentation from "./OrderTrackingPresen";
+import { useParams } from "react-router-dom";
 import { axiosClient } from "../../../utils/axiosClient";
-import TotalTrackingPresentation from "./TotalTrackingPresnt";
-import { ChangeDate } from "../../../utils/ChangeDate";
-import { useNavigate} from "react-router-dom";
 
 const OrderTrackingContain = () => {
-  const [orders, setOrders] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-
+  const [data, setData] = useState([]);
+  const { id } = useParams;
   useEffect(() => {
     axiosClient
-      .get(`orders`)
+      .get("/orders")
       .then((res) => {
-        setOrders(res.data.order);
+        console.log(typeof res.data.order[0].order_no);
+        res.data.order.map((data) => {
+          if (data.order_no === id) {
+            setData(data);
+          }
+        });
       })
       .catch((err) => console.log(err));
-  },[]);
-
-  ChangeDate(orders);
-
-  const clickOpenButton = (e) => {
-    e.preventDefault();
-    setIsOpen(!isOpen)
-  }
-
-  const clickTrackingButton = (e) => {
-    e.preventDefault();
-    navigate(`/ordertracking/${e.target.id}`)
-  }
-  return <TotalTrackingPresentation orders={orders} clickOpenButton={clickOpenButton} isOpen={isOpen} clickTrackingButton={clickTrackingButton}/>;
+  }, [data]);
+  console.log(typeof id);
+  return <OrderTrackingPresentation />;
 };
 
 export default OrderTrackingContain;
