@@ -10,15 +10,17 @@ const OrderTrackingContain = () => {
     axiosClient
       .get("/orders")
       .then((res) => {
-        const data = res.data.order.find((data) => data.order_no == id);
-        if( data ) {
-            setStatus(data.order_status);
+        const data = res.data.order.find(
+          (data) => data.order_no === Number(id)
+        );
+        if (data) {
+          setStatus(data.order_status);
         }
       })
       .catch((err) => console.log(err));
   }, [id]);
   
-  return <OrderTrackingPresentation status={status}/>;
+  return <OrderTrackingPresentation status={status} />;
 };
 
 export default OrderTrackingContain;
