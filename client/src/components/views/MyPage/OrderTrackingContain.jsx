@@ -4,23 +4,21 @@ import { useParams } from "react-router-dom";
 import { axiosClient } from "../../../utils/axiosClient";
 
 const OrderTrackingContain = () => {
-  const [data, setData] = useState([]);
-  const { id } = useParams;
+  const [status, setStatus] = useState(null);
+  const { id } = useParams();
   useEffect(() => {
     axiosClient
       .get("/orders")
       .then((res) => {
-        console.log(typeof res.data.order[0].order_no);
-        res.data.order.map((data) => {
-          if (data.order_no === id) {
-            setData(data);
-          }
-        });
+        const data = res.data.order.find((data) => data.order_no == id);
+        if( data ) {
+            setStatus(data.order_status);
+        }
       })
       .catch((err) => console.log(err));
-  }, [data]);
-  console.log(typeof id);
-  return <OrderTrackingPresentation />;
+  }, [id]);
+  
+  return <OrderTrackingPresentation status={status}/>;
 };
 
 export default OrderTrackingContain;
