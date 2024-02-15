@@ -3,17 +3,16 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosClient } from "../../utils/axiosClient";
 
-
 function Header() {
   const navigate = useNavigate();
-  const role = localStorage.getItem('role')
+  const role = localStorage.getItem("role");
 
   const LogoutHandler = async (e) => {
     e.preventDefault();
     await axiosClient
       .get("/signout", { withCredentials: true })
       .then((res) => {
-        localStorage.clear()
+        localStorage.clear();
         navigate("/");
       })
       .catch((err) => {
@@ -30,23 +29,27 @@ function Header() {
           alignItems: "center",
         }}
       >
-        <ImgBlock src="https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png" alt="헤더 이미지" loading="lazy"/>
+        <ImgBlock
+          src="https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png"
+          alt="헤더 이미지"
+          loading="lazy"
+        />
         <LogoLink to="/">9UCCI</LogoLink>
         <StyledNav>
-          {(role === '0' || !role) && (
+          {(role === "0" || !role) && (
             <>
               <JoinLink to="/join">JOIN</JoinLink>
               <LoginLink to="/login">LOGIN</LoginLink>
               <CartLink to="/cart">CART</CartLink>
             </>
           )}
-          {role === '1' && (
+          {role === "1" && (
             <>
               <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton>
               <MypageLink to="/mypage">MY PAGE</MypageLink>
             </>
           )}
-          {role === '2' && (
+          {role === "2" && (
             <>
               <AdminLink to="/admin">ADMIN</AdminLink>
               <StyledButton onClick={LogoutHandler}>LOGOUT</StyledButton>

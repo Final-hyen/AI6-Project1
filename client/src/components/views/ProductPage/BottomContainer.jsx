@@ -13,7 +13,7 @@ const BottomProducts = () => {
       })
       .catch((e) => console.log(e));
   }, []);
-
+  
   return <ProductPresentation products={bottoms} />;
 };
 

@@ -8,12 +8,19 @@ import {
   Unordered,
   List,
   Line,
+  Title,
 } from "./TotalCSS";
+import "./../../../App.css";
 
-const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen, clickTrackingButton }) => {
+const TotalTrackingPresentation = ({
+  orders,
+  clickOpenButton,
+  isOpen,
+  clickTrackingButton,
+}) => {
   return (
     <>
-      <h3>[ 주문/배송 조회 ]</h3>
+      <Title>[ 주문/배송 조회 ]</Title>
       <Unordered>
         {orders.map((order, idx) => (
           <List key={idx}>
@@ -53,7 +60,9 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen, clickTrack
                       </Descriptions>
                     </Status>
                     <Button className="toggle" onClick={clickOpenButton}>
-                      {isOpen ? `총 ${order.product_info.length}건 접기` : `총 ${order.product_info.length}건 펼쳐보기`}
+                      {isOpen
+                        ? `총 ${order.product_info.length}건 접기`
+                        : `총 ${order.product_info.length}건 펼쳐보기`}
                     </Button>
                   </>
                 ) : (
@@ -71,7 +80,13 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen, clickTrack
                             <span className="date">{order.create_at}</span>
                             <span>{product.title}</span>
                             <span>{product.price}</span>
-                            <Button className="detail" id={order.order_no} onClick={clickTrackingButton}>배송 조회</Button>
+                            <Button
+                              className="detail"
+                              id={order.order_no}
+                              onClick={clickTrackingButton}
+                            >
+                              배송 조회
+                            </Button>
                           </Descriptions>
                         </Status>
                         <Line></Line>
@@ -79,7 +94,9 @@ const TotalTrackingPresentation = ({ orders, clickOpenButton, isOpen, clickTrack
                     ))}
                     <Line></Line>
                     <Button className="toggle" onClick={clickOpenButton}>
-                      {isOpen ? `총 ${order.product_info.length}건 접기` : `총 ${order.product_info.length}건 펼쳐보기`}
+                      {isOpen
+                        ? `총 ${order.product_info.length}건 접기`
+                        : `총 ${order.product_info.length}건 펼쳐보기`}
                     </Button>
                   </>
                 )}
