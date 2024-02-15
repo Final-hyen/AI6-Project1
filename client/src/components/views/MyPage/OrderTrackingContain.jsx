@@ -19,7 +19,7 @@ const OrderTrackingContain = () => {
       })
       .catch((err) => console.log(err));
   }, [id]);
-  
+
   return <OrderTrackingPresentation status={status} />;
 };
 
