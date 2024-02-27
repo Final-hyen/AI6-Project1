@@ -30,7 +30,7 @@ function Header() {
         }}
       >
         <ImgBlock
-          src="https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png"
+          src="https://media.discordapp.net/attachments/1065825998043631636/1069539124203241502/001.png?ex=65eec4ee&is=65dc4fee&hm=46014dbb9a833aa6dcf5eca8b85aedba9d5019fd6f6fb84bd1f5e1e514eea1c7&=&format=webp&quality=lossless&width=475&height=671"
           alt="헤더 이미지"
           loading="lazy"
         />

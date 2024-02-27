@@ -26,7 +26,6 @@ import OrderTrackingContain from "./components/views/MyPage/OrderTrackingContain
 import TotalTrackingContain from "./components/views/MyPage/TotalTrackingContain.jsx";
 import AddressPopup from "./components/Mypage/address.jsx";
 import OrderGetContain from "./components/Admin/OrderInfoGetContain.jsx";
-import OrderTrackingPresentation from "./components/views/MyPage/OrderTrackingPresen.jsx";
 
 function App() {
   return (
