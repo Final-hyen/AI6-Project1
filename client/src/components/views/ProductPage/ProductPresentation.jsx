@@ -1,9 +1,11 @@
 import React from "react";
 import { Contain, Figure, Grid, Img } from "./ProductPageCSS";
+import { H1 } from "../../Admin/ProductGetCSS";
 
-const ProductPresentation = ({ products }) => {
+const ProductPresentation = ({ products, category }) => {
   return (
     <Contain>
+      <H1>{category} Products</H1>
       <Grid>
         {products.map((product, idx) => (
           <Figure key={idx}>
