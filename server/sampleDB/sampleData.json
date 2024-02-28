@@ -130,3 +130,67 @@
     "imgUrl":"https://media.istockphoto.com/id/855085760/ko/%EC%82%AC%EC%A7%84/%ED%95%98%EC%9D%B4-%ED%9E%90-%EA%B5%AC%EB%91%90%EC%99%80-%EC%97%AC%EC%9E%90%EC%9D%98-%ED%9D%91%EB%B0%B1-%EB%93%9C%EB%A0%88%EC%8A%A4.jpg?s=612x612&w=0&k=20&c=GZiP2vdlvWTTlQ54zIFKVrNNT6Rk5tKuZ2GdnKPRyQg="
 }
 ]
+[
+{
+    "title": "Brown Jeans",
+    "description": "문양이 들어간 갈색 바지입니다.",
+    "category": "bottom",
+    "price": "42000",
+    "company":"ABC.co",
+    "imgUrl": "https://cdn.pixabay.com/photo/2017/10/30/19/06/leather-pants-2903225_640.png"
+}
+
+{
+    "title": "Brown Short Pants",
+    "description": "디자인이 들어간 갈색 반바지",
+    "category": "bottom",
+    "price": "32000",
+    "company":"ABC.com",
+    "imgUrl": "https://cdn.pixabay.com/photo/2017/08/30/14/50/leather-pants-2697406_640.jpg"
+}
+
+{
+    "title": "찢어진 청바지",
+    "description": "찢어진 디테일이 들어간 청바지",
+    "category": "bottom",
+    "price": "52000",
+    "company":"ABC.com",
+    "imgUrl": "https://cdn.pixabay.com/photo/2016/11/22/19/02/bag-1850053_640.jpg"
+}
+
+{
+    "title": "Green Jeans",
+    "description": "연녹색의 청바지",
+    "category": "bottom",
+    "price": "42000",
+    "company":"ABC.com",
+    "imgUrl": "https://cdn.pixabay.com/photo/2022/09/09/05/16/colorful-jeans-7442353_640.jpg"
+}
+
+{
+    "title": "남색 슬랙스",
+    "description": "남색 슬랙스",
+    "category": "bottom",
+    "price": "50000",
+    "company":"ABC.com",
+    "imgUrl": "https://cdn.pixabay.com/photo/2017/08/27/05/33/trousers-2685231_640.jpg"
+}
+
+{
+    "title": "여성 기본 청바지",
+    "description": "여성 기본적인 청바지",
+    "category": "bottom",
+    "price": "32000",
+    "company":"ABC.co",
+    "imgUrl": "https://cdn.pixabay.com/photo/2017/09/29/15/45/woman-2799489_640.jpg"
+}
+
+{
+    "title": "스트레이트핏 청바지",
+    "description": "바지 밑단까지 쭉 떨어지는 청바지",
+    "category": "bottom",
+    "price": "42000",
+    "company":"ABC.com",
+    "imgUrl": "https://cdn.pixabay.com/photo/2014/05/21/14/54/feet-349687_640.jpg"
+}
+]

@@ -35,4 +35,6 @@ export const Img = styled.img`
     height: 300px;
     margin: auto;
     object-fit: scale-down;
+    filter: blur(20px);
+    transition: filter 0.5s ease;
 `
