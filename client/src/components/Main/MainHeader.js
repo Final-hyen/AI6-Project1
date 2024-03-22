@@ -29,11 +29,7 @@ function Header() {
           alignItems: "center",
         }}
       >
-        <ImgBlock
-          src="https://media.discordapp.net/attachments/1065825998043631636/1069539124203241502/001.png?ex=65eec4ee&is=65dc4fee&hm=46014dbb9a833aa6dcf5eca8b85aedba9d5019fd6f6fb84bd1f5e1e514eea1c7&=&format=webp&quality=lossless&width=475&height=671"
-          alt="헤더 이미지"
-          loading="lazy"
-        />
+        <ImgBlock src="image/001.png" alt="헤더 이미지" loading="lazy" />
         <LogoLink to="/">9UCCI</LogoLink>
         <StyledNav>
           {(role === "0" || !role) && (
@@ -91,7 +87,7 @@ const StyledNav = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-top: 2em;
+  margin-top: 3rem;
   margin-bottom: 15em;
   a {
     text-decoration: none;
@@ -140,7 +136,7 @@ const CartLink = styled(Link)`
 const StyledCategory = styled.div`
   position: absolute;
   margin-top: 15em;
-  margin-bottom: 1em;
+  margin-bottom: 5rem;
   display: table;
   width: 100%;
   height: 5vh;
