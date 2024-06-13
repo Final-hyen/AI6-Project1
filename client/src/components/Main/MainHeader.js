@@ -29,7 +29,7 @@ function Header() {
           alignItems: "center",
         }}
       >
-        <ImgBlock src="image/001.png" alt="헤더 이미지" loading="lazy" />
+        <ImgBlock src="https://cdn.discordapp.com/attachments/1065825998043631636/1069539124203241502/001.png?ex=660a746e&is=65f7ff6e&hm=550f887567967ae1a1431850937796d02af9d1765be10cffe1e9189a7968a673&" alt="헤더 이미지" loading="lazy" />
         <LogoLink to="/">9UCCI</LogoLink>
         <StyledNav>
           {(role === "0" || !role) && (

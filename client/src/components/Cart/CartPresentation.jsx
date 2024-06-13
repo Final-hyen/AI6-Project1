@@ -62,13 +62,27 @@ const CartPresentation = ({
                     </td>
                     <td>{item.title}</td>
                     <td>
-                      <button type="button" onClick={() => {clickMinusHandler(idx)}}> - </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          clickMinusHandler(idx);
+                        }}
+                      >
+                        {" "}
+                        -{" "}
+                      </button>
                       &nbsp;
                       {productCount[idx]}
                       &nbsp;
-                      <button type="button" onClick={() => {
-                        clickPlusHandler(idx)
-                      }}> + </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          clickPlusHandler(idx);
+                        }}
+                      >
+                        {" "}
+                        +{" "}
+                      </button>
                     </td>
                     <td>{item.price * productCount[idx]}원</td>
                   </tr>
@@ -78,7 +92,9 @@ const CartPresentation = ({
             <tr>
               <td></td>
               <td>
-                <button className="delete" onClick={clickDeleteButton}>Delete</button>
+                <button className="delete" onClick={clickDeleteButton}>
+                  Delete
+                </button>
               </td>
               <td></td>
               <td></td>
@@ -86,7 +102,13 @@ const CartPresentation = ({
             </tr>
           </tbody>
         </table>
-        <button className="order" onClick={clickOrderButton} disabled={!isCart(cartItems)}>Order</button>
+        <button
+          className="order"
+          onClick={clickOrderButton}
+          disabled={!isCart(cartItems)}
+        >
+          Order
+        </button>
       </Table>
     </>
   );
